@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
-		94A93B4D1E667EB9001F3866 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4C1E667EB9001F3866 /* ViewController.swift */; };
-		94A93B501E667EB9001F3866 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* Main.storyboard */; };
+		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
 		94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B511E667EB9001F3866 /* medR.xcdatamodeld */; };
 		94A93B551E667EB9001F3866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B541E667EB9001F3866 /* Assets.xcassets */; };
 		94A93B581E667EB9001F3866 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B561E667EB9001F3866 /* LaunchScreen.storyboard */; };
 		94A93B601E668023001F3866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B5F1E668023001F3866 /* GoogleService-Info.plist */; };
+		94A93B631E668C47001F3866 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B621E668C47001F3866 /* PatientProfileViewController.swift */; };
+		94A93B651E668C7D001F3866 /* KYStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B641E668C7D001F3866 /* KYStoryboard.storyboard */; };
+		94A93B6A1E668D91001F3866 /* RuiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B691E668D91001F3866 /* RuiStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +24,15 @@
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B471E667EB9001F3866 /* medR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B4A1E667EB9001F3866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94A93B4C1E667EB9001F3866 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94A93B4F1E667EB9001F3866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94A93B4F1E667EB9001F3866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GeogStoryboard.storyboard; sourceTree = "<group>"; };
 		94A93B521E667EB9001F3866 /* medR.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = medR.xcdatamodel; sourceTree = "<group>"; };
 		94A93B541E667EB9001F3866 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94A93B571E667EB9001F3866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94A93B591E667EB9001F3866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94A93B5F1E668023001F3866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		94A93B621E668C47001F3866 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
+		94A93B641E668C7D001F3866 /* KYStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KYStoryboard.storyboard; sourceTree = "<group>"; };
+		94A93B691E668D91001F3866 /* RuiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RuiStoryboard.storyboard; sourceTree = "<group>"; };
 		C4EC22AAC89686627041E4E9 /* Pods-medR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.release.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,16 +77,74 @@
 		94A93B491E667EB9001F3866 /* medR */ = {
 			isa = PBXGroup;
 			children = (
+				94A93B6D1E668DD7001F3866 /* Others */,
+				94A93B681E668D5D001F3866 /* Model */,
+				94A93B671E668D51001F3866 /* ViewController */,
+				94A93B661E668D40001F3866 /* View */,
+			);
+			path = medR;
+			sourceTree = "<group>";
+		};
+		94A93B611E668BE3001F3866 /* KY */ = {
+			isa = PBXGroup;
+			children = (
+				94A93B621E668C47001F3866 /* PatientProfileViewController.swift */,
+			);
+			name = KY;
+			sourceTree = "<group>";
+		};
+		94A93B661E668D40001F3866 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */,
+				94A93B641E668C7D001F3866 /* KYStoryboard.storyboard */,
+				94A93B691E668D91001F3866 /* RuiStoryboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		94A93B671E668D51001F3866 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				94A93B6F1E668DF3001F3866 /* Geog */,
+				94A93B6E1E668DE8001F3866 /* Rui */,
+				94A93B611E668BE3001F3866 /* KY */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		94A93B681E668D5D001F3866 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		94A93B6D1E668DD7001F3866 /* Others */ = {
+			isa = PBXGroup;
+			children = (
 				94A93B4A1E667EB9001F3866 /* AppDelegate.swift */,
-				94A93B4C1E667EB9001F3866 /* ViewController.swift */,
-				94A93B4E1E667EB9001F3866 /* Main.storyboard */,
 				94A93B541E667EB9001F3866 /* Assets.xcassets */,
 				94A93B561E667EB9001F3866 /* LaunchScreen.storyboard */,
 				94A93B591E667EB9001F3866 /* Info.plist */,
 				94A93B5F1E668023001F3866 /* GoogleService-Info.plist */,
 				94A93B511E667EB9001F3866 /* medR.xcdatamodeld */,
 			);
-			path = medR;
+			name = Others;
+			sourceTree = "<group>";
+		};
+		94A93B6E1E668DE8001F3866 /* Rui */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Rui;
+			sourceTree = "<group>";
+		};
+		94A93B6F1E668DF3001F3866 /* Geog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Geog;
 			sourceTree = "<group>";
 		};
 		9EE98B7660FB01F0DBCC77F6 /* Pods */ = {
@@ -159,8 +221,10 @@
 			files = (
 				94A93B581E667EB9001F3866 /* LaunchScreen.storyboard in Resources */,
 				94A93B601E668023001F3866 /* GoogleService-Info.plist in Resources */,
+				94A93B6A1E668D91001F3866 /* RuiStoryboard.storyboard in Resources */,
+				94A93B651E668C7D001F3866 /* KYStoryboard.storyboard in Resources */,
 				94A93B551E667EB9001F3866 /* Assets.xcassets in Resources */,
-				94A93B501E667EB9001F3866 /* Main.storyboard in Resources */,
+				94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
-				94A93B4D1E667EB9001F3866 /* ViewController.swift in Sources */,
+				94A93B631E668C47001F3866 /* PatientProfileViewController.swift in Sources */,
 				94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,12 +292,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		94A93B4E1E667EB9001F3866 /* Main.storyboard */ = {
+		94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				94A93B4F1E667EB9001F3866 /* Base */,
 			);
-			name = Main.storyboard;
+			name = GeogStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		94A93B561E667EB9001F3866 /* LaunchScreen.storyboard */ = {
@@ -385,6 +449,7 @@
 				94A93B5E1E667EB9001F3866 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
