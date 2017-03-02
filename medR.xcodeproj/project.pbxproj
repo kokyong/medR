@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380E8BBC1E67DBCA0038D923 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E8BBB1E67DBCA0038D923 /* LoginViewController.swift */; };
+		380E8BBE1E67DBFB0038D923 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E8BBD1E67DBFB0038D923 /* CreateAccountViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
 		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380E8BBB1E67DBCA0038D923 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		380E8BBD1E67DBFB0038D923 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.debug.xcconfig"; sourceTree = "<group>"; };
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B471E667EB9001F3866 /* medR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +147,8 @@
 		94A93B6F1E668DF3001F3866 /* Geog */ = {
 			isa = PBXGroup;
 			children = (
+				380E8BBB1E67DBCA0038D923 /* LoginViewController.swift */,
+				380E8BBD1E67DBFB0038D923 /* CreateAccountViewController.swift */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380E8BBE1E67DBFB0038D923 /* CreateAccountViewController.swift in Sources */,
+				380E8BBC1E67DBCA0038D923 /* LoginViewController.swift in Sources */,
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
 				94A93B631E668C47001F3866 /* PatientProfileViewController.swift in Sources */,
 				94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */,
