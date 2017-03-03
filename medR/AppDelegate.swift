@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-        displayKYController()
-//        displayRuiController()
+       // displayKYController()
+        displayRuiController()
 //	    displayLogin()
         
         return true
@@ -117,7 +117,7 @@ extension AppDelegate {
     
     func displayRuiController(){
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EntryViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController")
         //as? LoginViewController
         window?.rootViewController = controller
     }
