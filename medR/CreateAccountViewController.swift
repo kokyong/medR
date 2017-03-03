@@ -11,13 +11,15 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 
-class CreateAccountViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate {
+class CreateAccountViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate ,UITextViewDelegate {
     
     var dbRef : FIRDatabaseReference!
-    
+    var selectedImage : UIImage?
 
     
     //Outlet
+    @IBOutlet weak var userImage: UIImageView!
+    
     @IBOutlet weak var userNameField: UITextField!
     
     @IBOutlet weak var userEmailField: UITextField!
@@ -38,6 +40,14 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     
     
     //Action
+    @IBOutlet weak var userSelectPicture: UIButton!{
+        didSet{
+            
+            userSelectPicture.addTarget(self, action: #selector(displayImagePicker), for: .touchUpInside)
+        }
+        
+    }
+
     @IBAction func userVerifyField(_ sender: UIButton) {
         
         createAccount()
@@ -73,7 +83,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
             let ref = FIRDatabase.database().reference()
             let value = ["fullName": name, "email": email, "age": age, "gender": gender, "contactNumber": contactNumber, "address": address, "emergencyContact": emergencyContact, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship] as [String : Any]
             let uid = FIRAuth.auth()?.currentUser?.uid
-            ref.child("users").child("specialUID").updateChildValues(value, withCompletionBlock: { (err, ref) in
+            ref.child("users").child(uid!).updateChildValues(value, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print("err")
                     return
@@ -89,12 +99,147 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     func handleUser(user: FIRUser) {
         print("User found: \(user.uid)")
         
+        uploadImage(image: userImage.image!)
         
-        guard let controller = UIStoryboard(name: "GeogStoryBoard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController else { return }
+        guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController else { return }
         navigationController? .pushViewController(controller, animated: true)
     }
 
-       
+       var userStorage: FIRStorageReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let mycolor : UIColor = UIColor.gray
+        //userNameField
+        userNameField.layer.borderColor = mycolor.cgColor
+        userNameField.layer.borderWidth = 2
+        userNameField.layer.cornerRadius = 8
+        
+        //userEmailField
+        userEmailField.layer.borderColor = mycolor.cgColor
+        userEmailField.layer.borderWidth = 2
+        userEmailField.layer.cornerRadius = 8
+        
+        //userPasswordField
+        userPasswordField.layer.borderColor = mycolor.cgColor
+        userPasswordField.layer.borderWidth = 2
+        userPasswordField.layer.cornerRadius = 8
+
+        //userComfirmPasswordField
+        userComfirmPasswordField.layer.borderColor = mycolor.cgColor
+        userComfirmPasswordField.layer.borderWidth = 2
+        userComfirmPasswordField.layer.cornerRadius = 8
+        
+        //userAge
+        userAge.layer.borderColor = mycolor.cgColor
+        userAge.layer.borderWidth = 2
+        userAge.layer.cornerRadius = 8
+        
+        
+        //userGender
+        userGender.layer.borderColor = mycolor.cgColor
+        userGender.layer.borderWidth = 2
+        userGender.layer.cornerRadius = 8
+        
+        //userContactNumber
+        userContactNumber.layer.borderColor = mycolor.cgColor
+        userContactNumber.layer.borderWidth = 2
+        userContactNumber.layer.cornerRadius = 8
+        
+        //userAddress
+        userAddress.layer.borderColor = mycolor.cgColor
+        userAddress.layer.borderWidth = 2
+        userAddress.layer.cornerRadius = 8
+        
+        //userEmergencyName
+        userEmergencyName.layer.borderColor = mycolor.cgColor
+        userEmergencyName.layer.borderWidth = 2
+        userEmergencyName.layer.cornerRadius = 8
+        
+        //userEmergencyContact
+        userEmergencyContact.layer.borderColor = mycolor.cgColor
+        userEmergencyContact.layer.borderWidth = 2
+        userEmergencyContact.layer.cornerRadius = 8
+        
+        //user
+        userEmergencyRelationship.layer.borderColor = mycolor.cgColor
+        userEmergencyRelationship.layer.borderWidth = 2
+        userEmergencyRelationship.layer.cornerRadius = 8
+
+
+        
+        dbRef = FIRDatabase.database().reference()
+        let storage = FIRStorage.storage().reference(forURL: "gs://medr-4c91c.appspot.com")
+        userStorage = storage.child("users")
+        
+        
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    func displayImagePicker(){
+        
+        let pickerViewController = UIImagePickerController ()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            pickerViewController.sourceType = .photoLibrary
+            
+        }
+        
+        pickerViewController.delegate = self
+        
+        present(pickerViewController, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            setProfileImage(image : image)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setProfileImage(image : UIImage) {
+        userImage.image = image
+    }
+    
+    func uploadImage(image: UIImage){
+        
+        // create the Data from UIImage
+        guard let imageData = UIImageJPEGRepresentation(image, 0.0) else { return }
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        let storageRef = FIRStorage.storage().reference()
+        storageRef.child("folder").child("\(uid!).jpeg").put(imageData, metadata: metadata) { (meta, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                
+                if let downloadURL = meta?.downloadURL() {
+                    //got image url
+                    self.dbRef.child("users").child(uid!).updateChildValues(["profileURL":downloadURL.absoluteString])
+                }
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
+
+    
+    
 
     func showErrorAlert(errorMessage: String){
         let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle:  .alert)
