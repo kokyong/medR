@@ -35,7 +35,7 @@ class HistoryCollectionViewLayout: UICollectionViewLayout {
                                 
                                 cellAttrDictionary[cellIndexPath] = cellAttributes
                                 
-                                contentSize = CGSize(width: cellAttributes.frame.maxX + 10, height: cellAttributes.frame.maxY + 10)
+                                contentSize = CGSize(width: cellAttributes.frame.maxX, height: cellAttributes.frame.maxY)
                             }
                         }
                     }
