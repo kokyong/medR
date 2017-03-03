@@ -9,27 +9,48 @@
 import UIKit
 
 class UserHistoryViewController: UIViewController {
-
+    
+    let reuseIdentifier : String = "HistoryCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        historyCollectionView.delegate = self
+        historyCollectionView.dataSource = self
+        historyCollectionView.register(HistoryCollectionViewCell.cellNib, forCellWithReuseIdentifier: HistoryCollectionViewCell.cellIdentifier)
+        
+        historyCollectionView.reloadData()
+        
     }
     
+    
+    
+    
+    
+    @IBOutlet weak var historyCollectionView: UICollectionView!
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return 100
     }
-    */
-
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? HistoryCollectionViewCell else {return UICollectionViewCell()}
+        
+        cell.dateLabel.text = "Sec \(indexPath.section)/Item \(indexPath.item)"
+        
+        return cell
+    }
+    
 }
