@@ -13,6 +13,28 @@ class EditPatientProfileViewController: UIViewController {
     
     
     
+    //viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+        fetchData()
+        
+    }
+    
+    let uid = FIRAuth.auth()?.currentUser?.uid
+    var ref : FIRDatabaseReference!
+    var displayPatientImage = String()
+    var displayFullName = String()
+    var displayPhoneNumber = String()
+    var displayGender = String()
+    var displayEmail = String()
+    var displayAge = String()
+    var displayAdress = String()
+    
+    var displayEmergencyName = String()
+    var displayEmergencyRelationship = String()
+    var displayContactEmergency = String()
+    
     //image
     @IBOutlet weak var editProfileImageView: UIImageView!
     @IBOutlet weak var editAddImageBtn: UIButton!{
@@ -92,11 +114,58 @@ class EditPatientProfileViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
-    //viewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func fetchData() {
+        
+        
+        ref.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let patientImage = value?["profileURL"] as? String
+            let fullName = value?["fullName"] as? String
+            let contactNumeber = value?["contactNumeber"] as? String
+            let gender = value?["gender"] as? String
+            let email = value?["email"] as? String
+            let age = value?["age"] as? String
+            let address = value?["address"] as? String
+            let emergencyName = value?["emergencyName"] as? String
+            let emergencyRelationship = value?["emergencyRelationship"] as? String
+            let emergencyContact = value?["emergencyContact"] as? String
+            
+            self.displayPatientImage = patientImage!
+            self.displayFullName = fullName!
+            self.displayPhoneNumber = contactNumeber!
+            self.displayGender = gender!
+            self.displayEmail = email!
+            self.displayAge = age!
+            self.displayAdress = address!
+            self.displayEmergencyName = emergencyName!
+            self.displayContactEmergency = emergencyContact!
+            self.displayEmergencyRelationship = emergencyRelationship!
+            
+            self.fullNameTF.text = self.displayFullName
+            self.contactNumberTF.text = self.displayPhoneNumber
+            self.GenderTF.text = self.displayGender
+            self.emailTF.text = self.displayEmail
+            self.addressTF.text = self.displayAdress
+            self.ageTF.text = self.displayAge
+            self.emergencyNameTF.text = self.displayEmergencyName
+            self.emergencyContactTF.text = self.displayContactEmergency
+            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship
+            
+            if let url = NSURL(string: self.displayPatientImage) {
+                if let data = NSData(contentsOf: url as URL) {
+                    self.editProfileImageView.image = UIImage(data: data as Data)
+                }
+            }
+            
+            
+        })
+        
         
     }
+    
     
     
 }

@@ -16,11 +16,11 @@ class SignUpDoctorProfileViewController: UIViewController {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        fetchDocName()
+        fetchDocInfo()
         
     }
     
-    
+    var displayPatientImage = String()
     var displayDocName = String()
     var ref : FIRDatabaseReference!
     
@@ -78,7 +78,7 @@ class SignUpDoctorProfileViewController: UIViewController {
         
     }
     
-    func fetchDocName() {
+    func fetchDocInfo() {
         
         ref.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -90,12 +90,16 @@ class SignUpDoctorProfileViewController: UIViewController {
             self.displayDocName = docFullName!
             self.docFullName.text = self.displayDocName
             
+            let patientImage = value?["profileURL"] as? String
+            self.displayPatientImage = patientImage!
             
-            //            if let url = NSURL(string: self.displayUserProfile) {
-            //                if let data = NSData(contentsOf: url as URL) {
-            //                    self.profilePicture.image = UIImage(data: data as Data)
-            //                }
-            //            }
+            
+            
+            if let url = NSURL(string: self.displayPatientImage) {
+                if let data = NSData(contentsOf: url as URL) {
+                    self.docProfileImageView.image = UIImage(data: data as Data)
+                }
+            }
         })
         
         
