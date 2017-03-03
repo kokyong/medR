@@ -56,7 +56,7 @@ extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UI
         
         // metaData to confirm the image type
         let metadata = FIRStorageMetadata()
-        metadata.contentType = "image/jpeg"
+        metadata.contentType = "jpeg"
         
         let timeStamp = Date.timeIntervalSinceReferenceDate
         let storageNaming = (" \(timeStamp)")
@@ -67,7 +67,6 @@ extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UI
             if error != nil {
                 
                 // display error alernt
-                
                 return
                 
             }
@@ -78,10 +77,21 @@ extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UI
                 print(downloadURL)
                 
                 //let uid = FIRAuth.auth()?.currentUser?.uid
+                //                ref.child("users").child("specialUID").updateChildValues(["profileURL":downloadURL.absoluteString])
                 let ref = FIRDatabase.database().reference()
+                let value = ["profileURL":downloadURL.absoluteString] as [String : Any]
                 
-                ref.child("users").child("specialUID").updateChildValues(["profileURL":downloadURL.absoluteString])
-                
+                ref.child("users").child("specialUID").updateChildValues(value, withCompletionBlock: { (err, ref) in
+                    
+                    if err != nil {
+                        
+                        print("err")
+                        
+                        return
+                        
+                        
+                    }
+                })
             }
             
         }
