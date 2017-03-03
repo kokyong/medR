@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         FIRApp.configure()
-        displayLogin()
+        
+       // displayKYController()
+        displayRuiController()
+//	    displayLogin()
         
         return true
     }
@@ -110,4 +112,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
+
+extension AppDelegate {
+    
+    func displayRuiController(){
+        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController")
+        //as? LoginViewController
+        window?.rootViewController = controller
+    }
+    
+    func displayKYController(){
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController")
+        //as? LoginViewController
+        window?.rootViewController = controller
+    }
+}
+
 
