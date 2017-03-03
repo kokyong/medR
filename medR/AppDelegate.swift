@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
        // displayKYController()
-        displayRuiController()
-//	    displayLogin()
+       // displayRuiController()
+          displayLogin()
         
         return true
     }
