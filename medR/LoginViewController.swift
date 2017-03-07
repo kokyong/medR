@@ -35,17 +35,22 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mycolor : UIColor = UIColor.gray
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
+
+        
+        
+        let mycolor : UIColor = UIColor.lightGray
         
         //userEmail
         userEmail.layer.borderColor = mycolor.cgColor
         userEmail.layer.borderWidth = 2
-        userEmail.layer.cornerRadius = 2
+        userEmail.layer.cornerRadius = 8
         
         //userPassword
         userPassword.layer.borderColor = mycolor.cgColor
         userPassword.layer.borderWidth = 2
-        userPassword.layer.cornerRadius = 2
+        userPassword.layer.cornerRadius = 8
     
        
         

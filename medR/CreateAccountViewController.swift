@@ -40,6 +40,14 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     
     
     //Action
+    @IBAction func userLogOut(_ sender: UIButton) {
+        
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+            
+            
+            navigationController?.pushViewController(controller, animated: true)
+        
+    }
     @IBOutlet weak var userSelectPicture: UIButton!{
         didSet{
             
@@ -110,7 +118,9 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mycolor : UIColor = UIColor.gray
+       self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        let mycolor : UIColor = UIColor.lightGray
         //userNameField
         userNameField.layer.borderColor = mycolor.cgColor
         userNameField.layer.borderWidth = 2
@@ -166,8 +176,9 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         userEmergencyRelationship.layer.borderColor = mycolor.cgColor
         userEmergencyRelationship.layer.borderWidth = 2
         userEmergencyRelationship.layer.cornerRadius = 8
-
-
+        
+        
+        
         
         dbRef = FIRDatabase.database().reference()
         let storage = FIRStorage.storage().reference(forURL: "gs://medr-4c91c.appspot.com")
