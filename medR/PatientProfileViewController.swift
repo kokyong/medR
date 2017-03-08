@@ -11,6 +11,8 @@ import Firebase
 import FirebaseDatabase
 
 class PatientProfileViewController: UIViewController {
+    
+    var isDoctorMode : Bool = false
 
     var patientDetails : [PatientDetail] = []
     
@@ -21,6 +23,10 @@ class PatientProfileViewController: UIViewController {
         
         fetchPatientData()
         fetchDocInfo()
+        
+        if isDoctorMode == true {
+            switchToDocBtn.titleLabel?.text = "Switch to User"
+        }
         
     }
     //patient
@@ -74,22 +80,36 @@ class PatientProfileViewController: UIViewController {
     
     //Doc Btn
     @IBOutlet weak var switchToDocBtn: UIButton!{
-        
         didSet{
             
             switchToDocBtn.addTarget(self, action: #selector(switchToDoc), for: .touchUpInside)
+            
+            
         }
     }
     
     func switchToDoc() {
         
+        if isDoctorMode == false {
+            
+        
         //push to doc VC
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
-//        let controller = DoctorTabViewController()
         
         self.present(controller, animated: true, completion: nil)
-        
+            
+            
+        } else {
+            
+            
+            let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as? UserTabViewController else {return}
+            
+            self.present(controller, animated: true, completion: nil)
+            
+            
+        }
         
     }
     

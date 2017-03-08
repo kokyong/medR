@@ -35,9 +35,13 @@ class DoctorTabViewController: UITabBarController, UITabBarControllerDelegate{
         
         
         guard let tabThree = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController") as?  PatientProfileViewController else { return }
-        let tabThreeBarItem3 = UITabBarItem(title: "Profile", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
+        
+        tabThree.isDoctorMode = true
+        
+                let tabThreeBarItem3 = UITabBarItem(title: "Profile", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
         
         tabThree.tabBarItem = tabThreeBarItem3
+        
         
         self.viewControllers = [tabOne, tabTwo, tabThree]
         

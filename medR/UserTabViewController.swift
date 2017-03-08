@@ -40,6 +40,8 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
         guard let tabThree = storyboardTwo.instantiateViewController(withIdentifier: "PatientProfileViewController") as?  PatientProfileViewController else { return }
         let tabThreeBarItem3 = UITabBarItem(title: "Profile", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
         
+        tabThree.isDoctorMode = false
+        
         tabThree.tabBarItem = tabThreeBarItem3
 
         
