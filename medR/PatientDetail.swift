@@ -22,6 +22,8 @@ class PatientDetail {
     var email : String?
     var age : String?
     var address : String?
+    
+    var uid : String?
 
     init(){}
     

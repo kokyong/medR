@@ -11,13 +11,24 @@ import Firebase
 
 class SearchPatientViewController: UIViewController {
     
-    var displaySharedBy = [String]()
+    let searchController = UISearchController(searchResultsController: nil)
     
-    var displaySymptom = [String]()
-    var historyArray = [String]()
-    var visitRecords : [VisitRecord] = []
+    var patientName = [String]()
+    var patientUID = [String]()
     
+    var searchActive : Bool = false
+    
+    var filteredPatient = [String]()
     var ref : FIRDatabaseReference!
+    
+    
+    @IBOutlet weak var searchBar: UISearchBar!{
+        didSet{
+            
+            searchBar.delegate = self
+            
+        }
+    }
     
     
     //IBOutlet
@@ -27,12 +38,10 @@ class SearchPatientViewController: UIViewController {
             
             searchTableView.dataSource = self
             searchTableView.delegate = self
+
             
         }
-    }
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    
+    }    
     
     
     //viewDidLaod
@@ -40,64 +49,55 @@ class SearchPatientViewController: UIViewController {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-//        fetchFullName()
-//        fetchSymtoms()
+        fetchPatientData()
         
     }
-    
-//    func fetchFullName() {
+//    
+//    func fetchPatientData() {
 //        
-//        ref.child("users").child("specialUID").child("sharedBy").observeSingleEvent(of: .value, with: { (snapshot) in
+//        ref.child("users").child("specialUID").child("sharedBy").observe(.value, with: { (snapshot) in
+//            print(snapshot)
 //            
 //            
-//            let value = snapshot.value as? NSDictionary
+//            for user in snapshot.children {
+//                
+//                self.patientUID.append((user as AnyObject).key)
+//                self.patientName.append((user as AnyObject).value)
+//                
+//                
+//                
+//            }
 //            
-//            let sharedBy = value?["sharedBy"] as? String
-//            
-//            self.displaySharedBy = [sharedBy!]
+//            self.filteredPatient = self.patientName
+//            self.searchTableView.reloadData()
 //            
 //            
 //        })
-//        
 //    }
     
-    //array of history
-//    func fetchHistory() {
-//        
-//        ref.child("users").child("specialUID").child("history").observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            
-//            let value = snapshot.value as? NSDictionary
-//            
-//            let history = value?["history"] as? String
-//            
-//            self.historyArray = [history!]
-//            
-//        })
-//        
-//
-//        
-//    }
     
-//    func fetchSymtoms() {
-//        
-//        //call 2nd child
-//        
-//        ref.child("history").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            
-//            let value = snapshot.value as? NSDictionary
-//            
-//            let symptoms = value?["symptoms"] as? String
-//            
-//            self.displaySymptom = [symptoms!]
-//            
-//            
-//        })
-//        
-//        
-//    }
+        func fetchPatientData() {
     
+            ref.child("users").child("specialUID").child("sharedBy").observe(.value, with: { (snapshot) in
+                print(snapshot)
+    
+    
+                for user in snapshot.children {
+    
+                    self.patientUID.append((user as AnyObject).key)
+                    self.patientName.append((user as AnyObject).value)
+                    
+                }
+    
+                self.filteredPatient = self.patientName
+                self.searchTableView.reloadData()
+                
+                
+            })
+        }
+
+    
+ 
     
     
 }
