@@ -17,6 +17,9 @@ class UserHistoryViewController: UIViewController {
     var lastContentOffSet : CGFloat = 0.0
     var scrollDirection : String = "default"
     
+//    @IBOutlet weak var userTabBar: UITabBar!
+    @IBOutlet weak var historyCollectionView: UICollectionView!
+    
     lazy var dateFormater : DateFormatter = {
         let _dateFormatter = DateFormatter()
         _dateFormatter.dateFormat = "d MMM yyyy"
@@ -37,10 +40,11 @@ class UserHistoryViewController: UIViewController {
         
         historyCollectionView.register(HistoryCollectionViewCell.cellNib, forCellWithReuseIdentifier: HistoryCollectionViewCell.cellIdentifier)
 
-        
         historyCollectionView.reloadData()
         
+           
     }
+    
     
     func observeHistory(){
         
@@ -59,7 +63,7 @@ class UserHistoryViewController: UIViewController {
     
     
     
-    @IBOutlet weak var historyCollectionView: UICollectionView!
+
 }
 
 extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
