@@ -110,7 +110,8 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         uploadImage(image: userImage.image!)
         
-        guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController else { return }
+        guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController
+            else { return }
         navigationController? .pushViewController(controller, animated: true)
     }
 

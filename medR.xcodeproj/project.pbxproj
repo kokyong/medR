@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386A4C081E6FD29B00F45519 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A4C071E6FD29B00F45519 /* LoginViewController.swift */; };
 		6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */; };
 		6858F4DB1E66A6E600586E8F /* SharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DA1E66A6E600586E8F /* SharingViewController.swift */; };
 		6858F4DD1E66A76600586E8F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DC1E66A76600586E8F /* EntryViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		386A4C071E6FD29B00F45519 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.debug.xcconfig"; sourceTree = "<group>"; };
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				948356EC1E6FFCE700349829 /* LoginViewController.swift */,
 				6858F5021E6979A600586E8F /* CreateAccountViewController.swift */,
+				386A4C071E6FD29B00F45519 /* LoginViewController.swift */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			files = (
 				94A93B781E66DB6B001F3866 /* SearchPatientViewController.swift in Sources */,
 				94A93B841E692698001F3866 /* PatientDetail.swift in Sources */,
+				386A4C081E6FD29B00F45519 /* LoginViewController.swift in Sources */,
 				94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */,
 				94A93B711E66A5CD001F3866 /* PatientProfileViewController(extesion).swift in Sources */,
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
