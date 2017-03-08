@@ -69,6 +69,8 @@ class SignUpDoctorProfileViewController: UIViewController {
             }
         })
         
+        ref.child("doctors").child("specialUID").setValue("currentUserName")
+        
         //push VC
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController else {return}
