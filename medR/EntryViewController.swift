@@ -42,149 +42,135 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         getMedicines()
         
         var medArray : [[String : Any]] = []
+        let timestamp = String(Date.timeIntervalSinceReferenceDate)
         
         for eachMed in medList {
             var newMed = [String : String]()
             
-            newMed = ["medName" : eachMed.medName!, "timesPerDay" : eachMed.timesPerDay!, "amPm" : eachMed.amPm!, "befAft" : eachMed.befAft!]
+            newMed = ["medName" : eachMed.medName!, "timesPerDay" : eachMed.timesPerDay, "amPm" : eachMed.amPm, "befAft" : eachMed.befAft]
             
             medArray.append(newMed)
         }
-    
-    var historyDictionary : [String: Any] = ["doctorID" : "User.current.userID", "dateTime" : "timestamp",
-                                             "patientID" : "patientID",            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
-    
-    if let symptom = symptomTV.text{
-        historyDictionary["symptoms"] = symptom
-    } else {
-    historyDictionary["symptoms"] = ""
+        
+        var historyDictionary : [String: Any] = ["doctorID" : "User.current.userID", "dateTime" : timestamp,
+                                                 "patientID" : "patientID",            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
+        
+        if let symptom = symptomTV.text{
+            historyDictionary["symptoms"] = symptom
+        } else {
+            historyDictionary["symptoms"] = ""
+        }
+        
+        if let diagnosis = diagnosisTV.text{
+            historyDictionary["diagnosis"] = diagnosis
+        } else {
+            historyDictionary["diagnosis"] = ""
+        }
+        
+        if let majorIllness = majorIllnessTV.text{
+            historyDictionary["majorIllness"] = majorIllness
+        } else {
+            historyDictionary["majorIllness"] = ""
+        }
+        
+        if let treatment = treatmentTV.text{
+            historyDictionary["treatment"] = treatment
+        } else {
+            historyDictionary["treatment"] = ""
+        }
+        
+        if let surgery = surgeryTV.text{
+            historyDictionary["surgery"] = surgery
+        } else {
+            historyDictionary["surgery"] = ""
+        }
+        
+        if let residualProblem = residualProTV.text{
+            historyDictionary["residualProblem"] = residualProblem
+        } else {
+            historyDictionary["residualProblem"] = ""
+        }
+        
+        if let nextAppointment = nextAppTV.text{
+            historyDictionary["nextAppointment"] = nextAppointment
+        } else {
+            historyDictionary["nextAppointment"] = ""
+        }
+        
+        let ref = dbRef?.child("history").childByAutoId()
+        ref?.setValue(historyDictionary)
+        
+        
     }
     
-    if let examResult = resultTV.text{
-        historyDictionary["examResult"] = examResult
-    } else {
-    historyDictionary["examResult"] = ""
+    //MARK: Picker View
+    var medDetail = [["1 time", "2 times", "3 times"],["AM","PM","Any"],["Before meal","After meal", "Any"]]
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
     }
     
-    let ref = dbRef?.child("history").childByAutoId()
-    ref?.setValue(historyDictionary)
-    
-    
-}
-
-//MARK: Picker View
-var medDetail = [["1 time", "2 times", "3 times"],["AM","PM","Any"],["Before meal","After meal", "Any"]]
-
-
-func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 3
-}
-
-func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return medDetail.count
-    
-}
-
-func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    
-    return medDetail[component][row]
-}
-
-func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-    var width : CGFloat = 100
-    if component == 0 {
-        width = 100
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return medDetail.count
+        
     }
     
-    if component == 1 {
-        width = 50
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return medDetail[component][row]
     }
     
-    if component == 2 {
-        width = 150
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        var width : CGFloat = 100
+        if component == 0 {
+            width = 100
+        }
+        
+        if component == 1 {
+            width = 50
+        }
+        
+        if component == 2 {
+            width = 150
+        }
+        
+        return width
     }
     
-    return width
-}
-
-func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-    return 30
-}
-
-
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//
-//        newMed.medName = cellAtIndexPath?.medTF.text
-//
-//        if component == 0 {
-//            if row == 0 {
-//                newMed.timesPerDay = "1 time per day"
-//            }
-//            else if row == 1 {
-//                newMed.timesPerDay = "2 times per day"
-//            }
-//            else if row == 2 {
-//                newMed.timesPerDay = "3 times per day"
-//            } else if component == 1 {
-//                if row == 0 {
-//                    newMed.amPm = "AM"
-//                }
-//                else if row == 1 {
-//                    newMed.amPm = "PM"
-//                }
-//                else if row == 2 {
-//                    newMed.amPm = "Any"
-//                } else if component == 2 {
-//                    if row == 0 {
-//                        newMed.befAft = "Before meal"
-//                    }
-//                    else if row == 1 {
-//                        newMed.befAft = "After meal"
-//                    }
-//                    else if row == 2 {
-//                        newMed.befAft = "Any"
-//                    } else {
-//                        return
-//                    }
-//                }
-//            }
-//        }
-//
-//
-//        medList.append(newMed)
-//    }
-
-func addMed() {
-    numberOfMed += 1
-    medicationTableView.reloadData()
-}
-
-
-@IBOutlet weak var submitBtn: UIButton!{
-didSet{
-    submitBtn.addTarget(self, action: #selector(submit), for: .touchUpInside)
-}
-}
-
-@IBOutlet weak var nameTF: UITextField!
-
-@IBOutlet weak var genderTF: UITextField!
-
-@IBOutlet weak var ageTF: UITextField!
-
-@IBOutlet weak var phoneTF: UITextField!
-
-@IBOutlet weak var symptomTV: UITextView!
-
-@IBOutlet weak var resultTV: UITextView!
-
-@IBOutlet weak var medicationTableView: UITableView!
-
-@IBOutlet weak var addMedBtn: UIButton!{
-didSet{
-    addMedBtn.addTarget(self, action: #selector(addMed), for: .touchUpInside)
-}
-}
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 30
+    }
+    
+    func addMed() {
+        numberOfMed += 1
+        medicationTableView.reloadData()
+    }
+    
+    
+    @IBOutlet weak var submitBtn: UIButton!{
+        didSet{
+            submitBtn.addTarget(self, action: #selector(submit), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var nextAppTV: UITextView!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var genderTF: UITextField!
+    @IBOutlet weak var ageTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var symptomTV: UITextView!
+    @IBOutlet weak var diagnosisTV: UITextView!
+    @IBOutlet weak var majorIllnessTV: UITextView!
+    @IBOutlet weak var treatmentTV: UITextView!
+    @IBOutlet weak var surgeryTV: UITextView!
+    @IBOutlet weak var residualProTV: UITextView!
+    @IBOutlet weak var medicationTableView: UITableView!
+    @IBOutlet weak var addMedBtn: UIButton!{
+        didSet{
+            addMedBtn.addTarget(self, action: #selector(addMed), for: .touchUpInside)
+        }
+    }
 }
 
 extension EntryViewController: UITableViewDataSource{
@@ -234,19 +220,19 @@ extension EntryViewController: UITableViewDataSource{
                             newMed.amPm = "PM"
                         }
                         else {
-                            newMed.amPm = "Any"
+                            newMed.amPm = "anytime"
                         }
                     }
                     
                     if let befAft = picker?.selectedRow(inComponent: 2){
                         if befAft == 0 {
-                            newMed.befAft = "Before meal"
+                            newMed.befAft = "before meal"
                         }
                         else if befAft == 1 {
-                            newMed.befAft = "After meal"
+                            newMed.befAft = "after meal"
                         }
                         else {
-                            newMed.befAft = "Any"
+                            newMed.befAft = "either before or after meal"
                         }
                     }
                 } else {

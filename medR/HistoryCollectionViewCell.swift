@@ -16,24 +16,30 @@ class HistoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUp()
+        //setUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setUp()
+        //setUp()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUp()
+        //setUp()
     }
+    
     
     func setUp(){
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.black.cgColor
         
     }
+    
+    
 
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var nextAppLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 }

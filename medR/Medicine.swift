@@ -11,17 +11,17 @@ import Foundation
 class Medicine {
     
     var medName : String?
-    var timesPerDay : String?
-    var amPm : String?
-    var befAft : String?
+    var timesPerDay : String = ""
+    var amPm : String = ""
+    var befAft : String = ""
     
     init(){}
     
     init(withDictionary dictionary: [String: Any]) {
         medName = dictionary["medName"] as? String
-        timesPerDay = dictionary["timesPerDay"] as? String
-        amPm = dictionary["amPm"] as? String
-        befAft = dictionary["befAft"] as? String
+        timesPerDay = dictionary["timesPerDay"] as? String ?? ""
+        amPm = dictionary["amPm"] as? String ?? ""
+        befAft = dictionary["befAft"] as? String ?? ""
     }
 }
 

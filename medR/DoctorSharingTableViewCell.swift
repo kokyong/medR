@@ -9,6 +9,9 @@
 import UIKit
 
 class DoctorSharingTableViewCell: UITableViewCell {
+    
+    static let cellIdentifier = "DocListCell"
+    static let cellNib = UINib(nibName: "DoctorSharingTableViewCell", bundle: Bundle.main)
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-       // displayKYController()
-       // displayRuiController()
-          displayLogin()
+        // displayKYController()
+        displayRuiController()
+        //displayLogin()
         
         return true
     }
@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-
+        
         
         
     }
