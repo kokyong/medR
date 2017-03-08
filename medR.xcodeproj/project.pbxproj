@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386A4C081E6FD29B00F45519 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A4C071E6FD29B00F45519 /* LoginViewController.swift */; };
 		6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */; };
 		6858F4DB1E66A6E600586E8F /* SharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DA1E66A6E600586E8F /* SharingViewController.swift */; };
 		6858F4DD1E66A76600586E8F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DC1E66A76600586E8F /* EntryViewController.swift */; };
@@ -19,7 +20,6 @@
 		6858F4F91E686FB500586E8F /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4F71E686FB500586E8F /* HistoryCollectionViewCell.swift */; };
 		6858F4FA1E686FB500586E8F /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6858F4F81E686FB500586E8F /* HistoryCollectionViewCell.xib */; };
 		6858F4FF1E69486C00586E8F /* HistoryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4FE1E69486C00586E8F /* HistoryCollectionViewLayout.swift */; };
-		6858F5011E69799600586E8F /* medR.xcworkspace in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5001E69799600586E8F /* medR.xcworkspace */; };
 		6858F5031E6979A600586E8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5021E6979A600586E8F /* CreateAccountViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
@@ -43,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		386A4C071E6FD29B00F45519 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.debug.xcconfig"; sourceTree = "<group>"; };
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		6858F4F71E686FB500586E8F /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		6858F4F81E686FB500586E8F /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		6858F4FE1E69486C00586E8F /* HistoryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewLayout.swift; sourceTree = "<group>"; };
-		6858F5001E69799600586E8F /* medR.xcworkspace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.workspace; name = medR.xcworkspace; path = ../medR.xcworkspace; sourceTree = "<group>"; };
 		6858F5021E6979A600586E8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		94A93B471E667EB9001F3866 /* medR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B4A1E667EB9001F3866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 		94A93B6F1E668DF3001F3866 /* Geog */ = {
 			isa = PBXGroup;
 			children = (
-				6858F5001E69799600586E8F /* medR.xcworkspace */,
 				6858F5021E6979A600586E8F /* CreateAccountViewController.swift */,
+				386A4C071E6FD29B00F45519 /* LoginViewController.swift */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -405,9 +405,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6858F5011E69799600586E8F /* medR.xcworkspace in Sources */,
 				94A93B781E66DB6B001F3866 /* SearchPatientViewController.swift in Sources */,
 				94A93B841E692698001F3866 /* PatientDetail.swift in Sources */,
+				386A4C081E6FD29B00F45519 /* LoginViewController.swift in Sources */,
 				94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */,
 				94A93B711E66A5CD001F3866 /* PatientProfileViewController(extesion).swift in Sources */,
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
