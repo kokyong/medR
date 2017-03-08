@@ -40,18 +40,19 @@ extension SearchPatientViewController: UITableViewDataSource{
 }
 
 extension SearchPatientViewController: UITableViewDelegate{
-    
-    
-    /*
-     let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
-     let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-     
-     //configure VC
-     
-     
-     //show
-     self.present(controller, animated: true, completion: nil)
-     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController") as! UserHistoryViewController
+        
+        //configure VC
+        
+        
+        //show
+        self.present(controller, animated: true, completion: nil)
+        
+    }
+ 
     
     
 }
