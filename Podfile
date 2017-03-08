@@ -11,5 +11,7 @@ target 'medR' do
     pod 'Firebase/Auth' #Authen
     pod 'Firebase/Database' #real time dataBase
     pod 'Firebase/Storage'
-
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKLoginKit'
 end
