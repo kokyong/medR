@@ -107,6 +107,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     func handleUser(user: FIRUser) {
         print("User found: \(user.uid)")
         
+        
         uploadImage(image: userImage.image!)
         
         guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController else { return }
