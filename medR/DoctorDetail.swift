@@ -10,19 +10,30 @@ import Foundation
 
 class DoctorDetail {
     
+    static var doctorDetails : [DoctorDetail] = []
+    
     var lisenceID : String?
     var clinicAddress : String?
     var specialty : String?
     var info : String?
     
+    //Visited Patient
+    var patientID : String?
+    var patientName : String?
     
-    init(){}
+    var sharedBy : [PatientDetail]?
+    
+    
     
     init(withDictionary dictionary: [String: Any]) {
         lisenceID = dictionary["licenceID"] as? String
         clinicAddress = dictionary["clinicAddress"] as? String
         specialty = dictionary["specialty"] as? String
         info = dictionary["info"] as? String
+        
+        //Visited Patient
+        patientID = dictionary["patientID"] as? String
+        patientName = dictionary["patientName"] as? String
         
     }
 }

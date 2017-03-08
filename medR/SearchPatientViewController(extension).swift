@@ -13,18 +13,26 @@ extension SearchPatientViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return PatientDetail.patientDetails.count
+        return filteredPatient.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchPatientDetailCell") else {return UITableViewCell()}
         
-        let patientIndex = PatientDetail.patientDetails[indexPath.row]
-        let symptomIndex = visitRecords[indexPath.row]
+        let currentName = filteredPatient[indexPath.row]
+        guard let index = patientName.index(where: { (str) -> Bool in
+            return str == currentName
+        })
+            else {
+                return cell
+        }
         
-        cell.textLabel?.text = patientIndex.fullName
-        cell.detailTextLabel?.text = symptomIndex.symptoms
-
+        let patientIndex = patientName[index]
+        let patientID = patientUID[index]
+        
+        cell.textLabel?.text = patientIndex
+        cell.detailTextLabel?.text = patientID
         
         return cell
     }
@@ -35,15 +43,83 @@ extension SearchPatientViewController: UITableViewDelegate{
     
     
     /*
-    let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-    
-    //configure VC
+     let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
+     let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
      
-    
-    //show
-    self.present(controller, animated: true, completion: nil)
-    */
+     //configure VC
+     
+     
+     //show
+     self.present(controller, animated: true, completion: nil)
+     */
     
     
 }
+
+extension SearchPatientViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        searchActive = true
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        searchActive = false
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    //
+    //
+    //        if searchText != "" {
+    //            filteredPatient = patientName.filter({ (text) -> Bool in
+    //                let tmp: NSString = text as NSString
+    //                let range = tmp.range(of: searchText.lowercased(), options: NSString.CompareOptions.caseInsensitive)
+    //                return range.location != NSNotFound
+    //            })
+    //            if filteredPatient.count == 0{
+    //                searchActive = false;
+    //            } else {
+    //                searchActive = true;
+    //            }
+    //        }else{
+    //            filteredPatient = patientName
+    //        }
+    //
+    //        self.searchTableView.reloadData()
+    //
+    //    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.characters.count == 0 {
+            resetSearch()
+        } else {
+            filteredPatient = patientName.filter({( text ) -> Bool in
+                return text.lowercased().range(of: searchText.lowercased()) != nil
+            })
+            
+            self.searchTableView.reloadData()
+        }
+    }
+    
+    func resetSearch(){
+        filteredPatient = patientName
+        //sortStationsByDistance()
+        searchTableView.reloadData()
+    }
+    
+}
+
+
+
