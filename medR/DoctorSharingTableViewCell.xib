@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expertise, location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1V-fp-Ort">
-                        <rect key="frame" x="16" y="55" width="390" height="21.5"/>
+                        <rect key="frame" x="16" y="55" width="390" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -50,6 +50,11 @@
                     <constraint firstItem="a1V-fp-Ort" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="vWi-EI-fZU"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="doctorDetailLabel" destination="a1V-fp-Ort" id="dgD-2z-wry"/>
+                <outlet property="doctorNameLabel" destination="maB-7L-8Kg" id="BWE-p4-RN2"/>
+                <outlet property="sharedSwitch" destination="3kn-Dj-re7" id="KMi-8v-nha"/>
+            </connections>
             <point key="canvasLocation" x="-122" y="107"/>
         </tableViewCell>
     </objects>

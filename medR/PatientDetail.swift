@@ -22,6 +22,7 @@ class PatientDetail {
     var email : String?
     var age : String?
     var address : String?
+    //var ifDoctor : [DoctorDetail] need to rearrange
     
     var uid : String?
 

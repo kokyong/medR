@@ -36,6 +36,7 @@ class UserHistoryViewController: UIViewController {
         historyCollectionView.isPagingEnabled = true
         
         historyCollectionView.register(HistoryCollectionViewCell.cellNib, forCellWithReuseIdentifier: HistoryCollectionViewCell.cellIdentifier)
+
         
         historyCollectionView.reloadData()
         

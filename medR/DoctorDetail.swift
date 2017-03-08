@@ -12,6 +12,8 @@ class DoctorDetail {
     
     static var doctorDetails : [DoctorDetail] = []
     
+    var docUid : String? //KY plz save UID
+    var docName : String? //KY plz save name
     var lisenceID : String?
     var clinicAddress : String?
     var specialty : String?
@@ -22,8 +24,9 @@ class DoctorDetail {
     var patientName : String?
     
     var sharedBy : [PatientDetail]?
+
     
-    
+    init(){}
     
     init(withDictionary dictionary: [String: Any]) {
         lisenceID = dictionary["licenceID"] as? String
