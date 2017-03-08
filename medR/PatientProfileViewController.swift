@@ -86,6 +86,7 @@ class PatientProfileViewController: UIViewController {
         //push to doc VC
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
+//        let controller = DoctorTabViewController()
         
         self.present(controller, animated: true, completion: nil)
         

@@ -18,6 +18,8 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
         
         guard let tabOne = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController") as?  UserHistoryViewController else { return }

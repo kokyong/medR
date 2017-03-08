@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
          //displayKYController()
-        //displayRuiController()
-        displayLogin()
+        displayRuiController()
+        //displayLogin()
         
         return true
     }
@@ -112,7 +112,7 @@ extension AppDelegate {
     
     func displayRuiController(){
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SharingViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController")
         //as? LoginViewController
         window?.rootViewController = controller
     }

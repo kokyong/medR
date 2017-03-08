@@ -96,7 +96,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                     print("err")
                     return
                 }
-                self.handleUser(user: user!)
+              //  self.handleUser(user: user!)
             })
             
             

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		386A4C081E6FD29B00F45519 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386A4C071E6FD29B00F45519 /* LoginViewController.swift */; };
 		6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */; };
 		6858F4DB1E66A6E600586E8F /* SharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DA1E66A6E600586E8F /* SharingViewController.swift */; };
 		6858F4DD1E66A76600586E8F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F4DC1E66A76600586E8F /* EntryViewController.swift */; };
@@ -24,7 +23,8 @@
 		687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8611E700B8200B6FA8C /* UserTabViewController.swift */; };
 		687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
-		948356ED1E6FFCE700349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EC1E6FFCE700349829 /* LoginViewController.swift */; };
+		948356ED1E6FFCE700349829 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EE1E701A5A00349829 /* LoginViewController.swift */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
 		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
 		94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B511E667EB9001F3866 /* medR.xcdatamodeld */; };
@@ -63,6 +63,7 @@
 		6858F5021E6979A600586E8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		687BA8611E700B8200B6FA8C /* UserTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTabViewController.swift; sourceTree = "<group>"; };
 		687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTabViewController.swift; sourceTree = "<group>"; };
+		948356EE1E701A5A00349829 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		94A93B471E667EB9001F3866 /* medR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B4A1E667EB9001F3866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94A93B4F1E667EB9001F3866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GeogStoryboard.storyboard; sourceTree = "<group>"; };
@@ -223,8 +224,8 @@
 		94A93B6F1E668DF3001F3866 /* Geog */ = {
 			isa = PBXGroup;
 			children = (
-				948356EC1E6FFCE700349829 /* LoginViewController.swift */,
 				6858F5021E6979A600586E8F /* CreateAccountViewController.swift */,
+				948356EE1E701A5A00349829 /* LoginViewController.swift */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -423,7 +424,8 @@
 				687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */,
 				6858F4F41E67FC5F00586E8F /* Medicine.swift in Sources */,
 				6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */,
-				948356ED1E6FFCE700349829 /* LoginViewController.swift in Sources */,
+				948356ED1E6FFCE700349829 /* (null) in Sources */,
+				948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */,
 				94A93B751E66ADC9001F3866 /* EditPatientProfileViewController.swift in Sources */,
 				94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */,
 				6858F4FF1E69486C00586E8F /* HistoryCollectionViewLayout.swift in Sources */,
