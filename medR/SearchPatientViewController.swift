@@ -73,12 +73,11 @@ class SearchPatientViewController: UIViewController {
                 for user in snapshot.children {
     
                     let newPatient = Patient()
-                    newPatient.name = (user as AnyObject).key
-                    newPatient.id = (user as AnyObject).value
+                    newPatient.name = (user as AnyObject).value
+                    newPatient.id = (user as AnyObject).key
                     self.patients.append(newPatient)
 
-//                    self.patientUID.append((user as AnyObject).key)
-//                    self.patientName.append((user as AnyObject).value)
+
                     
                 }
 
