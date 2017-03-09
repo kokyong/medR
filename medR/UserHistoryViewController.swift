@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 
 class UserHistoryViewController: UIViewController {
     
@@ -160,7 +161,7 @@ class UserHistoryViewController: UIViewController {
         
         if menuShowing {
             
-            leadingConstraint.constant = -197
+            leadingConstraint.constant = -200
         }else{
             
             leadingConstraint.constant = 0
@@ -178,7 +179,7 @@ class UserHistoryViewController: UIViewController {
     
     func menuDetailFunc() {
         
-        menuDetail.layer.shadowOpacity = 1
+        menuDetail.layer.shadowOpacity = 0.2
         
     }
     

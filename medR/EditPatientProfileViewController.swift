@@ -144,19 +144,19 @@ class EditPatientProfileViewController: UIViewController {
             self.displayContactEmergency = emergencyContact!
             self.displayEmergencyRelationship = emergencyRelationship!
             
-            self.fullNameTF.text = self.displayFullName
-            self.contactNumberTF.text = self.displayPhoneNumber
-            self.GenderTF.text = self.displayGender
-            self.emailTF.text = self.displayEmail
-            self.addressTF.text = self.displayAdress
-            self.ageTF.text = self.displayAge
-            self.emergencyNameTF.text = self.displayEmergencyName
-            self.emergencyContactTF.text = self.displayContactEmergency
-            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship
+            self.fullNameTF.text = self.displayFullName ?? ""
+            self.contactNumberTF.text = self.displayPhoneNumber ?? ""
+            self.GenderTF.text = self.displayGender ?? ""
+            self.emailTF.text = self.displayEmail ?? ""
+            self.addressTF.text = self.displayAdress ?? ""
+            self.ageTF.text = self.displayAge ?? ""
+            self.emergencyNameTF.text = self.displayEmergencyName ?? ""
+            self.emergencyContactTF.text = self.displayContactEmergency ?? ""
+            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship ?? ""
             
             if let url = NSURL(string: self.displayPatientImage) {
                 if let data = NSData(contentsOf: url as URL) {
-                    self.editProfileImageView.image = UIImage(data: data as Data)
+                    self.editProfileImageView.image = UIImage(data: data as Data) 
                 }
             }
             

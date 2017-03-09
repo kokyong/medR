@@ -21,7 +21,7 @@ class PatientProfileViewController: UIViewController {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         
-        //fetchPatientData()
+        fetchPatientData()
         //fetchDocInfo()
         
         if isDoctorMode == true {
@@ -154,7 +154,9 @@ class PatientProfileViewController: UIViewController {
     
     func fetchPatientData() {
         
-        ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -162,7 +164,7 @@ class PatientProfileViewController: UIViewController {
             //patient
             let patientImage = value?["profileURL"] as? String
             let fullName = value?["fullName"] as? String
-            let contactNumeber = value?["contactNumeber"] as? String
+            let contactNumeber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let email = value?["email"] as? String
             let age = value?["age"] as? String
@@ -190,21 +192,24 @@ class PatientProfileViewController: UIViewController {
             
             
             //patinet
-            self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))"
-            self.phoneNumberLabel.text = self.displayPhoneNumber
-            self.genderLabel.text = self.displayGender
-            self.emailLabel.text = self.displayEmail
-            self.addressLabel.text = self.displayAdress
+            self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))" ?? ""
+            self.phoneNumberLabel.text = self.displayPhoneNumber ?? ""
+            self.genderLabel.text = self.displayGender ?? ""
+            self.emailLabel.text = self.displayEmail ?? ""
+            self.addressLabel.text = self.displayAdress ?? ""
+            
             
             //emergency
-            self.nameEmergencyLabel.text = self.displayEmergencyName
-            self.contactEmergencyLabel.text = self.displayContactEmergency
-            self.relationshipEmergencyLabel.text = self.displayEmergencyRelationship
+            self.nameEmergencyLabel.text = self.displayEmergencyName ?? ""
+            self.contactEmergencyLabel.text = self.displayContactEmergency  ?? ""
+            self.relationshipEmergencyLabel.text = self.displayEmergencyRelationship ?? ""
             
             
             if let url = NSURL(string: self.displayPatientImage) {
+                
                 if let data = NSData(contentsOf: url as URL) {
                     self.profileImageView.image = UIImage(data: data as Data)
+                    
                 }
             }
             
@@ -235,10 +240,10 @@ class PatientProfileViewController: UIViewController {
             self.displayInfo = info!
             
             //Doctor
-            self.lisenceIDLabel.text = self.displayLisenceID
-            self.clinicAddressLabel.text = self.displayClinicAddress
-            self.specialtyLabel.text = self.displaySpecialty
-            self.infoLabel.text = self.displayInfo
+            self.lisenceIDLabel.text = self.displayLisenceID ?? ""
+            self.clinicAddressLabel.text = self.displayClinicAddress ?? ""
+            self.specialtyLabel.text = self.displaySpecialty ?? ""
+            self.infoLabel.text = self.displayInfo ?? ""
         })
     }
     
