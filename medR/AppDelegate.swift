@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-        // displayKYController()
-        displayRuiController()
-        //displayLogin()
+         //displayKYController()
+        //displayRuiController()
+        displayLogin()
         
         return true
     }
@@ -105,19 +105,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-        
-        
-        
-        
     }
-    
 }
 
 extension AppDelegate {
     
     func displayRuiController(){
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController")
         //as? LoginViewController
         window?.rootViewController = controller
     }

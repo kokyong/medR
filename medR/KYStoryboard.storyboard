@@ -411,7 +411,7 @@
             </objects>
             <point key="canvasLocation" x="-87.200000000000003" y="808.24587706146929"/>
         </scene>
-        <!--Search Patient View Controller-->
+        <!--Item-->
         <scene sceneID="3xH-5D-rmU">
             <objects>
                 <viewController storyboardIdentifier="SearchPatientViewController" id="gcr-bl-T6s" customClass="SearchPatientViewController" customModule="medR" customModuleProvider="target" sceneMemberID="viewController">
@@ -424,7 +424,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dRl-JW-hgp">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchPatientDetailCell" textLabel="4UY-6g-9T9" detailTextLabel="9xN-YI-qMW" style="IBUITableViewCellStyleSubtitle" id="cu0-lY-15X">
@@ -469,6 +469,7 @@
                             <constraint firstItem="qcx-4r-868" firstAttribute="top" secondItem="gDO-jl-sYk" secondAttribute="bottom" id="rXk-en-IWx"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="kmb-5Y-nDV"/>
                     <connections>
                         <outlet property="searchBar" destination="qcx-4r-868" id="3eN-RA-MYW"/>
                         <outlet property="searchTableView" destination="dRl-JW-hgp" id="r3m-mz-uJO"/>
@@ -476,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jO8-um-Pay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="813.60000000000002" y="111.99400299850076"/>
+            <point key="canvasLocation" x="1752.8" y="111.99400299850076"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aab-T3-C1b">
@@ -494,7 +495,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twJ-9M-FkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="112"/>
+            <point key="canvasLocation" x="2612" y="111.99400299850076"/>
+        </scene>
+        <!--Doctor Tab View Controller-->
+        <scene sceneID="uFe-w5-xl3">
+            <objects>
+                <tabBarController storyboardIdentifier="DoctorTabViewController" automaticallyAdjustsScrollViewInsets="NO" id="Lhy-ex-TsD" customClass="DoctorTabViewController" customModule="medR" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="p3T-tp-Mt5">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gcr-bl-T6s" kind="relationship" relationship="viewControllers" id="Wm6-V6-2vB"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bs7-Ol-c6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813.60000000000002" y="111.99400299850076"/>
         </scene>
     </scenes>
     <resources>

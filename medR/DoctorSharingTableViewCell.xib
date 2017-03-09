@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="422" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="422" height="92"/>
+                <rect key="frame" x="0.0" y="0.0" width="422" height="92.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maB-7L-8Kg">
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expertise, location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1V-fp-Ort">
-                        <rect key="frame" x="16" y="55" width="390" height="21.5"/>
+                        <rect key="frame" x="16" y="55" width="325" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,6 +37,11 @@
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kn-Dj-re7">
                         <rect key="frame" x="357" y="16" width="51" height="31"/>
                     </switch>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g88-H7-cDU">
+                        <rect key="frame" x="357" y="52" width="49" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Add"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="3kn-Dj-re7" firstAttribute="leading" secondItem="maB-7L-8Kg" secondAttribute="trailing" constant="16" id="6RG-pc-DFA"/>
@@ -45,12 +50,18 @@
                     <constraint firstItem="3kn-Dj-re7" firstAttribute="top" secondItem="maB-7L-8Kg" secondAttribute="top" id="RlN-R6-Owi"/>
                     <constraint firstItem="maB-7L-8Kg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="S8q-ag-sWa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="a1V-fp-Ort" secondAttribute="bottom" constant="8" id="V3L-NL-R8E"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="a1V-fp-Ort" secondAttribute="trailing" constant="8" id="WM9-kC-E1y"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="a1V-fp-Ort" secondAttribute="trailing" constant="73" id="WM9-kC-E1y"/>
                     <constraint firstItem="maB-7L-8Kg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="jt7-Jv-yP4"/>
                     <constraint firstItem="a1V-fp-Ort" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="vWi-EI-fZU"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-122" y="107"/>
+            <connections>
+                <outlet property="addDoctorBtn" destination="g88-H7-cDU" id="aE0-5R-u1b"/>
+                <outlet property="doctorDetailLabel" destination="a1V-fp-Ort" id="dgD-2z-wry"/>
+                <outlet property="doctorNameLabel" destination="maB-7L-8Kg" id="BWE-p4-RN2"/>
+                <outlet property="sharedSwitch" destination="3kn-Dj-re7" id="KMi-8v-nha"/>
+            </connections>
+            <point key="canvasLocation" x="-122" y="106.5"/>
         </tableViewCell>
     </objects>
 </document>

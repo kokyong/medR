@@ -16,7 +16,7 @@ class SignUpDoctorProfileViewController: UIViewController {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        fetchDocInfo()
+        //fetchDocInfo()
         
     }
     
@@ -57,7 +57,9 @@ class SignUpDoctorProfileViewController: UIViewController {
         
         let value = ["licenceID": licenceID, "clinicAddress": clinicAddress, "specialty": specialty, "info": info] as [String : Any]
         
-        ref.child("users").child("specialUID").child("docAcc").updateChildValues(value, withCompletionBlock: { (err, ref) in
+        ref.child("doctors").child(PatientDetail.current.uid).setValue(PatientDetail.current.fullName)
+        
+        ref.child("users").child(PatientDetail.current.uid).child("docAcc").updateChildValues(value, withCompletionBlock: { (err, ref) in
             
             if err != nil {
                 
@@ -80,7 +82,7 @@ class SignUpDoctorProfileViewController: UIViewController {
     
     func fetchDocInfo() {
         
-        ref.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary

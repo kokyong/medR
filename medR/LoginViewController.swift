@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     @IBAction func userSignup(_ sender: UIButton) {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController") as? CreateAccountViewController else { return }
         
-    
+        
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated:true);
-
+        
         
         
         let mycolor : UIColor = UIColor.lightGray
@@ -52,11 +52,11 @@ class LoginViewController: UIViewController {
         userPassword.layer.borderColor = mycolor.cgColor
         userPassword.layer.borderWidth = 2
         userPassword.layer.cornerRadius = 8
-    
-       
         
         
-        }
+        
+        
+    }
     // Login Function
     func login () {
         FIRAuth.auth()?.signIn(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user,error) in
@@ -68,9 +68,14 @@ class LoginViewController: UIViewController {
                 return
                 
             }
-            //                guard let controller = UIStoryboard(name: "", bundle: Bundle.main).instantiateViewController(withIdentifier: "") as?  UserHistoryViewController else { return }
-            //                self.navigationController? .pushViewController(controller, animated: true)
-            //
+            
+            PatientDetail.current.uid = (user?.uid)!
+            PatientDetail.current.fetchUserInformationViaID()
+            let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as?  UserTabViewController else { return }
+            self.present(controller, animated: true, completion: nil)
+            
+            
         })
     }
     
@@ -81,9 +86,9 @@ class LoginViewController: UIViewController {
         
         present(alert, animated:true, completion: nil)
     }
-
     
-    }
+    
+}
 
 
 
