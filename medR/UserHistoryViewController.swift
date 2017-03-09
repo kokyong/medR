@@ -155,7 +155,7 @@ class UserHistoryViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var constraintMenu: NSLayoutConstraint!
     
     var menuShowing = false
     
@@ -163,27 +163,53 @@ class UserHistoryViewController: UIViewController {
         
         if menuShowing {
             
-            leadingConstraint.constant = -200
+            constraintMenu.constant = -475
         }else{
             
-            leadingConstraint.constant = 0
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
+            constraintMenu.constant = 150
         }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         
         menuShowing = !menuShowing
     }
+    
     
     @IBOutlet weak var menuDetail: UIView!
     
     func menuDetailFunc() {
         
-        menuDetail.layer.shadowOpacity = 0.2
+        menuDetail.layer.cornerRadius = 1
+        menuDetail.layer.shadowOpacity = 0.8
         
     }
+    
+    @IBOutlet weak var backBtn: UIButton!{
+        
+        didSet{
+            
+            backBtn.addTarget(self, action: #selector(backBtnFunc), for: .touchUpInside)
+        }
+    }
+    
+    func backBtnFunc() {
+        
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchPatientViewController") as! SearchPatientViewController
+        
+        //configure VC
+        
+        // controller.selectedUID = self.patientUID
+        
+        
+        //show
+        self.present(controller, animated: true, completion: nil)
+
+    }
+    
+    
     
     //KY
     
