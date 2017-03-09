@@ -55,74 +55,74 @@ class UserHistoryViewController: UIViewController {
     @IBOutlet weak var menuEmergencyNumber: UILabel!
     
     
-    func fetchMenuData() {
-        
-        dbRef.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            
-            let value = snapshot.value as? NSDictionary
-            
-            let patientImage = value?["profileURL"] as? String
-            let fullName = value?["fullName"] as? String
-            let contactNumeber = value?["contactNumeber"] as? String
-            let gender = value?["gender"] as? String
-            let email = value?["email"] as? String
-            let age = value?["age"] as? String
-            let address = value?["address"] as? String
-            
-            //emergency
-            let emergencyName = value?["emergencyName"] as? String
-            let emergencyRelationship = value?["emergencyRelationship"] as? String
-            let emergencyContact = value?["emergencyContact"] as? String
-            
-            //patient
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
-            
-            //emergency
-            self.displayEmergencyName = emergencyName!
-            self.displayContactEmergency = emergencyContact!
-            self.displayEmergencyRelationship = emergencyRelationship!
-            
-            
-            
-            //patinet
-            self.menuName.text = "\(self.displayFullName) (\(self.displayAge))"
-            self.menuNumber.text = self.displayPhoneNumber
-            self.menuGender.text = self.displayGender
-            self.menuEmail.text = self.displayEmail
-           
-            
-            //emergency
-            self.manuEmergencyName.text = self.displayEmergencyName
-            self.menuEmergencyNumber.text = self.displayContactEmergency
-            self.menuEmergencyRelationship.text = self.displayEmergencyRelationship
-            
-            
-            if let url = NSURL(string: self.displayPatientImage) {
-                if let data = NSData(contentsOf: url as URL) {
-                    self.menuImage.image = UIImage(data: data as Data)
-                }
-            }
-            
-            
-            
-        })
-        
-        
-        
-    }
+//    func fetchMenuData() {
+//        
+//        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            
+//            let value = snapshot.value as? NSDictionary
+//            
+//            let patientImage = value?["profileURL"] as? String
+//            let fullName = value?["fullName"] as? String
+//            let contactNumeber = value?["contactNumeber"] as? String
+//            let gender = value?["gender"] as? String
+//            let email = value?["email"] as? String
+//            let age = value?["age"] as? String
+//            let address = value?["address"] as? String
+//            
+//            //emergency
+//            let emergencyName = value?["emergencyName"] as? String
+//            let emergencyRelationship = value?["emergencyRelationship"] as? String
+//            let emergencyContact = value?["emergencyContact"] as? String
+//            
+//            //patient
+//            //self.displayPatientImage = patientImage!
+//            self.displayFullName = fullName!
+//            self.displayPhoneNumber = contactNumeber!
+//            self.displayGender = gender!
+//            self.displayEmail = email!
+//            self.displayAge = age!
+//            self.displayAdress = address!
+//            
+//            //emergency
+//            self.displayEmergencyName = emergencyName!
+//            self.displayContactEmergency = emergencyContact!
+//            self.displayEmergencyRelationship = emergencyRelationship!
+//            
+//            
+//            
+//            //patinet
+//            self.menuName.text = "\(self.displayFullName) (\(self.displayAge))"
+//            self.menuNumber.text = self.displayPhoneNumber
+//            self.menuGender.text = self.displayGender
+//            self.menuEmail.text = self.displayEmail
+//           
+//            
+//            //emergency
+//            self.manuEmergencyName.text = self.displayEmergencyName
+//            self.menuEmergencyNumber.text = self.displayContactEmergency
+//            self.menuEmergencyRelationship.text = self.displayEmergencyRelationship
+//            
+//            
+//            if let url = NSURL(string: self.displayPatientImage) {
+//                if let data = NSData(contentsOf: url as URL) {
+//                    self.menuImage.image = UIImage(data: data as Data)
+//                }
+//            }
+//            
+//            
+//            
+//        })
+//        
+//        
+//        
+//    }
     
     @IBOutlet weak var nameLabel: UILabel!
     
     func fetchName() {
         
-        dbRef.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             
@@ -211,7 +211,7 @@ class UserHistoryViewController: UIViewController {
         //KY
         fetchName()
         menuDetailFunc()
-        fetchMenuData()
+        //fetchMenuData()
         
         
     }

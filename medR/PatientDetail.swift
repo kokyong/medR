@@ -26,7 +26,7 @@ class PatientDetail {
     var address : String?
     //var ifDoctor : [DoctorDetail] need to rearrange
     
-    var uid : String?
+    var uid : String = ""
 
     init(){}
     
@@ -46,7 +46,7 @@ class PatientDetail {
     
     func fetchUserInformationViaID(){
         
-        FIRDatabase.database().reference().child("users").child(PatientDetail.current.uid!).observe(.value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("users").child(PatientDetail.current.uid).observe(.value, with: { (snapshot) in
             
             let value = snapshot.value as? [String: Any]
             
