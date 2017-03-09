@@ -47,6 +47,8 @@ extension SearchPatientViewController: UITableViewDelegate{
         
         //configure VC
         
+       // controller.selectedUID = self.patientUID
+        
         
         //show
         self.present(controller, animated: true, completion: nil)
@@ -79,27 +81,6 @@ extension SearchPatientViewController: UISearchBarDelegate {
         searchActive = false
     }
     
-    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //
-    //
-    //        if searchText != "" {
-    //            filteredPatient = patientName.filter({ (text) -> Bool in
-    //                let tmp: NSString = text as NSString
-    //                let range = tmp.range(of: searchText.lowercased(), options: NSString.CompareOptions.caseInsensitive)
-    //                return range.location != NSNotFound
-    //            })
-    //            if filteredPatient.count == 0{
-    //                searchActive = false;
-    //            } else {
-    //                searchActive = true;
-    //            }
-    //        }else{
-    //            filteredPatient = patientName
-    //        }
-    //
-    //        self.searchTableView.reloadData()
-    //
-    //    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -115,9 +96,10 @@ extension SearchPatientViewController: UISearchBarDelegate {
     }
     
     func resetSearch(){
+        
         filteredPatient = patientName
-        //sortStationsByDistance()
         searchTableView.reloadData()
+        
     }
     
 }
