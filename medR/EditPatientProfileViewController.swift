@@ -133,30 +133,30 @@ class EditPatientProfileViewController: UIViewController {
             let emergencyRelationship = value?["emergencyRelationship"] as? String
             let emergencyContact = value?["emergencyContact"] as? String
             
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
-            self.displayEmergencyName = emergencyName!
-            self.displayContactEmergency = emergencyContact!
-            self.displayEmergencyRelationship = emergencyRelationship!
+            self.displayPatientImage = patientImage ?? ""
+            self.displayFullName = fullName ?? ""
+            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayGender = gender ?? ""
+            self.displayEmail = email ?? ""
+            self.displayAge = age ?? ""
+            self.displayAdress = address ?? ""
+            self.displayEmergencyName = emergencyName ?? ""
+            self.displayContactEmergency = emergencyContact ?? ""
+            self.displayEmergencyRelationship = emergencyRelationship ?? ""
             
-            self.fullNameTF.text = self.displayFullName
-            self.contactNumberTF.text = self.displayPhoneNumber
-            self.GenderTF.text = self.displayGender
-            self.emailTF.text = self.displayEmail
-            self.addressTF.text = self.displayAdress
-            self.ageTF.text = self.displayAge
-            self.emergencyNameTF.text = self.displayEmergencyName
-            self.emergencyContactTF.text = self.displayContactEmergency
-            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship
+            self.fullNameTF.text = self.displayFullName ?? ""
+            self.contactNumberTF.text = self.displayPhoneNumber ?? ""
+            self.GenderTF.text = self.displayGender ?? ""
+            self.emailTF.text = self.displayEmail ?? ""
+            self.addressTF.text = self.displayAdress ?? ""
+            self.ageTF.text = self.displayAge ?? ""
+            self.emergencyNameTF.text = self.displayEmergencyName ?? ""
+            self.emergencyContactTF.text = self.displayContactEmergency ?? ""
+            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship ?? ""
             
             if let url = NSURL(string: self.displayPatientImage) {
                 if let data = NSData(contentsOf: url as URL) {
-                    self.editProfileImageView.image = UIImage(data: data as Data)
+                    self.editProfileImageView.image = UIImage(data: data as Data) 
                 }
             }
             

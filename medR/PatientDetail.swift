@@ -7,10 +7,12 @@
 //
 
 import Foundation
-
+import FirebaseDatabase
 
 
 class PatientDetail {
+    
+    static var current : PatientDetail = PatientDetail()
     
     static var patientDetails : [PatientDetail] = []
     
@@ -22,9 +24,10 @@ class PatientDetail {
     var email : String?
     var age : String?
     var address : String?
+    //var ifDoctor : [DoctorDetail] need to rearrange
     
-    var uid : String?
-
+    var uid : String = ""
+    
     init(){}
     
     init(withDictionary dictionary: [String: Any]) {
@@ -39,7 +42,20 @@ class PatientDetail {
             
             patientImage = URL(string: displayPicture)
         }
-
-
     }
+    
+    func fetchUserInformationViaID(){
+        
+        FIRDatabase.database().reference().child("users").child(PatientDetail.current.uid).observe(.value, with: { (snapshot) in
+            
+            let value = snapshot.value as? [String: Any]
+            
+            let newPatient = PatientDetail(withDictionary: value!)
+            newPatient.uid = snapshot.key
+            
+            PatientDetail.current = newPatient
+            
+        })
+    }
+    
 }

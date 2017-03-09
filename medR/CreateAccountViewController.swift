@@ -96,7 +96,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                     print("err")
                     return
                 }
-                self.handleUser(user: user!)
+              //  self.handleUser(user: user!)
             })
             
             
@@ -106,6 +106,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     
     func handleUser(user: FIRUser) {
         print("User found: \(user.uid)")
+        
         
         uploadImage(image: userImage.image!)
         

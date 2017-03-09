@@ -20,19 +20,19 @@ extension SearchPatientViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchPatientDetailCell") else {return UITableViewCell()}
         
-        let currentName = filteredPatient[indexPath.row]
-        guard let index = patientName.index(where: { (str) -> Bool in
-            return str == currentName
-        })
-            else {
-                return cell
-        }
+        let currentPatient = filteredPatient[indexPath.row]
+//        guard let index = patientName.index(where: { (str) -> Bool in
+//            return str == currentName
+//        })
+//            else {
+//                return cell
+//        }
         
-        let patientIndex = patientName[index]
-        let patientID = patientUID[index]
+//        let patientIndex = patientName[index]
+//        let patientID = patientUID[index]
         
-        cell.textLabel?.text = patientIndex
-        cell.detailTextLabel?.text = patientID
+        cell.textLabel?.text = currentPatient.name
+        cell.detailTextLabel?.text = currentPatient.id
         
         return cell
     }
@@ -40,18 +40,21 @@ extension SearchPatientViewController: UITableViewDataSource{
 }
 
 extension SearchPatientViewController: UITableViewDelegate{
-    
-    
-    /*
-     let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
-     let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-     
-     //configure VC
-     
-     
-     //show
-     self.present(controller, animated: true, completion: nil)
-     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController") as! UserHistoryViewController
+        
+        //configure VC
+        
+       // controller.selectedUID = self.patientUID
+        
+        
+        //show
+        self.present(controller, animated: true, completion: nil)
+        
+    }
+ 
     
     
 }
@@ -78,35 +81,17 @@ extension SearchPatientViewController: UISearchBarDelegate {
         searchActive = false
     }
     
-    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //
-    //
-    //        if searchText != "" {
-    //            filteredPatient = patientName.filter({ (text) -> Bool in
-    //                let tmp: NSString = text as NSString
-    //                let range = tmp.range(of: searchText.lowercased(), options: NSString.CompareOptions.caseInsensitive)
-    //                return range.location != NSNotFound
-    //            })
-    //            if filteredPatient.count == 0{
-    //                searchActive = false;
-    //            } else {
-    //                searchActive = true;
-    //            }
-    //        }else{
-    //            filteredPatient = patientName
-    //        }
-    //
-    //        self.searchTableView.reloadData()
-    //
-    //    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.characters.count == 0 {
             resetSearch()
         } else {
-            filteredPatient = patientName.filter({( text ) -> Bool in
-                return text.lowercased().range(of: searchText.lowercased()) != nil
+//            filteredPatient = patientName.filter({( text ) -> Bool in
+//                return text.lowercased().range(of: searchText.lowercased()) != nil
+//            })
+            filteredPatient = patients.filter({ (patient) -> Bool in
+                patient.name.lowercased().range(of: searchText.lowercased()) != nil
             })
             
             self.searchTableView.reloadData()
@@ -114,9 +99,11 @@ extension SearchPatientViewController: UISearchBarDelegate {
     }
     
     func resetSearch(){
-        filteredPatient = patientName
-        //sortStationsByDistance()
+        
+//        filteredPatient = patientName
+        filteredPatient = patients
         searchTableView.reloadData()
+        
     }
     
 }

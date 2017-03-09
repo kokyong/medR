@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     @IBAction func userSignup(_ sender: UIButton) {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController") as? CreateAccountViewController else { return }
         
-    
+        
         navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         
         self.navigationItem.setHidesBackButton(true, animated:true);
-
+        
         
         
         let mycolor : UIColor = UIColor.lightGray
@@ -59,8 +59,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         userPassword.layer.borderColor = mycolor.cgColor
         userPassword.layer.borderWidth = 2
         userPassword.layer.cornerRadius = 8
-    
-    
         
         
     
@@ -142,9 +140,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
                 return
                 
             }
-            //                guard let controller = UIStoryboard(name: "", bundle: Bundle.main).instantiateViewController(withIdentifier: "") as?  UserHistoryViewController else { return }
-            //                self.navigationController? .pushViewController(controller, animated: true)
-            //
+            
+            PatientDetail.current.uid = (user?.uid)!
+            PatientDetail.current.fetchUserInformationViaID()
+            let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as?  UserTabViewController else { return }
+            self.present(controller, animated: true, completion: nil)
+            
+            
         })
     }
     
@@ -155,7 +158,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         present(alert, animated:true, completion: nil)
     }
-
     
 }
 

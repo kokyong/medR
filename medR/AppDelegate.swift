@@ -144,19 +144,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-        
-        
-        
-        
     }
-    
 }
 
 extension AppDelegate {
     
     func displayRuiController(){
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController")
         //as? LoginViewController
         window?.rootViewController = controller
     }
