@@ -17,11 +17,13 @@ class UserHistoryViewController: UIViewController {
     var lastContentOffSet : CGFloat = 0.0
     var scrollDirection : String = "default"
     
-
+    
     
     
     //KY
     
+    let uid = FIRAuth.auth()?.currentUser?.uid
+
     var selectedUID = String()
     
     //patient
@@ -43,7 +45,7 @@ class UserHistoryViewController: UIViewController {
     var displayClinicAddress = String()
     var displaySpecialty = String()
     var displayInfo = String()
-
+    
     
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var menuName: UILabel!
@@ -57,7 +59,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchMenuData() {
         
-        dbRef.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+            dbRef.child("users").child(selectedUID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -96,7 +98,7 @@ class UserHistoryViewController: UIViewController {
             self.menuNumber.text = self.displayPhoneNumber
             self.menuGender.text = self.displayGender
             self.menuEmail.text = self.displayEmail
-           
+            
             
             //emergency
             self.manuEmergencyName.text = self.displayEmergencyName
@@ -122,7 +124,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchName() {
         
-        dbRef.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(selectedUID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             
@@ -175,7 +177,7 @@ class UserHistoryViewController: UIViewController {
     @IBOutlet weak var menuDetail: UIView!
     
     func menuDetailFunc() {
-  
+        
         menuDetail.layer.shadowOpacity = 1
         
     }
