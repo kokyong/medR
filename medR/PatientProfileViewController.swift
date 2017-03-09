@@ -21,8 +21,8 @@ class PatientProfileViewController: UIViewController {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         
-        fetchPatientData()
-        fetchDocInfo()
+        //fetchPatientData()
+        //fetchDocInfo()
         
         if isDoctorMode == true {
             switchToDocBtn.setTitle("Switch to User", for: .normal)
@@ -154,7 +154,7 @@ class PatientProfileViewController: UIViewController {
     
     func fetchPatientData() {
         
-        ref.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -216,7 +216,7 @@ class PatientProfileViewController: UIViewController {
     
     func fetchDocInfo() {
         
-        ref.child("users").child("specialUID").child("docAcc").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(PatientDetail.current.uid).child("docAcc").observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -240,9 +240,6 @@ class PatientProfileViewController: UIViewController {
             self.specialtyLabel.text = self.displaySpecialty
             self.infoLabel.text = self.displayInfo
         })
-        
-        
-        
     }
     
     
