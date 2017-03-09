@@ -25,7 +25,7 @@ class PatientProfileViewController: UIViewController {
         fetchDocInfo()
         
         if isDoctorMode == true {
-            switchToDocBtn.titleLabel?.text = "Switch to User"
+            switchToDocBtn.setTitle("Switch to User", for: .normal)
         }
         
     }
