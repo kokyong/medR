@@ -27,7 +27,7 @@ class PatientDetail {
     //var ifDoctor : [DoctorDetail] need to rearrange
     
     var uid : String = ""
-
+    
     init(){}
     
     init(withDictionary dictionary: [String: Any]) {
@@ -57,5 +57,5 @@ class PatientDetail {
             
         })
     }
-
+    
 }

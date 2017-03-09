@@ -20,19 +20,19 @@ extension SearchPatientViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchPatientDetailCell") else {return UITableViewCell()}
         
-        let currentName = filteredPatient[indexPath.row]
-        guard let index = patientName.index(where: { (str) -> Bool in
-            return str == currentName
-        })
-            else {
-                return cell
-        }
+        let currentPatient = filteredPatient[indexPath.row]
+//        guard let index = patientName.index(where: { (str) -> Bool in
+//            return str == currentName
+//        })
+//            else {
+//                return cell
+//        }
         
-        let patientIndex = patientName[index]
-        let patientID = patientUID[index]
+//        let patientIndex = patientName[index]
+//        let patientID = patientUID[index]
         
-        cell.textLabel?.text = patientIndex
-        cell.detailTextLabel?.text = patientID
+        cell.textLabel?.text = currentPatient.name
+        cell.detailTextLabel?.text = currentPatient.id
         
         return cell
     }
@@ -87,8 +87,11 @@ extension SearchPatientViewController: UISearchBarDelegate {
         if searchText.characters.count == 0 {
             resetSearch()
         } else {
-            filteredPatient = patientName.filter({( text ) -> Bool in
-                return text.lowercased().range(of: searchText.lowercased()) != nil
+//            filteredPatient = patientName.filter({( text ) -> Bool in
+//                return text.lowercased().range(of: searchText.lowercased()) != nil
+//            })
+            filteredPatient = patients.filter({ (patient) -> Bool in
+                patient.name.lowercased().range(of: searchText.lowercased()) != nil
             })
             
             self.searchTableView.reloadData()
@@ -97,7 +100,8 @@ extension SearchPatientViewController: UISearchBarDelegate {
     
     func resetSearch(){
         
-        filteredPatient = patientName
+//        filteredPatient = patientName
+        filteredPatient = patients
         searchTableView.reloadData()
         
     }
