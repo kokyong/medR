@@ -68,6 +68,9 @@ class LoginViewController: UIViewController {
                 return
                 
             }
+            
+            PatientDetail.current.uid = user?.uid
+            PatientDetail.current.fetchUserInformationViaID()
             let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as?  UserTabViewController else { return }
             self.present(controller, animated: true, completion: nil)

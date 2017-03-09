@@ -57,6 +57,8 @@ class SignUpDoctorProfileViewController: UIViewController {
         
         let value = ["licenceID": licenceID, "clinicAddress": clinicAddress, "specialty": specialty, "info": info] as [String : Any]
         
+        ref.child("doctors").child(PatientDetail.current.uid!).setValue(PatientDetail.current.fullName)
+        
         ref.child("users").child("specialUID").child("docAcc").updateChildValues(value, withCompletionBlock: { (err, ref) in
             
             if err != nil {

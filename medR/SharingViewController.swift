@@ -28,8 +28,7 @@ class SharingViewController: UIViewController {
     }
     
     func fetchDoctorsShared(){
-        dbRef?.child("users").child("specialUID").child("sharedBy").observe(.childAdded, with: { (snapshot) in
-            //guard let value = snapshot.value as? [String] else {return}
+        dbRef?.child("users").child(PatientDetail.current.uid!).child("sharedBy").observe(.childAdded, with: { (snapshot) in
             let newDoctor = DoctorDetail()
             newDoctor.docUid = snapshot.key
             newDoctor.docName = snapshot.value as! String?

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DoctorSharingTableViewCell: UITableViewCell {
+    
+    var dbRef : FIRDatabaseReference!
     
     static let cellIdentifier = "DocListCell"
     static let cellNib = UINib(nibName: "DoctorSharingTableViewCell", bundle: Bundle.main)
@@ -22,6 +25,14 @@ class DoctorSharingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func switchChanged(){
+        if sharedSwitch.isOn == false {
+            dbRef = FIRDatabase.database().reference()
+            
+            
+        }
     }
     
     @IBOutlet weak var doctorNameLabel: UILabel!
