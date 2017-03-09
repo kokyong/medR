@@ -22,6 +22,8 @@
 		6858F5031E6979A600586E8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5021E6979A600586E8F /* CreateAccountViewController.swift */; };
 		687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8611E700B8200B6FA8C /* UserTabViewController.swift */; };
 		687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */; };
+		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
+		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
 		948356ED1E6FFCE700349829 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EE1E701A5A00349829 /* LoginViewController.swift */; };
@@ -65,6 +67,8 @@
 		6858F5021E6979A600586E8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		687BA8611E700B8200B6FA8C /* UserTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTabViewController.swift; sourceTree = "<group>"; };
 		687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTabViewController.swift; sourceTree = "<group>"; };
+		68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDoctorsViewController.swift; sourceTree = "<group>"; };
+		68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		948356EE1E701A5A00349829 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		94A93B471E667EB9001F3866 /* medR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A93B4A1E667EB9001F3866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,13 +217,15 @@
 			isa = PBXGroup;
 			children = (
 				6858F4D81E66A6C200586E8F /* UserHistoryViewController.swift */,
-				687BA8611E700B8200B6FA8C /* UserTabViewController.swift */,
 				6858F4DA1E66A6E600586E8F /* SharingViewController.swift */,
+				68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */,
+				68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */,
 				6858F4DC1E66A76600586E8F /* EntryViewController.swift */,
 				6858F4E21E66A9AB00586E8F /* DoctorSharingTableViewCell.swift */,
 				6858F4ED1E66DB1500586E8F /* MedicineTableViewCell.swift */,
 				6858F4F71E686FB500586E8F /* HistoryCollectionViewCell.swift */,
 				6858F4FE1E69486C00586E8F /* HistoryCollectionViewLayout.swift */,
+				687BA8611E700B8200B6FA8C /* UserTabViewController.swift */,
 			);
 			name = Rui;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A93B781E66DB6B001F3866 /* SearchPatientViewController.swift in Sources */,
+				68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */,
 				94A93B841E692698001F3866 /* PatientDetail.swift in Sources */,
 				94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */,
 				94A93B711E66A5CD001F3866 /* PatientProfileViewController(extesion).swift in Sources */,
@@ -432,6 +439,7 @@
 				687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */,
 				6858F4F41E67FC5F00586E8F /* Medicine.swift in Sources */,
 				6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */,
+				68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */,
 				948356ED1E6FFCE700349829 /* (null) in Sources */,
 				948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */,
 				94A93B751E66ADC9001F3866 /* EditPatientProfileViewController.swift in Sources */,
