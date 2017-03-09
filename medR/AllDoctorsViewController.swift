@@ -94,8 +94,10 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
     func addDoctor(indexPath: IndexPath){
         let doctor = filteredDoctors[indexPath.row]
         
-        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(doctor.docUid!).setValue(doctor.docName)
+        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedWith").child(doctor.docUid!).setValue(doctor.docName)
             searchBar.text = ""
+        
+        dbRef?.child("users").child(doctor.docUid!).child("sharedBy").child(PatientDetail.current.uid).setValue(PatientDetail.current.fullName)
         
 }
 

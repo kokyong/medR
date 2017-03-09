@@ -49,6 +49,7 @@ class DoctorSharingTableViewCell: UITableViewCell {
     
     func handleAdd(){
         delegateBtn?.addDoctor(indexPath: currentCellPath)
+        addDoctorBtn.setTitle("Added", for: .normal)
     }
     
     @IBOutlet weak var addDoctorBtn: UIButton!{

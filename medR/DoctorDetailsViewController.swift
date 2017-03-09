@@ -24,13 +24,19 @@ class DoctorDetailsViewController: UIViewController {
     }
     
     func fetchDoctorInfo() {
+        var displayDoctor = DoctorDetail()
         
         dbRef?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : Any] else {return}
-            let displayDoctor = DoctorDetail(withDictionary: value)
+           displayDoctor = DoctorDetail(withDictionary: value)
             displayDoctor.docUid = self.displayDocWithUID
             self.displayDoc = displayDoctor
+            
+        })
+        
+        dbRef?.child("users").child(displayDocWithUID).child("fullName").observe(.value, with: { (snapshot) in
+            displayDoctor.docName = snapshot.value as? String
             self.displayInfo()
         })
     }

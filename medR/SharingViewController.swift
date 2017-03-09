@@ -35,7 +35,7 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     func fetchDoctorsShared(){
         
         
-        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.value, with: { (snapshot) in
+        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedWith").observe(.value, with: { (snapshot) in
             
             self.filteredDoctors = []
             self.doctorsShared = []
@@ -132,9 +132,9 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         
         let selectedDoctor = doctorsShared[indexPath.row]
         
-        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(selectedDoctor.docUid!).removeValue()
+        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedWith").child(selectedDoctor.docUid!).removeValue()
         
-        //fetchDoctorsShared()
+        dbRef?.child("users").child(selectedDoctor.docUid!).child("sharedBy").child(PatientDetail.current.uid).removeValue()
     }
     
     func switchOn(indexPath: IndexPath){
