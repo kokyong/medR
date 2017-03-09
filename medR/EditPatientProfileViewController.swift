@@ -133,16 +133,16 @@ class EditPatientProfileViewController: UIViewController {
             let emergencyRelationship = value?["emergencyRelationship"] as? String
             let emergencyContact = value?["emergencyContact"] as? String
             
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
-            self.displayEmergencyName = emergencyName!
-            self.displayContactEmergency = emergencyContact!
-            self.displayEmergencyRelationship = emergencyRelationship!
+            self.displayPatientImage = patientImage ?? ""
+            self.displayFullName = fullName ?? ""
+            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayGender = gender ?? ""
+            self.displayEmail = email ?? ""
+            self.displayAge = age ?? ""
+            self.displayAdress = address ?? ""
+            self.displayEmergencyName = emergencyName ?? ""
+            self.displayContactEmergency = emergencyContact ?? ""
+            self.displayEmergencyRelationship = emergencyRelationship ?? ""
             
             self.fullNameTF.text = self.displayFullName ?? ""
             self.contactNumberTF.text = self.displayPhoneNumber ?? ""

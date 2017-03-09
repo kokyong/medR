@@ -176,13 +176,13 @@ class PatientProfileViewController: UIViewController {
             let emergencyContact = value?["emergencyContact"] as? String
             
             //patient
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
+            self.displayPatientImage = patientImage ?? ""
+            self.displayFullName = fullName ?? ""
+            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayGender = gender ?? ""
+            self.displayEmail = email ?? ""
+            self.displayAge = age ?? ""
+            self.displayAdress = address ?? ""
             
             //emergency
             self.displayEmergencyName = emergencyName!

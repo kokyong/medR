@@ -12,6 +12,7 @@ import FirebaseDatabase
 protocol SwitchDelegate : class {
     func switchOff(indexPath: IndexPath)
     func switchOn(indexPath: IndexPath)
+    func addDoctor(indexPath: IndexPath)
 }
 
 class DoctorSharingTableViewCell: UITableViewCell {
@@ -42,6 +43,15 @@ class DoctorSharingTableViewCell: UITableViewCell {
         }
     }
     
+    func handleAdd(){
+        delegate?.addDoctor(indexPath: currentCellPath)
+    }
+    
+    @IBOutlet weak var addDoctorBtn: UIButton!{
+        didSet{
+            addDoctorBtn.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var doctorNameLabel: UILabel!
     @IBOutlet weak var doctorDetailLabel: UILabel!
     @IBOutlet weak var sharedSwitch: UISwitch!{

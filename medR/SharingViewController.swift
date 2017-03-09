@@ -35,18 +35,38 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     }
     
     func fetchDoctorsShared(){
-        doctorsShared = []
-        filteredDoctors = []
-        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.childAdded, with: { (snapshot) in
-            let newDoctor = DoctorDetail()
-            newDoctor.docUid = snapshot.key
-            newDoctor.docName = snapshot.value as! String?
-            self.doctorsShared.append(newDoctor)
+        
+        
+        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.value, with: { (snapshot) in
             
+            self.filteredDoctors = []
+            self.doctorsShared = []
+            guard let value = snapshot.value as? [String : String] else {
+                self.doctorTableView.reloadData()
+                return
+            }
+            
+            for (key, realValue) in value {
+                let newDoctor = DoctorDetail()
+                newDoctor.docUid = key
+                newDoctor.docName = realValue
+                self.doctorsShared.append(newDoctor)
+            }
+            
+            self.filteredDoctors = self.doctorsShared
+            self.doctorTableView.reloadData()
         })
         
-        self.filteredDoctors = self.doctorsShared
-        self.doctorTableView.reloadData()
+//        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.childRemoved, with: { (snapshot) in
+//            let newDoctor = DoctorDetail()
+//            newDoctor.docUid = snapshot.key
+//            newDoctor.docName = snapshot.value as! String?
+//            self.doctorsShared.append(newDoctor)
+//            self.filteredDoctors = self.doctorsShared
+//            self.doctorTableView.reloadData()
+//        })
+        
+        
     }
     
     func fetchAllDoctors(){
@@ -108,11 +128,15 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
+            }
+    
+    func addDoctor(indexPath: IndexPath){
         let doctor = filteredDoctors[indexPath.row]
         
         dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(doctor.docUid!).setValue(doctor.docName)
-        fetchDoctorsShared()
+        //fetchDoctorsShared()
         searchBar.text = ""
+
     }
     
     func switchOff(indexPath: IndexPath){
@@ -121,7 +145,7 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         
         dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(selectedDoctor.docUid!).removeValue()
         
-        fetchDoctorsShared()
+        //fetchDoctorsShared()
     }
     
     func switchOn(indexPath: IndexPath){
@@ -130,7 +154,7 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         
         dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(selectedDoctor.docUid!).setValue(selectedDoctor.docName)
         
-        fetchDoctorsShared()
+        //fetchDoctorsShared()
     }
 }
 
