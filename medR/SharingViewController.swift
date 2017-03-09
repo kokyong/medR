@@ -13,7 +13,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     
     var dbRef : FIRDatabaseReference!
     var doctorsShared : [DoctorDetail] = []
-    var allDoctors : [DoctorDetail] = []
     var filteredDoctors : [DoctorDetail] = []
     
     
@@ -21,7 +20,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         dbRef = FIRDatabase.database().reference()
         fetchDoctorsShared()
-        fetchAllDoctors()
         
         
         searchBar.delegate = self
@@ -69,25 +67,13 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    func fetchAllDoctors(){
-        dbRef?.child("doctors").observe(.childAdded, with: { (snapshot) in
-            //guard let value = snapshot.value as? [String] else {return}
-            
-            let newDoctor = DoctorDetail()
-            newDoctor.docUid = snapshot.key
-            newDoctor.docName = snapshot.value as! String?
-            
-            self.allDoctors.append(newDoctor)
-        })
-        
-        
-    }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count == 0 {
             resetSearch()
         } else {
-            filteredDoctors = allDoctors.filter({( doctor : DoctorDetail) -> Bool in
+            filteredDoctors = doctorsShared.filter({( doctor : DoctorDetail) -> Bool in
                 // to start, let's just search by name
                 return doctor.docName?.lowercased().range(of: searchText.lowercased()) != nil
             })
@@ -102,6 +88,11 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         doctorTableView.reloadData()
     }
     
+    @IBAction func moreDocBtn(_ sender: UIButton) {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "AllDoctorsViewController") as? AllDoctorsViewController else {return}
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var doctorTableView: UITableView!
 }
@@ -120,24 +111,22 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         
         cell.doctorNameLabel.text = doctor.docName
         cell.sharedSwitch.isOn = true
+        cell.addDoctorBtn.isHidden = true
         cell.delegate = self
         cell.currentCellPath = indexPath
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailPage = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as? DoctorDetailsViewController else {return}
         
+        navigationController?.pushViewController(detailPage, animated: true)
         
-            }
-    
-    func addDoctor(indexPath: IndexPath){
-        let doctor = filteredDoctors[indexPath.row]
+        let doctorToDisplay = filteredDoctors[indexPath.row]
         
-        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(doctor.docUid!).setValue(doctor.docName)
-        //fetchDoctorsShared()
-        searchBar.text = ""
-
+        detailPage.displayDocWithUID = doctorToDisplay.docUid!
     }
+    
     
     func switchOff(indexPath: IndexPath){
         
