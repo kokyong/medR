@@ -25,6 +25,8 @@
 		68AE40491E72693000543FAF /* medRgif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68AE40481E72693000543FAF /* medRgif.gif */; };
 		68AE404B1E7269B900543FAF /* QRStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */; };
 		68AE404E1E7269F900543FAF /* QueueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE404D1E7269F900543FAF /* QueueListViewController.swift */; };
+		68AE40501E7275E500543FAF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AE404F1E7275E500543FAF /* AVFoundation.framework */; };
+		68AE40521E727E2F00543FAF /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE40511E727E2F00543FAF /* ScannerViewController.swift */; };
 		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
 		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
@@ -73,6 +75,8 @@
 		68AE40481E72693000543FAF /* medRgif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = medRgif.gif; sourceTree = "<group>"; };
 		68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRStoryboard.storyboard; sourceTree = "<group>"; };
 		68AE404D1E7269F900543FAF /* QueueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueListViewController.swift; sourceTree = "<group>"; };
+		68AE404F1E7275E500543FAF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		68AE40511E727E2F00543FAF /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDoctorsViewController.swift; sourceTree = "<group>"; };
 		68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		948356EE1E701A5A00349829 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68AE40501E7275E500543FAF /* AVFoundation.framework in Frameworks */,
 				8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +120,7 @@
 		2BE413CBD7B219FB68705509 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68AE404F1E7275E500543FAF /* AVFoundation.framework */,
 				5120B4E453F67F0C361E7881 /* Pods_medR.framework */,
 			);
 			name = Frameworks;
@@ -132,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				68AE404D1E7269F900543FAF /* QueueListViewController.swift */,
+				68AE40511E727E2F00543FAF /* ScannerViewController.swift */,
 			);
 			name = QR;
 			sourceTree = "<group>";
@@ -343,7 +350,7 @@
 				TargetAttributes = {
 					94A93B461E667EB9001F3866 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = G6BQ2J3Q99;
+						DevelopmentTeam = ZQ547JDPVM;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -407,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A14BCD1F4B9EEEAB3596A7 /* [CP] Copy Pods Resources */ = {
@@ -460,6 +467,7 @@
 				94A93B631E668C47001F3866 /* PatientProfileViewController.swift in Sources */,
 				687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */,
 				687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */,
+				68AE40521E727E2F00543FAF /* ScannerViewController.swift in Sources */,
 				6858F4F41E67FC5F00586E8F /* Medicine.swift in Sources */,
 				6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */,
 				68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */,
@@ -600,7 +608,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = G6BQ2J3Q99;
+				DEVELOPMENT_TEAM = ZQ547JDPVM;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
@@ -618,7 +626,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = G6BQ2J3Q99;
+				DEVELOPMENT_TEAM = ZQ547JDPVM;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
