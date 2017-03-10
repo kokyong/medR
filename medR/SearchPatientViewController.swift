@@ -28,8 +28,6 @@ class SearchPatientViewController: UIViewController {
 //    var filteredPatient = [String]()
     var filteredPatient = [Patient]()
     var ref : FIRDatabaseReference!
-    
-    let uid = FIRAuth.auth()?.currentUser?.uid
 
     
     @IBOutlet weak var searchBar: UISearchBar!{
@@ -66,7 +64,7 @@ class SearchPatientViewController: UIViewController {
     
         func fetchPatientData() {
     
-            ref.child("users").child(uid!).child("sharedBy").observe(.value, with: { (snapshot) in
+            ref.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.value, with: { (snapshot) in
                 print(snapshot)
     
     

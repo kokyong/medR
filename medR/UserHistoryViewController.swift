@@ -22,8 +22,6 @@ class UserHistoryViewController: UIViewController {
     
     
     //KY
-    
-    let uid = FIRAuth.auth()?.currentUser?.uid
 
     var selectedUID = String()
     
@@ -60,7 +58,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchMenuData() {
         
-        dbRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary

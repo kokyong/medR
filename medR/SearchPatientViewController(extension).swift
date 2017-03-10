@@ -48,7 +48,8 @@ extension SearchPatientViewController: UITableViewDelegate{
         //configure VC
         
        // controller.selectedUID = self.patientUID
-        
+        let selectedPatient = filteredPatient[indexPath.row]
+        controller.selectedUID = selectedPatient.id
         
         //show
         self.present(controller, animated: true, completion: nil)
