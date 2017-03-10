@@ -50,6 +50,7 @@ class DoctorDetailsViewController: UIViewController {
         infoLabel.text = displayDoc?.info
     }
     
+    @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!
     @IBOutlet weak var docNameLabel: UILabel!
     @IBOutlet weak var licenseIDLabel: UILabel!

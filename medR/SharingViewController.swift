@@ -9,7 +9,9 @@
 import UIKit
 import FirebaseDatabase
 
+
 class SharingViewController: UIViewController, UISearchBarDelegate {
+    
     
     var dbRef : FIRDatabaseReference!
     var doctorsShared : [DoctorDetail] = []
@@ -30,8 +32,18 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         doctorTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
         doctorTableView.estimatedRowHeight = 80
         doctorTableView.rowHeight = UITableViewAutomaticDimension
+        
+        //navigation item for QR
+//        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
+//        self.view.addSubview(navBar)
+//        let navItem = UINavigationItem(title: "Doctors")
+//        let scanQR = UIBarButtonItem(title: "scan QR", style: UIBarButtonItemStyle.plain, target: nil, action: "selector")
+//        navItem.rightBarButtonItem = scanQR
+//       navBar.setItems([navItem], animated: false)
+        
     }
     
+
     func fetchDoctorsShared(){
         
         
@@ -93,6 +105,14 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
+    
+    @IBAction func scanQR(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "QRStoryboard", bundle: Bundle.main)
+        guard let scanner = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as?  ScannerViewController else { return }
+        navigationController?.pushViewController(scanner, animated: true)
+    }
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var doctorTableView: UITableView!
 }
@@ -146,5 +166,4 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         //fetchDoctorsShared()
     }
 }
-
 
