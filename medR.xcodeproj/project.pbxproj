@@ -22,6 +22,9 @@
 		6858F5031E6979A600586E8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5021E6979A600586E8F /* CreateAccountViewController.swift */; };
 		687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8611E700B8200B6FA8C /* UserTabViewController.swift */; };
 		687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */; };
+		68AE40491E72693000543FAF /* medRgif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68AE40481E72693000543FAF /* medRgif.gif */; };
+		68AE404B1E7269B900543FAF /* QRStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */; };
+		68AE404E1E7269F900543FAF /* QueueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE404D1E7269F900543FAF /* QueueListViewController.swift */; };
 		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
 		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
@@ -46,7 +49,6 @@
 		94A93B861E6927CC001F3866 /* EmergencyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B851E6927CC001F3866 /* EmergencyDetail.swift */; };
 		94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B871E69287B001F3866 /* DoctorDetail.swift */; };
 		94B3D2D61E71DA9B005CCE3F /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */; };
-		94B3D2D81E71DBA0005CCE3F /* medRgif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D2D71E71DBA0005CCE3F /* medRgif.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,9 @@
 		6858F5021E6979A600586E8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		687BA8611E700B8200B6FA8C /* UserTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTabViewController.swift; sourceTree = "<group>"; };
 		687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTabViewController.swift; sourceTree = "<group>"; };
+		68AE40481E72693000543FAF /* medRgif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = medRgif.gif; sourceTree = "<group>"; };
+		68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRStoryboard.storyboard; sourceTree = "<group>"; };
+		68AE404D1E7269F900543FAF /* QueueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueListViewController.swift; sourceTree = "<group>"; };
 		68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDoctorsViewController.swift; sourceTree = "<group>"; };
 		68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		948356EE1E701A5A00349829 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +97,6 @@
 		94A93B851E6927CC001F3866 /* EmergencyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyDetail.swift; sourceTree = "<group>"; };
 		94A93B871E69287B001F3866 /* DoctorDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetail.swift; sourceTree = "<group>"; };
 		94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift+Gif.swift"; sourceTree = "<group>"; };
-		94B3D2D71E71DBA0005CCE3F /* medRgif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = medRgif.gif; sourceTree = "<group>"; };
 		C4EC22AAC89686627041E4E9 /* Pods-medR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.release.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,14 @@
 				6858F4F81E686FB500586E8F /* HistoryCollectionViewCell.xib */,
 			);
 			name = HistoryVC;
+			sourceTree = "<group>";
+		};
+		68AE404C1E7269DE00543FAF /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				68AE404D1E7269F900543FAF /* QueueListViewController.swift */,
+			);
+			name = QR;
 			sourceTree = "<group>";
 		};
 		94A93B3E1E667EB9001F3866 = {
@@ -174,6 +186,7 @@
 				94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */,
 				94A93B641E668C7D001F3866 /* KYStoryboard.storyboard */,
 				94A93B691E668D91001F3866 /* RuiStoryboard.storyboard */,
+				68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */,
 				6858F4FD1E69262600586E8F /* HistoryVC */,
 				6858F4E31E66A9AB00586E8F /* DoctorSharingTableViewCell.xib */,
 				6858F4EE1E66DB1500586E8F /* MedicineTableViewCell.xib */,
@@ -184,6 +197,7 @@
 		94A93B671E668D51001F3866 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				68AE404C1E7269DE00543FAF /* QR */,
 				94A93B6F1E668DF3001F3866 /* Geog */,
 				94A93B6E1E668DE8001F3866 /* Rui */,
 				94A93B611E668BE3001F3866 /* KY */,
@@ -239,7 +253,7 @@
 				6858F5021E6979A600586E8F /* CreateAccountViewController.swift */,
 				948356EE1E701A5A00349829 /* LoginViewController.swift */,
 				94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */,
-				94B3D2D71E71DBA0005CCE3F /* medRgif.gif */,
+				68AE40481E72693000543FAF /* medRgif.gif */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -367,12 +381,13 @@
 				6858F4E51E66A9AB00586E8F /* DoctorSharingTableViewCell.xib in Resources */,
 				94A93B601E668023001F3866 /* GoogleService-Info.plist in Resources */,
 				94A93B6A1E668D91001F3866 /* RuiStoryboard.storyboard in Resources */,
-				94B3D2D81E71DBA0005CCE3F /* medRgif.gif in Resources */,
+				68AE40491E72693000543FAF /* medRgif.gif in Resources */,
 				6858F4FA1E686FB500586E8F /* HistoryCollectionViewCell.xib in Resources */,
 				94A93B651E668C7D001F3866 /* KYStoryboard.storyboard in Resources */,
 				6858F4F01E66DB1500586E8F /* MedicineTableViewCell.xib in Resources */,
 				94A93B551E667EB9001F3866 /* Assets.xcassets in Resources */,
 				94A93B821E680280001F3866 /* Default-568h@2x.png in Resources */,
+				68AE404B1E7269B900543FAF /* QRStoryboard.storyboard in Resources */,
 				94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +455,7 @@
 				94A93B711E66A5CD001F3866 /* PatientProfileViewController(extesion).swift in Sources */,
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
 				6858F4E41E66A9AB00586E8F /* DoctorSharingTableViewCell.swift in Sources */,
+				68AE404E1E7269F900543FAF /* QueueListViewController.swift in Sources */,
 				94A93B7C1E66DC1C001F3866 /* SignUpDoctorProfileViewController.swift in Sources */,
 				94A93B631E668C47001F3866 /* PatientProfileViewController.swift in Sources */,
 				687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */,
