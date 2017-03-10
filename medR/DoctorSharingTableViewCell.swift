@@ -12,6 +12,9 @@ import FirebaseDatabase
 protocol SwitchDelegate : class {
     func switchOff(indexPath: IndexPath)
     func switchOn(indexPath: IndexPath)
+}
+
+protocol ButtonDelegate : class {
     func addDoctor(indexPath: IndexPath)
 }
 
@@ -20,6 +23,7 @@ class DoctorSharingTableViewCell: UITableViewCell {
     var dbRef : FIRDatabaseReference!
     var currentCellPath : IndexPath!
     weak var delegate : SwitchDelegate?
+    weak var delegateBtn : ButtonDelegate?
     
     static let cellIdentifier = "DocListCell"
     static let cellNib = UINib(nibName: "DoctorSharingTableViewCell", bundle: Bundle.main)
@@ -44,7 +48,8 @@ class DoctorSharingTableViewCell: UITableViewCell {
     }
     
     func handleAdd(){
-        delegate?.addDoctor(indexPath: currentCellPath)
+        delegateBtn?.addDoctor(indexPath: currentCellPath)
+        addDoctorBtn.setTitle("Added", for: .normal)
     }
     
     @IBOutlet weak var addDoctorBtn: UIButton!{

@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func displayLogin() {
         
         let storyboard = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         window?.rootViewController = controller
         
         
