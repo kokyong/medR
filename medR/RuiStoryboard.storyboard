@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -381,7 +381,13 @@
                             <constraint firstItem="fOA-Ml-gE9" firstAttribute="top" secondItem="eAj-Cn-6Dg" secondAttribute="bottom" id="l6B-90-OuS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4dN-e0-E0a"/>
+                    <navigationItem key="navigationItem" id="YOA-c2-srQ">
+                        <barButtonItem key="rightBarButtonItem" title="Scan QR" id="yrQ-zU-uNX">
+                            <connections>
+                                <action selector="scanQR:" destination="8vJ-GX-Mox" id="Rfr-Os-G3q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="doctorTableView" destination="eAj-Cn-6Dg" id="8XG-Qz-53k"/>
                         <outlet property="searchBar" destination="ApI-Yz-v7q" id="yTl-g9-t69"/>
@@ -544,18 +550,28 @@
                                     <constraint firstAttribute="trailing" secondItem="3RT-cV-B3M" secondAttribute="trailing" constant="32" id="uKc-IF-IYe"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9F-H1-lSm">
+                                <rect key="frame" x="112" y="448.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="98R-4z-m0i"/>
+                                    <constraint firstAttribute="width" constant="150" id="nfM-3Q-B5O"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="167-1a-vDw" firstAttribute="leading" secondItem="DqP-Jy-ILc" secondAttribute="leading" id="0IJ-za-hfe"/>
                             <constraint firstItem="167-1a-vDw" firstAttribute="top" secondItem="tJe-YE-6ZJ" secondAttribute="bottom" id="Hjb-qF-R4S"/>
                             <constraint firstItem="WyK-pD-ESZ" firstAttribute="leading" secondItem="DqP-Jy-ILc" secondAttribute="leadingMargin" constant="16" id="NNw-6W-N7U"/>
+                            <constraint firstItem="o9F-H1-lSm" firstAttribute="centerX" secondItem="WyK-pD-ESZ" secondAttribute="centerX" id="PQV-Jg-cpZ"/>
                             <constraint firstItem="WyK-pD-ESZ" firstAttribute="top" secondItem="167-1a-vDw" secondAttribute="bottom" constant="16" id="c0X-xi-Tyg"/>
                             <constraint firstAttribute="trailing" secondItem="167-1a-vDw" secondAttribute="trailing" id="oom-1L-Sdc"/>
+                            <constraint firstItem="o9F-H1-lSm" firstAttribute="top" secondItem="WyK-pD-ESZ" secondAttribute="bottom" constant="40" id="rwv-SS-u3d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WyK-pD-ESZ" secondAttribute="trailing" constant="16" id="vhm-Ga-42v"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="QRcode" destination="o9F-H1-lSm" id="mvT-JI-Ptk"/>
                         <outlet property="clinicAddLabel" destination="cQi-4m-fa7" id="Ecm-uL-Jqb"/>
                         <outlet property="docNameLabel" destination="A2X-iz-VpS" id="3Xv-Np-t9t"/>
                         <outlet property="docPicImageView" destination="3RT-cV-B3M" id="QbJ-0h-ibc"/>

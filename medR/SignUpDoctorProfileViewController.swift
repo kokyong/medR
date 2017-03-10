@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import QRCode
 
 class SignUpDoctorProfileViewController: UIViewController {
     
@@ -79,6 +80,12 @@ class SignUpDoctorProfileViewController: UIViewController {
         
         
     }
+    
+    func createQRCode(){
+        let qrCode = QRCode(PatientDetail.current.uid)
+        let codeImage = qrCode?.image
+    }
+    
     
     func fetchDocInfo() {
         

@@ -15,4 +15,8 @@ target 'medR' do
     pod 'FBSDKShareKit'
     pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
+    pod 'MTBBarcodeScanner', '~> 5.0'
+    pod 'QRCodeReader.swift', '~> 7.3.0'
+    pod 'QRCode', '~> 2.0'
+
 end
