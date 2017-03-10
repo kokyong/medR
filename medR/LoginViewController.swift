@@ -17,6 +17,7 @@ import GoogleSignIn
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate  {
     
     
+    @IBOutlet weak var logoImageView: UIImageView!
    
     @IBOutlet weak var userEmail: UITextField!
     
@@ -33,12 +34,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController") as? CreateAccountViewController else { return }
         
         
-        navigationController?.pushViewController(controller, animated: true)
+        self.present(controller, animated: true, completion: nil)
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoImageView.loadGif(name: "medRgif")
+        
         
         setupFacebookButton()
         setupGoogleButton()
@@ -69,7 +73,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
         // frame are obselete
-        loginButton.frame = CGRect(x: 16, y: 430, width: view.frame.width - 32, height: 50)
+        loginButton.frame = CGRect(x: 16, y: 475, width: view.frame.width - 32, height: 50)
         
         loginButton.delegate = self
         
@@ -81,7 +85,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     fileprivate func setupGoogleButton() {
         //add google sign in button
         let googleButton = GIDSignInButton()
-        googleButton.frame = CGRect(x: 16, y: 520, width: view.frame.width - 32, height: 50)
+        googleButton.frame = CGRect(x: 16, y: 560, width: view.frame.width - 32, height: 50)
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().uiDelegate = self

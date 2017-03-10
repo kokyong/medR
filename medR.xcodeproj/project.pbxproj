@@ -45,10 +45,11 @@
 		94A93B841E692698001F3866 /* PatientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B831E692698001F3866 /* PatientDetail.swift */; };
 		94A93B861E6927CC001F3866 /* EmergencyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B851E6927CC001F3866 /* EmergencyDetail.swift */; };
 		94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B871E69287B001F3866 /* DoctorDetail.swift */; };
+		94B3D2D61E71DA9B005CCE3F /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */; };
+		94B3D2D81E71DBA0005CCE3F /* medRgif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D2D71E71DBA0005CCE3F /* medRgif.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		386A4C071E6FD29B00F45519 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		38B1E8511E7012EA0027FE6B /* medR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = medR.entitlements; sourceTree = "<group>"; };
 		44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.debug.xcconfig"; sourceTree = "<group>"; };
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +91,8 @@
 		94A93B831E692698001F3866 /* PatientDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetail.swift; sourceTree = "<group>"; };
 		94A93B851E6927CC001F3866 /* EmergencyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyDetail.swift; sourceTree = "<group>"; };
 		94A93B871E69287B001F3866 /* DoctorDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetail.swift; sourceTree = "<group>"; };
+		94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift+Gif.swift"; sourceTree = "<group>"; };
+		94B3D2D71E71DBA0005CCE3F /* medRgif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = medRgif.gif; sourceTree = "<group>"; };
 		C4EC22AAC89686627041E4E9 /* Pods-medR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.release.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +238,8 @@
 			children = (
 				6858F5021E6979A600586E8F /* CreateAccountViewController.swift */,
 				948356EE1E701A5A00349829 /* LoginViewController.swift */,
+				94B3D2D51E71DA9A005CCE3F /* Swift+Gif.swift */,
+				94B3D2D71E71DBA0005CCE3F /* medRgif.gif */,
 			);
 			name = Geog;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				6858F4E51E66A9AB00586E8F /* DoctorSharingTableViewCell.xib in Resources */,
 				94A93B601E668023001F3866 /* GoogleService-Info.plist in Resources */,
 				94A93B6A1E668D91001F3866 /* RuiStoryboard.storyboard in Resources */,
+				94B3D2D81E71DBA0005CCE3F /* medRgif.gif in Resources */,
 				6858F4FA1E686FB500586E8F /* HistoryCollectionViewCell.xib in Resources */,
 				94A93B651E668C7D001F3866 /* KYStoryboard.storyboard in Resources */,
 				6858F4F01E66DB1500586E8F /* MedicineTableViewCell.xib in Resources */,
@@ -430,6 +436,7 @@
 				68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */,
 				94A93B841E692698001F3866 /* PatientDetail.swift in Sources */,
 				94A93B881E69287B001F3866 /* DoctorDetail.swift in Sources */,
+				94B3D2D61E71DA9B005CCE3F /* Swift+Gif.swift in Sources */,
 				94A93B711E66A5CD001F3866 /* PatientProfileViewController(extesion).swift in Sources */,
 				94A93B531E667EB9001F3866 /* medR.xcdatamodeld in Sources */,
 				6858F4E41E66A9AB00586E8F /* DoctorSharingTableViewCell.swift in Sources */,
@@ -574,6 +581,7 @@
 			baseConfigurationReference = 44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
 				DEVELOPMENT_TEAM = G6BQ2J3Q99;
@@ -591,6 +599,7 @@
 			baseConfigurationReference = C4EC22AAC89686627041E4E9 /* Pods-medR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
 				DEVELOPMENT_TEAM = G6BQ2J3Q99;
