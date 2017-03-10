@@ -164,7 +164,7 @@ class UserHistoryViewController: UIViewController {
             constraintMenu.constant = -475
         }else{
             
-            constraintMenu.constant = 150
+            constraintMenu.constant = 120
         }
         
         UIView.animate(withDuration: 0.3, animations: {

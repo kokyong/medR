@@ -44,9 +44,8 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
             guard let controller = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
             
-            
-            navigationController?.pushViewController(controller, animated: true)
-        
+
+            self.present(controller, animated: true, completion: nil)
     }
     @IBOutlet weak var userSelectPicture: UIButton!{
         didSet{
