@@ -111,7 +111,7 @@ class EditPatientProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController else {return}
         
-        self.present(controller, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func fetchData() {
