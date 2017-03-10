@@ -12,6 +12,8 @@ import FirebaseDatabase
 class DoctorDetailsViewController: UIViewController {
     
     var dbRef : FIRDatabaseReference!
+    var datatask : URLSessionDataTask?
+    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
     var displayDocWithUID : String = ""
     var displayDoc : DoctorDetail?
     
@@ -29,7 +31,7 @@ class DoctorDetailsViewController: UIViewController {
         dbRef?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : Any] else {return}
-           displayDoctor = DoctorDetail(withDictionary: value)
+            displayDoctor = DoctorDetail(withDictionary: value)
             displayDoctor.docUid = self.displayDocWithUID
             self.displayDoc = displayDoctor
             
@@ -48,7 +50,19 @@ class DoctorDetailsViewController: UIViewController {
         clinicAddLabel.text = displayDoc?.clinicAddress
         specialtyLabel.text = displayDoc?.specialty
         infoLabel.text = displayDoc?.info
+        
+        if let url = displayDoc?.qrCodeUrl {
+            datatask = defaultSession.dataTask(with: url, completionHandler: { (data, response, error) in
+                guard let validData = data else {return}
+                guard let image = UIImage(data: validData) else { return }
+                
+                self.QRcode.image = image
+               
+            })
+            datatask?.resume()
+        }
     }
+    
     
     @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!

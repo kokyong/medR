@@ -118,18 +118,18 @@ class PatientProfileViewController: UIViewController {
         didSet{
             
             becomeDoctorBtn.addTarget(self, action: #selector(becomeADoctor), for: .touchUpInside)
+            
         }
     }
     
     func becomeADoctor() {
         
         //push to doc VC
-        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "SignUpDoctorProfileViewController") as? SignUpDoctorProfileViewController else {return}
+        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as? DoctorDetailsViewController else {return}
+        controller.displayDocWithUID = PatientDetail.current.uid
         
         self.present(controller, animated: true, completion: nil)
-        
-        
     }
     
     //edit btn

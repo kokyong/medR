@@ -33,14 +33,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         doctorTableView.estimatedRowHeight = 80
         doctorTableView.rowHeight = UITableViewAutomaticDimension
         
-        //navigation item for QR
-//        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
-//        self.view.addSubview(navBar)
-//        let navItem = UINavigationItem(title: "Doctors")
-//        let scanQR = UIBarButtonItem(title: "scan QR", style: UIBarButtonItemStyle.plain, target: nil, action: "selector")
-//        navItem.rightBarButtonItem = scanQR
-//       navBar.setItems([navItem], animated: false)
-        
     }
     
 
@@ -66,17 +58,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
             self.filteredDoctors = self.doctorsShared
             self.doctorTableView.reloadData()
         })
-        
-//        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.childRemoved, with: { (snapshot) in
-//            let newDoctor = DoctorDetail()
-//            newDoctor.docUid = snapshot.key
-//            newDoctor.docName = snapshot.value as! String?
-//            self.doctorsShared.append(newDoctor)
-//            self.filteredDoctors = self.doctorsShared
-//            self.doctorTableView.reloadData()
-//        })
-        
-        
     }
     
     
@@ -106,6 +87,11 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    //QR code
+    
+    func handleQRSuccessScan(uid: String){
+        
+    }
     
     
     @IBAction func scanQR(_ sender: UIBarButtonItem) {
