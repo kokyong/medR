@@ -46,7 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		386A4C071E6FD29B00F45519 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		38B1E8511E7012EA0027FE6B /* medR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = medR.entitlements; sourceTree = "<group>"; };
 		44E91760F42B9F68021A168B /* Pods-medR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-medR/Pods-medR.debug.xcconfig"; sourceTree = "<group>"; };
 		5120B4E453F67F0C361E7881 /* Pods_medR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_medR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
