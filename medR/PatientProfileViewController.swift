@@ -97,7 +97,7 @@ class PatientProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
         
-        self.present(controller, animated: true, completion: nil)
+        self.present(controller, animated: false, completion: nil)
             
             
         } else {
@@ -106,7 +106,7 @@ class PatientProfileViewController: UIViewController {
             let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as? UserTabViewController else {return}
             
-            self.present(controller, animated: true, completion: nil)
+            self.present(controller, animated: false, completion: nil)
             
             
         }
