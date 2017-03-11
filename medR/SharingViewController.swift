@@ -118,6 +118,8 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         cell.doctorNameLabel.text = doctor.docName
         cell.sharedSwitch.isOn = true
         cell.addDoctorBtn.isHidden = true
+        cell.addPatientBtn.isHidden = true
+        cell.entryBtn.isHidden = true
         cell.delegate = self
         cell.currentCellPath = indexPath
         return cell

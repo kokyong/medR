@@ -59,7 +59,13 @@ class SearchPatientViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         fetchPatientData()
         
+       searchTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
         
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        searchTableView.reloadData()
     }
     
     
@@ -88,7 +94,13 @@ class SearchPatientViewController: UIViewController {
             })
         }
 
-    
+    func addPatient(indexPath: IndexPath){
+        let patient = filteredPatient[indexPath.row]
+        
+        ref.child("users").child(PatientDetail.current.uid).child("queue").child(patient.id).setValue(patient.name)
+        
+        
+    }
  
     
     

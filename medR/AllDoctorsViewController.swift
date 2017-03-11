@@ -66,7 +66,7 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchTableView: UITableView!
 }
 
-extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, ButtonDelegate {
+extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, AddDocDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -80,8 +80,10 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         
         cell.doctorNameLabel.text = doctor.docName
         cell.sharedSwitch.isHidden = true
+        cell.addPatientBtn.isHidden = true
+        cell.entryBtn.isHidden = true
         cell.currentCellPath = indexPath
-        cell.delegateBtn = self
+        cell.addDocDelegate = self
         
         return cell
     }

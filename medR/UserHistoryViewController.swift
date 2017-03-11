@@ -18,7 +18,7 @@ class UserHistoryViewController: UIViewController {
     var lastContentOffSet : CGFloat = 0.0
     var scrollDirection : String = "default"
     
-    
+    var isDoctorMode : Bool = false
     
     
     //KY
@@ -162,9 +162,12 @@ class UserHistoryViewController: UIViewController {
         if menuShowing {
             
             constraintMenu.constant = -475
+            detailBtn.setTitle("Detail", for: .normal)
+            
         }else{
             
             constraintMenu.constant = 120
+            detailBtn.setTitle("Dismiss", for: .normal)
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -203,7 +206,8 @@ class UserHistoryViewController: UIViewController {
         
         
         //show
-        self.present(controller, animated: true, completion: nil)
+        //self.present(controller, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
     }
     
@@ -242,7 +246,10 @@ class UserHistoryViewController: UIViewController {
         menuDetailFunc()
         fetchMenuData()
         
-        
+        if isDoctorMode == false {
+            self.backBtn.isHidden = true
+            self.detailBtn.isHidden = true
+        }
     }
     
     
