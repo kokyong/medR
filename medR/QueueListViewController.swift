@@ -22,6 +22,8 @@ class QueueListViewController: UIViewController{
         QueueListTableView.delegate = self
         QueueListTableView.dataSource = self
         
+        QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
+        
         fetchQueueList()
     }
     
@@ -69,7 +71,7 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorSharingTableViewCell", for: indexPath) as? DoctorSharingTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DocListCell", for: indexPath) as? DoctorSharingTableViewCell else {return UITableViewCell()}
         
         let patient = queueList[indexPath.row]
         

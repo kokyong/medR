@@ -59,6 +59,7 @@ class SearchPatientViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         fetchPatientData()
         
+        
     }
     
     

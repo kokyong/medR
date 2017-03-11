@@ -59,6 +59,7 @@ class DoctorDetailsViewController: UIViewController {
                 self.QRcode.image = image
                
             })
+            
             datatask?.resume()
         }
     }
