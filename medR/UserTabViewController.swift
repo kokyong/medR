@@ -23,7 +23,7 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
         let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
         
         guard let tabOne = storyboard.instantiateViewController(withIdentifier: "UserHistoryViewController") as?  UserHistoryViewController else { return }
-        let tabOneBarItem = UITabBarItem(title: "My History", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
+        let tabOneBarItem = UITabBarItem(title: "My History", image: UIImage(named: "patientlistBlack.png"), selectedImage: UIImage(named: "selectedImage.png"))
         
         tabOne.tabBarItem = tabOneBarItem
         
@@ -38,7 +38,8 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
         let storyboardTwo = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         
         guard let tabThree = storyboardTwo.instantiateViewController(withIdentifier: "PatientProfileViewController") as?  PatientProfileViewController else { return }
-        let tabThreeBarItem3 = UITabBarItem(title: "Profile", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
+        let tabThreeBarItem3 = UITabBarItem(title: "Profile"
+        , image: UIImage(named: "profileBlack.png"), selectedImage: UIImage(named: "profileRed.png"))
         
         tabThree.isDoctorMode = false
         
