@@ -62,14 +62,23 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func alert(){
-        let alert = UIAlertController(title: "Found doctor", message: "Added doctor to your list.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Found doctor", message: "Added doctor to your list. \n Queue to see the doctor.", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         let scan = UIAlertAction(title: "Scan again", style: .default) { (action) in
             self.startScanning()
         }
+        let queue = UIAlertAction(title: "Queue", style: .default) { (action) in
+            
+            if self.scannedID != "default" {
+            self.addToQueue(uid: self.scannedID)
+            } else {
+            print ("no scannedID")
+            }
+        }
         
         alert.addAction(ok)
         alert.addAction(scan)
+        alert.addAction(queue)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -106,6 +115,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         dbRef?.child("users").child(uid).child("sharedBy").child(PatientDetail.current.uid).setValue(successfulScannedDoc?.docName)
         
+    }
+    
+    func addToQueue(uid : String){
+        dbRef?.child("users").child(uid).child("queue").child(PatientDetail.current.uid).setValue(PatientDetail.current.fullName)
     }
     
     

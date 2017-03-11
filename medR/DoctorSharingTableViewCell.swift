@@ -57,8 +57,13 @@ class DoctorSharingTableViewCell: UITableViewCell {
             addDoctorBtn.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         }
     }
+    
+    @IBAction func addPatientBtn(_ sender: UIButton) {
+        
+    }
+    
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var doctorNameLabel: UILabel!
-    @IBOutlet weak var doctorDetailLabel: UILabel!
     @IBOutlet weak var sharedSwitch: UISwitch!{
         didSet{
             sharedSwitch.addTarget(self, action: #selector(switchChanged), for: .touchUpInside)
