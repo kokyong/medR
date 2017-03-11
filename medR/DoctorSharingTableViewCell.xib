@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maB-7L-8Kg">
-                        <rect key="frame" x="16" y="16" width="325" height="40"/>
+                        <rect key="frame" x="64" y="16" width="277" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="RMS-u6-sd4"/>
                         </constraints>
@@ -30,7 +30,6 @@
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kn-Dj-re7">
                         <rect key="frame" x="357" y="20.5" width="51" height="31"/>
-                        <color key="onTintColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g88-H7-cDU">
@@ -40,6 +39,23 @@
                         </constraints>
                         <state key="normal" title="Add"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zn9-0Z-WFN">
+                        <rect key="frame" x="16" y="16" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="lDJ-k7-bxI"/>
+                            <constraint firstAttribute="height" constant="40" id="qfk-Ej-Znx"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-RA-37g">
+                        <rect key="frame" x="368" y="21" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Bht-BS-rGe"/>
+                        </constraints>
+                        <state key="normal" title="Add"/>
+                        <connections>
+                            <action selector="addPatientBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3D0-Wc-cHf"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
@@ -47,16 +63,21 @@
                     <constraint firstItem="3kn-Dj-re7" firstAttribute="leading" secondItem="maB-7L-8Kg" secondAttribute="trailing" constant="16" id="6RG-pc-DFA"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3kn-Dj-re7" secondAttribute="trailing" constant="8" id="Mnu-bM-aIQ"/>
                     <constraint firstItem="g88-H7-cDU" firstAttribute="centerY" secondItem="maB-7L-8Kg" secondAttribute="centerY" id="RoT-Ob-jTv"/>
-                    <constraint firstItem="maB-7L-8Kg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="S8q-ag-sWa"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jp9-RA-37g" secondAttribute="trailing" constant="16" id="UY4-zh-AMz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="g88-H7-cDU" secondAttribute="trailing" constant="16" id="bpK-2e-ddT"/>
+                    <constraint firstItem="jp9-RA-37g" firstAttribute="centerY" secondItem="maB-7L-8Kg" secondAttribute="centerY" id="djw-Zx-rth"/>
+                    <constraint firstItem="zn9-0Z-WFN" firstAttribute="centerY" secondItem="maB-7L-8Kg" secondAttribute="centerY" id="eTQ-1e-wim"/>
                     <constraint firstItem="maB-7L-8Kg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="jt7-Jv-yP4"/>
+                    <constraint firstItem="maB-7L-8Kg" firstAttribute="leading" secondItem="zn9-0Z-WFN" secondAttribute="trailing" constant="8" id="nd5-iO-vAN"/>
                     <constraint firstItem="3kn-Dj-re7" firstAttribute="centerY" secondItem="maB-7L-8Kg" secondAttribute="centerY" id="nd7-bM-Rxm"/>
                     <constraint firstAttribute="trailing" secondItem="3kn-Dj-re7" secondAttribute="trailing" constant="16" id="rXf-gv-sU7"/>
+                    <constraint firstItem="zn9-0Z-WFN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rtD-ea-dVR"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addDoctorBtn" destination="g88-H7-cDU" id="aE0-5R-u1b"/>
                 <outlet property="doctorNameLabel" destination="maB-7L-8Kg" id="BWE-p4-RN2"/>
+                <outlet property="profilePic" destination="zn9-0Z-WFN" id="MYd-wd-jAX"/>
                 <outlet property="sharedSwitch" destination="3kn-Dj-re7" id="KMi-8v-nha"/>
             </connections>
             <point key="canvasLocation" x="-119" y="79.5"/>
