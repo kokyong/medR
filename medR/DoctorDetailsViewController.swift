@@ -49,9 +49,43 @@ class DoctorDetailsViewController: UIViewController  {
         specialtyLabel.text = displayDoc?.specialty
         infoLabel.text = displayDoc?.info
     }
+    extension DoctorDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return posts.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableCell.cellIdentifier, for: indexPath) as? PostTableCell else {return UITableViewCell()}
+            
+            cell.delegate = self
+            cell.indexPath = indexPath
+            let post = posts[indexPath.row]
+            
+            if let timestamp = post.dateTime {
+                cell.timestampLabel.text = dateFormater.string(from: Date(timeIntervalSinceReferenceDate: timestamp))
+            } else {
+                cell.timestampLabel.text = ""
+            }
+            
+            if post.image == nil {
+                if let url = post.imageURL {
+                    datatask = defaultSession.dataTask(with: url, completionHandler: { (data, response, error) in
+                        guard let validData = data else {return}
+                        guard let image = UIImage(data: validData) else { return }
+                        
+                        post.image = image
+                        DispatchQueue.main.async {
+                            self.newsFeedTableView.reloadRows(at: [indexPath], with: .automatic)
+                        }
+                    })
+                    datatask?.resume()
+                }
+            } else {
+                cell.postImage.image = post.image
+            }
+
     
-                      
-                   
                    
                    
                    
@@ -69,3 +103,5 @@ class DoctorDetailsViewController: UIViewController  {
 
 
 
+}
+}
