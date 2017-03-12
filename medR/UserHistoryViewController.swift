@@ -22,8 +22,6 @@ class UserHistoryViewController: UIViewController {
     
     
     //KY
-    
-    let uid = FIRAuth.auth()?.currentUser?.uid
 
     var selectedUID = String()
     
@@ -60,7 +58,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchMenuData() {
         
-        dbRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -81,13 +79,13 @@ class UserHistoryViewController: UIViewController {
             
             
             //patient
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
+            self.displayPatientImage = patientImage ?? ""
+            self.displayFullName = fullName ?? ""
+            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayGender = gender ?? ""
+            self.displayEmail = email ?? ""
+            self.displayAge = age ?? ""
+            self.displayAdress = address ?? ""
             
             //emergency
             self.displayEmergencyName = emergencyName!
@@ -155,7 +153,7 @@ class UserHistoryViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var constraintMenu: NSLayoutConstraint!
     
     var menuShowing = false
     
@@ -163,27 +161,53 @@ class UserHistoryViewController: UIViewController {
         
         if menuShowing {
             
-            leadingConstraint.constant = -200
+            constraintMenu.constant = -475
         }else{
             
-            leadingConstraint.constant = 0
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
+            constraintMenu.constant = 120
         }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         
         menuShowing = !menuShowing
     }
+    
     
     @IBOutlet weak var menuDetail: UIView!
     
     func menuDetailFunc() {
         
-        menuDetail.layer.shadowOpacity = 0.2
+        menuDetail.layer.cornerRadius = 1
+        menuDetail.layer.shadowOpacity = 0.8
         
     }
+    
+    @IBOutlet weak var backBtn: UIButton!{
+        
+        didSet{
+            
+            backBtn.addTarget(self, action: #selector(backBtnFunc), for: .touchUpInside)
+        }
+    }
+    
+    func backBtnFunc() {
+        
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchPatientViewController") as! SearchPatientViewController
+        
+        //configure VC
+        
+        // controller.selectedUID = self.patientUID
+        
+        
+        //show
+        self.present(controller, animated: true, completion: nil)
+
+    }
+    
+    
     
     //KY
     
