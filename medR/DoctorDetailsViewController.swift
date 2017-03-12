@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class DoctorDetailsViewController: UIViewController {
+class DoctorDetailsViewController: UIViewController  {
     
     var dbRef : FIRDatabaseReference!
     var displayDocWithUID : String = ""
@@ -50,6 +50,12 @@ class DoctorDetailsViewController: UIViewController {
         infoLabel.text = displayDoc?.info
     }
     
+                      
+                   
+                   
+                   
+                   
+                   
     @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!
     @IBOutlet weak var docNameLabel: UILabel!
@@ -60,3 +66,6 @@ class DoctorDetailsViewController: UIViewController {
     
     
 }
+
+
+
