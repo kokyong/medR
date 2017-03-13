@@ -14,7 +14,7 @@ class UserHistoryViewController: UIViewController {
     
     var dbRef : FIRDatabaseReference!
     
-    var history : [VisitRecord] = []
+    var history : [String] = []
     var completeRecord : [VisitRecord] = []
     var lastContentOffSet : CGFloat = 0.0
     var scrollDirection : String = "default"
@@ -126,7 +126,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchName() {
         
-        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(selectedUID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             
@@ -232,8 +232,7 @@ class UserHistoryViewController: UIViewController {
         super.viewDidLoad()
         
         dbRef = FIRDatabase.database().reference()
-        observeHistoryList(patientUID: selectedUID)
-        
+        observeHistoryList()
         
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
@@ -254,28 +253,30 @@ class UserHistoryViewController: UIViewController {
         }
     }
     
-    func observeHistoryList(patientUID : String){
-        dbRef?.child("users").child(patientUID).child("history").observe(.childAdded, with: { (snapshot) in
+    func observeHistoryList(){
+        dbRef?.child("users").child(selectedUID).child("history").observe(.childAdded, with: { (snapshot) in
             
-            let newHistory = VisitRecord()
-            newHistory.historyID = snapshot.key
-            self.history.append(newHistory)
+            //let newHistory = VisitRecord()
+            //newHistory.historyID = snapshot.key
+            let newHistoryID = snapshot.key
+            self.history.append(newHistoryID)
+            self.observeHistoryDetails()
+            
         })
-        
-        observeHistoryDetails()
     }
     
-    func observeHistoryDetails(){
+    func observeHistoryDetails() {
         
         for each in history {
             
-            dbRef?.child("history").child(each.historyID!).observe(.childAdded, with: { (snapshot) in
-                guard let value = snapshot.value as? [String: Any] else {return}
-                let newHistory = VisitRecord(withDictionary: value)
-                newHistory.historyID = snapshot.key
-                self.completeRecord.insert(newHistory, at: 0)
+            dbRef?.child("history").child(each).observe(.value, with: { (snapshot) in
+                guard let value = snapshot.value as? [String : Any] else {return}
+                
+                let history = VisitRecord(withDictionary: value)
+                history.historyID = snapshot.key
+                self.completeRecord.insert(history, at: 0)
                 self.historyCollectionView.reloadData()
-
+                
             })
         }
     }
@@ -330,12 +331,12 @@ extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewD
                 cell.dateLabel.text = ""
             }
             
-            let symptoms = attributedString(title: "Symptoms", content: record.symptoms!)
-            let diagnosis = attributedString(title: "Diagnosis", content: record.diagnosis!)
-            let majorIllness = attributedString(title: "Major illness", content: record.majorIllness!)
-            let treatment = attributedString(title: "Treatment", content: record.treatment!)
-            let surgery = attributedString(title: "Surgery", content: record.surgery!)
-            let residualProblem = attributedString(title: "Residual problem", content: record.residualProblem!)
+            let symptoms = attributedString(title: "Symptoms", content: record.symptoms ?? "")
+            let diagnosis = attributedString(title: "Diagnosis", content: record.diagnosis ?? "")
+            let majorIllness = attributedString(title: "Major illness", content: record.majorIllness ?? "")
+            let treatment = attributedString(title: "Treatment", content: record.treatment ?? "")
+            let surgery = attributedString(title: "Surgery", content: record.surgery ?? "")
+            let residualProblem = attributedString(title: "Residual problem", content: record.residualProblem ?? "")
             var displayString = NSMutableAttributedString()
             
             displayString.append(symptoms)

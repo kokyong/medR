@@ -36,7 +36,7 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         medicationTableView.rowHeight = UITableViewAutomaticDimension
         
         if currentPatient != nil {
-        fetchPatientInfo(uid: (currentPatient?.uid)!)
+            fetchPatientInfo(uid: (currentPatient?.uid)!)
         }
         
     }
@@ -45,7 +45,7 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         dbRef?.child("users").child(uid).observe(.value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
-        
+            
             let contactNumeber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let age = value?["age"] as? String
@@ -128,9 +128,9 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         autoIDRef?.setValue(historyDictionary)
         
-        dbRef?.child("users").child(validPatientID).child("history").ref.setValue(timestamp)
-        
         //SAVE THE HISTORY UNDER USER ID
+        dbRef?.child("users").child(validPatientID).child("history").child((autoIDRef?.key)!).setValue(timestamp)
+        
     }
     
     //MARK: Picker View
