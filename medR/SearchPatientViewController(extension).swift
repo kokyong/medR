@@ -32,12 +32,18 @@ extension SearchPatientViewController: UITableViewDataSource, AddPatientDelegate
 //        let patientID = patientUID[index]
         
         cell.addPatientDelegate = self
-        cell.doctorNameLabel.text = currentPatient.name
+        cell.doctorNameLabel.text = currentPatient.fullName
         cell.sharedSwitch.isHidden = true
         cell.addDoctorBtn.isHidden = true
         cell.entryBtn.isHidden = true
         cell.currentCellPath = indexPath
         cell.addPatientBtn.titleLabel?.text = "Add"
+        
+        if let url = currentPatient.patientImage {
+            if let data = NSData(contentsOf: url as URL) {
+                cell.profilePic.image = UIImage(data: data as Data)
+            }
+        }
         
         return cell
     }
@@ -54,7 +60,7 @@ extension SearchPatientViewController: UITableViewDelegate{
         
        // controller.selectedUID = self.patientUID
         let selectedPatient = filteredPatient[indexPath.row]
-        controller.selectedUID = selectedPatient.id
+        controller.selectedUID = selectedPatient.uid
         controller.isDoctorMode = true
         
         //show
@@ -102,7 +108,7 @@ extension SearchPatientViewController: UISearchBarDelegate {
 //                return text.lowercased().range(of: searchText.lowercased()) != nil
 //            })
             filteredPatient = patients.filter({ (patient) -> Bool in
-                patient.name.lowercased().range(of: searchText.lowercased()) != nil
+                patient.fullName?.lowercased().range(of: searchText.lowercased()) != nil
             })
             
             self.searchTableView.reloadData()

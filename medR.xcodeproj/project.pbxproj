@@ -22,6 +22,7 @@
 		6858F5031E6979A600586E8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5021E6979A600586E8F /* CreateAccountViewController.swift */; };
 		687BA8621E700B8200B6FA8C /* UserTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8611E700B8200B6FA8C /* UserTabViewController.swift */; };
 		687BA8641E70120C00B6FA8C /* DoctorTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */; };
+		689F10981E76D7BF00D518D0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689F10971E76D7BF00D518D0 /* FBSDKCoreKit.framework */; };
 		68AE40491E72693000543FAF /* medRgif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68AE40481E72693000543FAF /* medRgif.gif */; };
 		68AE404B1E7269B900543FAF /* QRStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */; };
 		68AE404E1E7269F900543FAF /* QueueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE404D1E7269F900543FAF /* QueueListViewController.swift */; };
@@ -72,6 +73,7 @@
 		6858F5021E6979A600586E8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		687BA8611E700B8200B6FA8C /* UserTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTabViewController.swift; sourceTree = "<group>"; };
 		687BA8631E70120C00B6FA8C /* DoctorTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTabViewController.swift; sourceTree = "<group>"; };
+		689F10971E76D7BF00D518D0 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/medR-hjbooxxktaunfngyfjlmbaotgofu/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		68AE40481E72693000543FAF /* medRgif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = medRgif.gif; sourceTree = "<group>"; };
 		68AE404A1E7269B900543FAF /* QRStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRStoryboard.storyboard; sourceTree = "<group>"; };
 		68AE404D1E7269F900543FAF /* QueueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueListViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689F10981E76D7BF00D518D0 /* FBSDKCoreKit.framework in Frameworks */,
 				68AE40501E7275E500543FAF /* AVFoundation.framework in Frameworks */,
 				8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */,
 			);
@@ -120,6 +123,7 @@
 		2BE413CBD7B219FB68705509 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				689F10971E76D7BF00D518D0 /* FBSDKCoreKit.framework */,
 				68AE404F1E7275E500543FAF /* AVFoundation.framework */,
 				5120B4E453F67F0C361E7881 /* Pods_medR.framework */,
 			);
@@ -414,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A14BCD1F4B9EEEAB3596A7 /* [CP] Copy Pods Resources */ = {
