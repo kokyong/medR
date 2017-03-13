@@ -30,7 +30,7 @@
 		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
 		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
-		948356ED1E6FFCE700349829 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		948356ED1E6FFCE700349829 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EE1E701A5A00349829 /* LoginViewController.swift */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
 		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
@@ -414,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A14BCD1F4B9EEEAB3596A7 /* [CP] Copy Pods Resources */ = {
@@ -471,7 +471,7 @@
 				6858F4F41E67FC5F00586E8F /* Medicine.swift in Sources */,
 				6858F4D91E66A6C200586E8F /* UserHistoryViewController.swift in Sources */,
 				68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */,
-				948356ED1E6FFCE700349829 /* (null) in Sources */,
+				948356ED1E6FFCE700349829 /* BuildFile in Sources */,
 				948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */,
 				94A93B751E66ADC9001F3866 /* EditPatientProfileViewController.swift in Sources */,
 				94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */,
