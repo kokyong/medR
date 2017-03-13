@@ -56,6 +56,8 @@ class SearchPatientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+          self.searchTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+        
         ref = FIRDatabase.database().reference()
         fetchPatientData()
         

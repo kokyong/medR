@@ -61,6 +61,10 @@ extension SearchPatientViewController: UITableViewDelegate{
         self.present(controller, animated: true, completion: nil)
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
  
     
     
