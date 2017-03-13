@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -318,7 +318,7 @@
                             <constraint firstItem="U6b-Ki-Piu" firstAttribute="top" secondItem="sCT-2y-xRS" secondAttribute="bottom" id="vqZ-NH-EZK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Item" image="profileBlack" selectedImage="profileBlack" id="lb4-b5-h3m"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Item" id="lb4-b5-h3m"/>
                     <connections>
                         <outlet property="backBtn" destination="jRL-J9-fkm" id="hUa-QF-UB5"/>
                         <outlet property="constraintMenu" destination="tfa-nD-6rK" id="sdo-48-K57"/>
@@ -1085,7 +1085,6 @@
     </scenes>
     <resources>
         <image name="male" width="275" height="296"/>
-        <image name="profileBlack" width="300" height="300"/>
     </resources>
     <color key="tintColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
