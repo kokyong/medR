@@ -254,7 +254,11 @@ class UserHistoryViewController: UIViewController {
     }
     
     func observeHistoryList(){
-        dbRef?.child("users").child(selectedUID).child("history").observe(.childAdded, with: { (snapshot) in
+        //TODO : change back to selected id
+        print(selectedUID)
+        
+        let ref = dbRef.child("users").child(selectedUID).child("history")
+        ref.observe(.childAdded, with: { (snapshot) in
             
             //let newHistory = VisitRecord()
             //newHistory.historyID = snapshot.key
@@ -263,13 +267,14 @@ class UserHistoryViewController: UIViewController {
             self.observeHistoryDetails()
             
         })
+        print(ref)
     }
     
     func observeHistoryDetails() {
         
         for each in history {
             
-            dbRef?.child("history").child(each).observe(.value, with: { (snapshot) in
+            dbRef.child("history").child(each).observe(.value, with: { (snapshot) in
                 guard let value = snapshot.value as? [String : Any] else {return}
                 
                 let history = VisitRecord(withDictionary: value)
@@ -278,9 +283,9 @@ class UserHistoryViewController: UIViewController {
                 self.historyCollectionView.reloadData()
                 
             })
+            
         }
     }
-    
 }
 
 extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
