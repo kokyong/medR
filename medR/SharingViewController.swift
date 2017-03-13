@@ -20,6 +20,9 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.doctorTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+        
         dbRef = FIRDatabase.database().reference()
         fetchDoctorsShared()
         
@@ -33,17 +36,9 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         doctorTableView.estimatedRowHeight = 80
         doctorTableView.rowHeight = UITableViewAutomaticDimension
         
-        //navigation item for QR
-//        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
-//        self.view.addSubview(navBar)
-//        let navItem = UINavigationItem(title: "Doctors")
-//        let scanQR = UIBarButtonItem(title: "scan QR", style: UIBarButtonItemStyle.plain, target: nil, action: "selector")
-//        navItem.rightBarButtonItem = scanQR
-//       navBar.setItems([navItem], animated: false)
-        
     }
     
-
+    
     func fetchDoctorsShared(){
         
         
@@ -66,17 +61,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
             self.filteredDoctors = self.doctorsShared
             self.doctorTableView.reloadData()
         })
-        
-//        dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.childRemoved, with: { (snapshot) in
-//            let newDoctor = DoctorDetail()
-//            newDoctor.docUid = snapshot.key
-//            newDoctor.docName = snapshot.value as! String?
-//            self.doctorsShared.append(newDoctor)
-//            self.filteredDoctors = self.doctorsShared
-//            self.doctorTableView.reloadData()
-//        })
-        
-        
     }
     
     
@@ -106,6 +90,11 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    //QR code
+    
+    func handleQRSuccessScan(uid: String){
+        
+    }
     
     
     @IBAction func scanQR(_ sender: UIBarButtonItem) {
@@ -132,6 +121,8 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         cell.doctorNameLabel.text = doctor.docName
         cell.sharedSwitch.isOn = true
         cell.addDoctorBtn.isHidden = true
+        cell.addPatientBtn.isHidden = true
+        cell.entryBtn.isHidden = true
         cell.delegate = self
         cell.currentCellPath = indexPath
         return cell
@@ -145,6 +136,10 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         let doctorToDisplay = filteredDoctors[indexPath.row]
         
         detailPage.displayDocWithUID = doctorToDisplay.docUid!
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     

@@ -202,10 +202,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
+    
     func displayImagePicker(){
         
         let pickerViewController = UIImagePickerController ()

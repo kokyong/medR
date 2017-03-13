@@ -17,6 +17,9 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+
         dbRef = FIRDatabase.database().reference()
         fetchAllDoctors()
 
@@ -66,7 +69,7 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchTableView: UITableView!
 }
 
-extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, ButtonDelegate {
+extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, AddDocDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -80,8 +83,10 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         
         cell.doctorNameLabel.text = doctor.docName
         cell.sharedSwitch.isHidden = true
+        cell.addPatientBtn.isHidden = true
+        cell.entryBtn.isHidden = true
         cell.currentCellPath = indexPath
-        cell.delegateBtn = self
+        cell.addDocDelegate = self
         
         return cell
     }
@@ -90,6 +95,11 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+
     
     func addDoctor(indexPath: IndexPath){
         let doctor = filteredDoctors[indexPath.row]
