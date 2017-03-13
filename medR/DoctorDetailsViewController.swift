@@ -73,5 +73,27 @@ class DoctorDetailsViewController: UIViewController {
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
+    @IBOutlet weak var editProfile: UIButton!{
+        
+        
+        didSet{
+            
+            editProfile.addTarget(self, action: #selector(edit), for: .touchUpInside)
+        }
+        
+        
+    }
+    
+    
+    func edit() {
+        
+        //push to doc VC
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "SignUpDoctorProfileViewController") as? SignUpDoctorProfileViewController else {return}
+
+        
+        self.present(controller, animated: true, completion: nil)
+        
+    }
     
 }
