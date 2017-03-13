@@ -124,10 +124,13 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             historyDictionary["nextAppointment"] = ""
         }
         
-        let ref = dbRef?.child("history").childByAutoId()
-        ref?.setValue(historyDictionary)
+        let autoIDRef = dbRef?.child("history").childByAutoId()
         
+        autoIDRef?.setValue(historyDictionary)
         
+        dbRef?.child("users").child(validPatientID).child("history").ref.setValue(timestamp)
+        
+        //SAVE THE HISTORY UNDER USER ID
     }
     
     //MARK: Picker View
