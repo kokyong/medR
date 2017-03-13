@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension SearchPatientViewController: UITableViewDataSource{
+extension SearchPatientViewController: UITableViewDataSource, AddPatientDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -18,7 +18,7 @@ extension SearchPatientViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchPatientDetailCell") else {return UITableViewCell()}
+        guard let cell = searchTableView.dequeueReusableCell(withIdentifier: "DocListCell", for: indexPath) as? DoctorSharingTableViewCell else {return UITableViewCell()}
         
         let currentPatient = filteredPatient[indexPath.row]
 //        guard let index = patientName.index(where: { (str) -> Bool in
@@ -31,8 +31,13 @@ extension SearchPatientViewController: UITableViewDataSource{
 //        let patientIndex = patientName[index]
 //        let patientID = patientUID[index]
         
-        cell.textLabel?.text = currentPatient.name
-        cell.detailTextLabel?.text = currentPatient.id
+        cell.addPatientDelegate = self
+        cell.doctorNameLabel.text = currentPatient.name
+        cell.sharedSwitch.isHidden = true
+        cell.addDoctorBtn.isHidden = true
+        cell.entryBtn.isHidden = true
+        cell.currentCellPath = indexPath
+        cell.addPatientBtn.titleLabel?.text = "Add"
         
         return cell
     }
@@ -50,6 +55,7 @@ extension SearchPatientViewController: UITableViewDelegate{
        // controller.selectedUID = self.patientUID
         let selectedPatient = filteredPatient[indexPath.row]
         controller.selectedUID = selectedPatient.id
+        controller.isDoctorMode = true
         
         //show
         self.present(controller, animated: true, completion: nil)

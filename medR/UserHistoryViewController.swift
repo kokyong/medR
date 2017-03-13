@@ -15,15 +15,16 @@ class UserHistoryViewController: UIViewController {
     var dbRef : FIRDatabaseReference!
     
     var history : [VisitRecord] = []
+    var completeRecord : [VisitRecord] = []
     var lastContentOffSet : CGFloat = 0.0
     var scrollDirection : String = "default"
     
-    
+    var isDoctorMode : Bool = false
     
     
     //KY
-
-    var selectedUID = String()
+    
+    var selectedUID : String = PatientDetail.current.uid
     
     //patient
     var displayPatientImage = String()
@@ -99,7 +100,7 @@ class UserHistoryViewController: UIViewController {
             self.menuNumber.text = self.displayPhoneNumber
             self.menuGender.text = self.displayGender
             self.menuEmail.text = self.displayEmail
-           
+            
             
             //emergency
             self.manuEmergencyName.text = self.displayEmergencyName
@@ -162,9 +163,12 @@ class UserHistoryViewController: UIViewController {
         if menuShowing {
             
             constraintMenu.constant = -475
+            detailBtn.setTitle("Detail", for: .normal)
+            
         }else{
             
             constraintMenu.constant = 120
+            detailBtn.setTitle("Dismiss", for: .normal)
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -203,8 +207,9 @@ class UserHistoryViewController: UIViewController {
         
         
         //show
-        self.present(controller, animated: true, completion: nil)
-
+        //self.present(controller, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -227,7 +232,8 @@ class UserHistoryViewController: UIViewController {
         super.viewDidLoad()
         
         dbRef = FIRDatabase.database().reference()
-        observeHistory()
+        observeHistoryList(patientUID: selectedUID)
+        
         
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
@@ -242,27 +248,37 @@ class UserHistoryViewController: UIViewController {
         menuDetailFunc()
         fetchMenuData()
         
-        
+        if isDoctorMode == false {
+            self.backBtn.isHidden = true
+            self.detailBtn.isHidden = true
+        }
     }
     
-    
-    func observeHistory(){
-        
-        dbRef?.child("history").observe(.childAdded, with: { (snapshot) in
-            guard let value = snapshot.value as? [String: Any] else {return}
-            let newHistory = VisitRecord(withDictionary: value)
+    func observeHistoryList(patientUID : String){
+        dbRef?.child("users").child(patientUID).child("history").observe(.childAdded, with: { (snapshot) in
+            
+            let newHistory = VisitRecord()
             newHistory.historyID = snapshot.key
-            self.history.insert(newHistory, at: 0)
-            self.historyCollectionView.reloadData()
-            
-            
-            
-            dump(self.history)
+            self.history.append(newHistory)
         })
+        
+        observeHistoryDetails()
     }
     
-    
-    
+    func observeHistoryDetails(){
+        
+        for each in history {
+            
+            dbRef?.child("history").child(each.historyID!).observe(.childAdded, with: { (snapshot) in
+                guard let value = snapshot.value as? [String: Any] else {return}
+                let newHistory = VisitRecord(withDictionary: value)
+                newHistory.historyID = snapshot.key
+                self.completeRecord.insert(newHistory, at: 0)
+                self.historyCollectionView.reloadData()
+
+            })
+        }
+    }
     
 }
 
@@ -289,7 +305,7 @@ extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewD
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return history.count
+        return completeRecord.count
     }
     
     
@@ -302,7 +318,7 @@ extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewD
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? HistoryCollectionViewCell else {return UICollectionViewCell()}
         
-        let record = history[indexPath.section]
+        let record = completeRecord[indexPath.section]
         
         if indexPath.item == 0 {
             

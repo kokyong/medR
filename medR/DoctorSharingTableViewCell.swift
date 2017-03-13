@@ -14,16 +14,25 @@ protocol SwitchDelegate : class {
     func switchOn(indexPath: IndexPath)
 }
 
-protocol ButtonDelegate : class {
+protocol AddDocDelegate : class {
     func addDoctor(indexPath: IndexPath)
+}
+
+protocol AddPatientDelegate : class {
+    func addPatient(indexPath: IndexPath)
+}
+
+protocol EntryDelegate : class {
+    func showEntry(indexPath : IndexPath)
 }
 
 class DoctorSharingTableViewCell: UITableViewCell {
     
-    var dbRef : FIRDatabaseReference!
     var currentCellPath : IndexPath!
     weak var delegate : SwitchDelegate?
-    weak var delegateBtn : ButtonDelegate?
+    weak var addDocDelegate : AddDocDelegate?
+    weak var addPatientDelegate : AddPatientDelegate?
+    weak var entryDelegate : EntryDelegate?
     
     static let cellIdentifier = "DocListCell"
     static let cellNib = UINib(nibName: "DoctorSharingTableViewCell", bundle: Bundle.main)
@@ -47,18 +56,40 @@ class DoctorSharingTableViewCell: UITableViewCell {
         }
     }
     
-    func handleAdd(){
-        delegateBtn?.addDoctor(indexPath: currentCellPath)
+    func handleAddDoctor(){
+        addDocDelegate?.addDoctor(indexPath: currentCellPath)
         addDoctorBtn.setTitle("Added", for: .normal)
+    }
+    
+    func handleAddPatient(){
+        addPatientDelegate?.addPatient(indexPath: currentCellPath)
+        addPatientBtn.setTitle("Added", for: .normal)
+    }
+    
+    func handleShowEntry(){
+        entryDelegate?.showEntry(indexPath: currentCellPath)
     }
     
     @IBOutlet weak var addDoctorBtn: UIButton!{
         didSet{
-            addDoctorBtn.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
+            addDoctorBtn.addTarget(self, action: #selector(handleAddDoctor), for: .touchUpInside)
         }
     }
+    
+    @IBOutlet weak var addPatientBtn: UIButton!{
+        didSet{
+            addPatientBtn.addTarget(self, action: #selector(handleAddPatient), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var entryBtn: UIButton!{
+        didSet{
+            entryBtn.addTarget(self, action: #selector(handleShowEntry), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var doctorNameLabel: UILabel!
-    @IBOutlet weak var doctorDetailLabel: UILabel!
     @IBOutlet weak var sharedSwitch: UISwitch!{
         didSet{
             sharedSwitch.addTarget(self, action: #selector(switchChanged), for: .touchUpInside)

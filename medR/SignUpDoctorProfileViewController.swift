@@ -43,6 +43,7 @@ class SignUpDoctorProfileViewController: UIViewController {
         didSet{
             
             doneCreatingBtn.addTarget(self, action: #selector(creatDocAcc), for: .touchUpInside)
+            doneCreatingBtn.addTarget(self, action: #selector(createQRCode), for: .touchUpInside)
         }
     }
     
@@ -52,9 +53,6 @@ class SignUpDoctorProfileViewController: UIViewController {
     func creatDocAcc(){
         
         guard let licenceID = licenceIDTF.text, let clinicAddress = clinicAddressTF.text, let specialty = specialtyTF.text, let info = infoTextView.text else {return}
-        
-        //let uid = FIRAuth.auth()?.currentUser?.uid
-        let ref = FIRDatabase.database().reference()
         
         let value = ["licenceID": licenceID, "clinicAddress": clinicAddress, "specialty": specialty, "info": info] as [String : Any]
         
@@ -76,14 +74,37 @@ class SignUpDoctorProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "PatientProfileViewController") as? PatientProfileViewController else {return}
         
-        self.present(controller, animated: true, completion: nil)
-        
+        self.dismiss(animated: true, completion: nil)
         
     }
+    
+    //QR code
     
     func createQRCode(){
         let qrCode = QRCode(PatientDetail.current.uid)
         let codeImage = qrCode?.image
+       
+        uploadImage(image: codeImage!)
+    }
+    
+    func uploadImage (image: UIImage){
+        let storageRef = FIRStorage.storage().reference()
+        var metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+    
+        let imageName = ("image \(PatientDetail.current.uid).jpeg")
+        
+        guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
+        storageRef.child(imageName).put(imageData, metadata: metadata) { (meta, error) in
+            
+            if let downloadUrl = meta?.downloadURL() {
+                let stringUrl = downloadUrl.absoluteString
+                self.ref.child("users").child(PatientDetail.current.uid).child("docAcc").child("QRcode").setValue(stringUrl)
+                
+            } else {
+                //error
+            }
+        }
     }
     
     

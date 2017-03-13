@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    var currentPatient : PatientDetail?
+    
     var dbRef : FIRDatabaseReference?
     var numberOfMed : Int = 3
     var cellAtIndexPath : MedicineTableViewCell?
@@ -33,7 +35,30 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         medicationTableView.estimatedRowHeight = 80
         medicationTableView.rowHeight = UITableViewAutomaticDimension
         
+        if currentPatient != nil {
+        fetchPatientInfo(uid: (currentPatient?.uid)!)
+        }
         
+    }
+    
+    func fetchPatientInfo(uid : String){
+        
+        dbRef?.child("users").child(uid).observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+        
+            let contactNumeber = value?["contactNumber"] as? String
+            let gender = value?["gender"] as? String
+            let age = value?["age"] as? String
+            
+            self.currentPatient?.gender = gender
+            self.currentPatient?.contactNumeber = contactNumeber
+            self.currentPatient?.age = age
+            
+            self.nameTF.text = self.currentPatient?.fullName
+            self.genderTF.text = self.currentPatient?.gender
+            self.ageTF.text = self.currentPatient?.age
+            self.phoneTF.text = self.currentPatient?.contactNumeber
+        })
     }
     
     func submit() {
@@ -52,8 +77,10 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             medArray.append(newMed)
         }
         
-        var historyDictionary : [String: Any] = ["doctorID" : "User.current.userID", "dateTime" : timestamp,
-                                                 "patientID" : "patientID",            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
+        let validPatientID = currentPatient?.uid ?? "no ID"
+        
+        var historyDictionary : [String: Any] = ["doctorID" : PatientDetail.current.uid, "dateTime" : timestamp,
+                                                 "patientID" : validPatientID,            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
         
         if let symptom = symptomTV.text{
             historyDictionary["symptoms"] = symptom
@@ -97,10 +124,13 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             historyDictionary["nextAppointment"] = ""
         }
         
-        let ref = dbRef?.child("history").childByAutoId()
-        ref?.setValue(historyDictionary)
+        let autoIDRef = dbRef?.child("history").childByAutoId()
         
+        autoIDRef?.setValue(historyDictionary)
         
+        dbRef?.child("users").child(validPatientID).child("history").ref.setValue(timestamp)
+        
+        //SAVE THE HISTORY UNDER USER ID
     }
     
     //MARK: Picker View

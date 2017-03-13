@@ -12,6 +12,8 @@ import FirebaseDatabase
 class DoctorDetailsViewController: UIViewController  {
     
     var dbRef : FIRDatabaseReference!
+    var datatask : URLSessionDataTask?
+    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
     var displayDocWithUID : String = ""
     var displayDoc : DoctorDetail?
     
@@ -29,7 +31,7 @@ class DoctorDetailsViewController: UIViewController  {
         dbRef?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : Any] else {return}
-           displayDoctor = DoctorDetail(withDictionary: value)
+            displayDoctor = DoctorDetail(withDictionary: value)
             displayDoctor.docUid = self.displayDocWithUID
             self.displayDoc = displayDoctor
             
@@ -48,14 +50,30 @@ class DoctorDetailsViewController: UIViewController  {
         clinicAddLabel.text = displayDoc?.clinicAddress
         specialtyLabel.text = displayDoc?.specialty
         infoLabel.text = displayDoc?.info
+        
+        if let url = displayDoc?.qrCodeUrl {
+            datatask = defaultSession.dataTask(with: url, completionHandler: { (data, response, error) in
+                guard let validData = data else {return}
+                guard let image = UIImage(data: validData) else { return }
+                
+                self.QRcode.image = image
+               
+            })
+            
+            datatask?.resume()
+        }
     }
     
+<<<<<<< HEAD
 
     
                    
                    
                    
                    
+=======
+    
+>>>>>>> 8a4b5126cae96291985236d9f4763f37c99dea3c
     @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!
     @IBOutlet weak var docNameLabel: UILabel!
@@ -63,6 +81,47 @@ class DoctorDetailsViewController: UIViewController  {
     @IBOutlet weak var clinicAddLabel: UILabel!
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    
+    //KY
+    
+    @IBOutlet weak var editProfile: UIButton!{
+        
+        
+        didSet{
+            
+            editProfile.addTarget(self, action: #selector(edit), for: .touchUpInside)
+        }
+        
+        
+    }
+    
+    
+    
+    func edit() {
+        
+        //push to doc VC
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "SignUpDoctorProfileViewController") as? SignUpDoctorProfileViewController else {return}
+
+        
+        self.present(controller, animated: true, completion: nil)
+        
+    }
+    
+    @IBOutlet weak var dismissBtn: UIButton!{
+        
+        didSet{
+            
+            dismissBtn.addTarget(self, action: #selector(dismissBtnFunc), for: .touchUpInside)
+        }
+    }
+    
+    func dismissBtnFunc() {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // KY
     
     
 }
