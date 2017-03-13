@@ -18,12 +18,17 @@ class SignUpDoctorProfileViewController: UIViewController {
         
         ref = FIRDatabase.database().reference()
         //fetchDocInfo()
+        fetchUserInfo()
         
     }
     
     var displayPatientImage = String()
     var displayDocName = String()
     var ref : FIRDatabaseReference!
+    var displayDoc : DoctorDetail?
+    var displayDocWithUID : String = ""
+    
+    
     
     //fetch image
     @IBOutlet weak var docProfileImageView: UIImageView!
@@ -83,7 +88,7 @@ class SignUpDoctorProfileViewController: UIViewController {
     func createQRCode(){
         let qrCode = QRCode(PatientDetail.current.uid)
         let codeImage = qrCode?.image
-       
+        
         uploadImage(image: codeImage!)
     }
     
@@ -91,7 +96,7 @@ class SignUpDoctorProfileViewController: UIViewController {
         let storageRef = FIRStorage.storage().reference()
         var metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
-    
+        
         let imageName = ("image \(PatientDetail.current.uid).jpeg")
         
         guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
@@ -108,32 +113,62 @@ class SignUpDoctorProfileViewController: UIViewController {
     }
     
     
-    func fetchDocInfo() {
-        
-        ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            
-            let value = snapshot.value as? NSDictionary
-            
-            
-            let docFullName = value?["fullName"] as? String
-            self.displayDocName = docFullName!
-            self.docFullName.text = self.displayDocName
-            
-            let patientImage = value?["profileURL"] as? String
-            self.displayPatientImage = patientImage!
-            
-            
-            
-            if let url = NSURL(string: self.displayPatientImage) {
-                if let data = NSData(contentsOf: url as URL) {
-                    self.docProfileImageView.image = UIImage(data: data as Data)
+        func fetchUserInfo() {
+    
+            ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+    
+    
+                let value = snapshot.value as? NSDictionary
+    
+    
+                let docFullName = value?["fullName"] as? String
+                self.displayDocName = docFullName!
+                self.docFullName.text = self.displayDocName
+    
+                let patientImage = value?["profileURL"] as? String
+                self.displayPatientImage = patientImage!
+    
+    
+    
+                if let url = NSURL(string: self.displayPatientImage) {
+                    if let data = NSData(contentsOf: url as URL) {
+                        self.docProfileImageView.image = UIImage(data: data as Data)
+                    }
                 }
-            }
-        })
-        
-        
-    }
+            })
     
     
+        }
+//    
+//    func fetchDocInfo() {
+//        var displayDoctor = DoctorDetail()
+//        
+//        ref?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
+//            
+//            guard let value = snapshot.value as? [String : Any] else {return}
+//            displayDoctor = DoctorDetail(withDictionary: value)
+//            displayDoctor.docUid = self.displayDocWithUID
+//            self.displayDoc = displayDoctor
+//            
+//        })
+//        
+//        ref?.child("users").child(displayDocWithUID).child("fullName").observe(.value, with: { (snapshot) in
+//            displayDoctor.docName = snapshot.value as? String
+//            self.displayInfo()
+//        })
+//    }
+//    
+//    func displayInfo(){
+//        
+//        docFullName.text = displayDoc?.docName
+//        licenceIDTF.text = displayDoc?.lisenceID
+//        clinicAddressTF.text = displayDoc?.clinicAddress
+//        specialtyTF.text = displayDoc?.specialty
+//        infoTextView.text = displayDoc?.info
+//        
+//    }
 }
+
+
+
+
