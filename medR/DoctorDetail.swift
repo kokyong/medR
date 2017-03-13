@@ -19,6 +19,7 @@ class DoctorDetail {
     var specialty : String?
     var info : String?
     var qrCodeUrl : URL?
+    var profilePicUrl : URL?
     
     //Visited Patient
     var patientID : String?
@@ -41,6 +42,10 @@ class DoctorDetail {
         
         if let imageStringURL = dictionary["QRcode"] as? String {
             qrCodeUrl = URL(string: imageStringURL)
+        }
+        
+        if let ppStringURL = dictionary["profileURL"] as? String {
+            profilePicUrl = URL(string: ppStringURL)
         }
     }
 }

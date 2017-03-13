@@ -59,7 +59,7 @@ class UserHistoryViewController: UIViewController {
     
     func fetchMenuData() {
         
-        dbRef.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        dbRef.child("users").child(selectedUID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
