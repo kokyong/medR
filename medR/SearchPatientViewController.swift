@@ -9,10 +9,6 @@
 import UIKit
 import Firebase
 
-class Patient {
-    var name : String = ""
-    var id : String = ""
-}
 
 class SearchPatientViewController: UIViewController {
     
@@ -21,12 +17,12 @@ class SearchPatientViewController: UIViewController {
 //    var patientName = [String]()
 //    var patientUID = [String]()
 //    
-    var patients = [Patient]()
+    var patients = [PatientDetail]()
     
     var searchActive : Bool = false
     
 //    var filteredPatient = [String]()
-    var filteredPatient = [Patient]()
+    var filteredPatient = [PatientDetail]()
     var ref : FIRDatabaseReference!
 
     
@@ -79,9 +75,10 @@ class SearchPatientViewController: UIViewController {
     
                 for user in snapshot.children {
     
-                    let newPatient = Patient()
-                    newPatient.name = (user as AnyObject).value
-                    newPatient.id = (user as AnyObject).key
+                    let newPatient = PatientDetail()
+                    newPatient.fullName = (user as AnyObject).value
+                    newPatient.uid = (user as AnyObject).key
+                    self.fetchProfilePic(key: newPatient.uid, patient: newPatient)
                     self.patients.append(newPatient)
 
 
@@ -95,11 +92,24 @@ class SearchPatientViewController: UIViewController {
                 
             })
         }
+    
+    func fetchProfilePic(key : String, patient : PatientDetail){
+        ref.child("users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let patientImage = value?["profileURL"] as? String ?? ""
+            patient.patientImage = URL(string: patientImage)
+            
+        })
+    }
+
 
     func addPatient(indexPath: IndexPath){
         let patient = filteredPatient[indexPath.row]
         
-        ref.child("users").child(PatientDetail.current.uid).child("queue").child(patient.id).setValue(patient.name)
+        ref.child("users").child(PatientDetail.current.uid).child("queue").child(patient.uid).setValue(patient.fullName)
         
         
     }
