@@ -17,6 +17,9 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+
         dbRef = FIRDatabase.database().reference()
         fetchAllDoctors()
 
@@ -92,6 +95,11 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+
     
     func addDoctor(indexPath: IndexPath){
         let doctor = filteredDoctors[indexPath.row]

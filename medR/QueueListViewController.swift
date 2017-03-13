@@ -17,6 +17,10 @@ class QueueListViewController: UIViewController, EntryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.QueueListTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+
+        
         dbRef = FIRDatabase.database().reference()
         
         QueueListTableView.delegate = self
@@ -113,6 +117,11 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         

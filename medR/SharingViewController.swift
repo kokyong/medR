@@ -20,6 +20,9 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.doctorTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
+        
         dbRef = FIRDatabase.database().reference()
         fetchDoctorsShared()
         
@@ -35,7 +38,7 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-
+    
     func fetchDoctorsShared(){
         
         
@@ -133,6 +136,10 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         let doctorToDisplay = filteredDoctors[indexPath.row]
         
         detailPage.displayDocWithUID = doctorToDisplay.docUid!
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     

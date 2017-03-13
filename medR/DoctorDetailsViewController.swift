@@ -73,6 +73,8 @@ class DoctorDetailsViewController: UIViewController {
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
+    //KY
+    
     @IBOutlet weak var editProfile: UIButton!{
         
         
@@ -85,6 +87,7 @@ class DoctorDetailsViewController: UIViewController {
     }
     
     
+    
     func edit() {
         
         //push to doc VC
@@ -95,5 +98,21 @@ class DoctorDetailsViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
         
     }
+    
+    @IBOutlet weak var dismissBtn: UIButton!{
+        
+        didSet{
+            
+            dismissBtn.addTarget(self, action: #selector(dismissBtnFunc), for: .touchUpInside)
+        }
+    }
+    
+    func dismissBtnFunc() {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // KY
+    
     
 }

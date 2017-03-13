@@ -70,7 +70,9 @@
                                 <rect key="frame" x="145" y="28" width="85" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="8SJ-WK-h7Y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Rnn-Om-U6n"/>
                                     <constraint firstAttribute="width" constant="85" id="iCs-rN-tMz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="nk5-BL-JyQ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fullName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-pL-ENZ">
@@ -236,7 +238,7 @@
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-ID-KRg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-ID-KRg">
                                 <rect key="frame" x="131" y="245" width="228" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="STK-NW-eqP"/>

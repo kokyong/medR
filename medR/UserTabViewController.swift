@@ -31,7 +31,7 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
         // Create Tab two
     
         guard let tabTwo = storyboard.instantiateViewController(withIdentifier: "SharingNavigationController") as?  UINavigationController else { return }
-        let tabTwoBarItem2 = UITabBarItem(title: "My Doctors", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
+        let tabTwoBarItem2 = UITabBarItem(title: "My Doctors", image: UIImage(named: "doctors.png"), selectedImage: UIImage(named: "selectedImage2.png"))
         
         tabTwo.tabBarItem = tabTwoBarItem2
         
