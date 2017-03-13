@@ -238,7 +238,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                 
                 if let downloadURL = meta?.downloadURL() {
                     //got image url
-                    self.dbRef.child("users").child(uid!).updateChildValues(["profileURL":downloadURL.absoluteString])
+                    self.dbRef.child("users").child(uid!).child("profileURL").setValue(downloadURL.absoluteString)
                 }
                 
                 self.dismiss(animated: true, completion: nil)

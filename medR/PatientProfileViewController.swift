@@ -189,9 +189,7 @@ class PatientProfileViewController: UIViewController {
             self.displayContactEmergency = emergencyContact!
             self.displayEmergencyRelationship = emergencyRelationship!
             
-            
-            
-            //patinet
+            //patient detail
             self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))" ?? ""
             self.phoneNumberLabel.text = self.displayPhoneNumber ?? ""
             self.genderLabel.text = self.displayGender ?? ""
@@ -204,7 +202,7 @@ class PatientProfileViewController: UIViewController {
             self.contactEmergencyLabel.text = self.displayContactEmergency  ?? ""
             self.relationshipEmergencyLabel.text = self.displayEmergencyRelationship ?? ""
             
-            
+            //patient profile pic
             if let url = NSURL(string: self.displayPatientImage) {
                 
                 if let data = NSData(contentsOf: url as URL) {
