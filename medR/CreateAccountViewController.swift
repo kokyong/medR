@@ -46,6 +46,14 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
             
 
             self.present(controller, animated: true, completion: nil)
+        
+            let alertMessage = UIAlertController (title: "Message", message: "successfullyLogout", preferredStyle: .alert)
+        
+            self.present(alertMessage, animated: true, completion: nil)
+        
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertMessage.addAction(okAction)
+        
     }
     @IBOutlet weak var userSelectPicture: UIButton!{
         didSet{
@@ -56,6 +64,12 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     }
 
     @IBAction func userVerifyField(_ sender: UIButton) {
+        let alertMessage = UIAlertController (title: "Message", message: "Successfully Sign up", preferredStyle: .alert)
+        
+        self.present(alertMessage, animated: true, completion: nil)
+        
+        let OkAction = UIAlertAction (title: "OK", style: .default)
+        
         
         createAccount()
     }
