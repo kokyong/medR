@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class DoctorDetailsViewController: UIViewController {
+class DoctorDetailsViewController: UIViewController  {
     
     var dbRef : FIRDatabaseReference!
     var datatask : URLSessionDataTask?
@@ -64,6 +64,12 @@ class DoctorDetailsViewController: UIViewController {
         }
     }
     
+
+    
+                   
+                   
+                   
+                   
     
     @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!
@@ -116,3 +122,7 @@ class DoctorDetailsViewController: UIViewController {
     
     
 }
+
+
+
+

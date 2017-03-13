@@ -39,7 +39,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MTBBarcodeScanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-medR.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QRCode.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QRCodeReader.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -48,6 +63,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>292CA6E29EF99102A743CF4CFC444A29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,13 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>9DF61A38842AB92FE7443ED3A096DCD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC5000D645EEAF961C85907CDC796FE1</key>
-		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
+		<key>A22061CB4905A4B3D04A240116203A49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA1A3A35A68467EBA1F5174A483182A5</key>
+		<key>FB288DF2C17976BEBF87F0502C8A2D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
