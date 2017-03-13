@@ -91,11 +91,10 @@ class EditPatientProfileViewController: UIViewController {
         
         guard let fullName = fullNameTF.text, let contactNumeber = contactNumberTF.text, let gender = GenderTF.text, let email = emailTF.text, let age = ageTF.text, let address = addressTF.text, let emergencyName = emergencyNameTF.text, let emergencyRelationship = emergencyRelationshipTF.text, let emergencyContact = emergencyContactTF.text else {return}
         
-        //let uid = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
         let value = ["fullName": fullName, "contactNumeber": contactNumeber, "gender": gender, "email": email, "age": age , "address": address, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship, "emergencyContact": emergencyContact] as [String : Any]
         
-        ref.child("users").child("specialUID").updateChildValues(value, withCompletionBlock: { (err, ref) in
+        ref.child("users").child(PatientDetail.current.uid).updateChildValues(value, withCompletionBlock: { (err, ref) in
             
             if err != nil {
                 
