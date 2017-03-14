@@ -131,11 +131,11 @@ class UserHistoryViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             
             
-            let fullName = value?["fullName"] as? String
-            let age = value?["age"] as? String
+            let fullName = value?["fullName"] as? String ?? ""
+            let age = value?["age"] as? String ?? ""
             
-            self.displayFullName = fullName!
-            self.displayAge = age!
+            self.displayFullName = fullName
+            self.displayAge = age
             
             self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))"
             
@@ -232,7 +232,7 @@ class UserHistoryViewController: UIViewController {
         super.viewDidLoad()
         
         dbRef = FIRDatabase.database().reference()
-        observeHistoryList()
+        
         
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
@@ -246,6 +246,7 @@ class UserHistoryViewController: UIViewController {
         fetchName()
         menuDetailFunc()
         fetchMenuData()
+        observeHistoryList()
         
         if isDoctorMode == false {
             self.backBtn.isHidden = true
