@@ -19,6 +19,10 @@ class DoctorDetailsViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        QRcode.loadGif(name: "medRgif")
+
+        
         dbRef = FIRDatabase.database().reference()
         
         fetchDoctorInfo()

@@ -26,7 +26,7 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         dbRef = FIRDatabase.database().reference()
         fetchDoctorsShared()
         
-        
+        searchBar.tintColor = UIColor.blue
         searchBar.delegate = self
         
         doctorTableView.delegate = self

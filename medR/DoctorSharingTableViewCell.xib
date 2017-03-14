@@ -30,14 +30,20 @@
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kn-Dj-re7">
                         <rect key="frame" x="357" y="21" width="51" height="31"/>
+                        <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="onTintColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g88-H7-cDU">
                         <rect key="frame" x="368" y="21" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="J9b-Pz-79R"/>
                         </constraints>
-                        <state key="normal" title="Add"/>
+                        <state key="normal" title="Add">
+                            <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zn9-0Z-WFN">
                         <rect key="frame" x="16" y="16" width="40" height="40"/>
@@ -48,21 +54,23 @@
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-RA-37g">
                         <rect key="frame" x="368" y="21" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Bht-BS-rGe"/>
                         </constraints>
                         <state key="normal" title="Add">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Nb-ew-Zuv">
                         <rect key="frame" x="362" y="21" width="36" height="30"/>
+                        <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="hVZ-lL-1Gc"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="l25-Jm-V1f"/>
                         </constraints>
                         <state key="normal" title="Entry">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                 </subviews>

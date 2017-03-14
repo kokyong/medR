@@ -456,7 +456,7 @@
 				TargetAttributes = {
 					94A93B461E667EB9001F3866 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZQ547JDPVM;
+						DevelopmentTeam = G6BQ2J3Q99;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -522,7 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A14BCD1F4B9EEEAB3596A7 /* [CP] Copy Pods Resources */ = {
@@ -732,7 +732,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
@@ -750,7 +750,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;

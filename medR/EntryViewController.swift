@@ -201,6 +201,24 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             addMedBtn.addTarget(self, action: #selector(addMed), for: .touchUpInside)
         }
     }
+    
+    @IBOutlet weak var cancel: UIButton!{
+        
+        didSet{
+            
+            cancel.addTarget(self, action: #selector(cancelBtn), for: .touchUpInside)
+        }
+    }
+    
+    func cancelBtn() {
+        
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
+        
+        self.present(controller, animated: false, completion: nil)
+        
+    }
+    
 }
 
 extension EntryViewController: UITableViewDataSource{
