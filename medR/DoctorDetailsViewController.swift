@@ -91,7 +91,13 @@ class DoctorDetailsViewController: UIViewController  {
                    
                    
     @IBOutlet weak var QRcode: UIImageView!
-    @IBOutlet weak var docPicImageView: UIImageView!
+    @IBOutlet weak var docPicImageView: UIImageView!{
+        didSet{
+            docPicImageView.layer.cornerRadius = docPicImageView.frame.size.height/2
+            docPicImageView.clipsToBounds = true
+        }
+    }
+
     @IBOutlet weak var docNameLabel: UILabel!
     @IBOutlet weak var licenseIDLabel: UILabel!
     @IBOutlet weak var clinicAddLabel: UILabel!

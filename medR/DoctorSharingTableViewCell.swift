@@ -88,7 +88,13 @@ class DoctorSharingTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var profilePic: UIImageView!{
+        didSet{
+            profilePic.layer.cornerRadius = profilePic.frame.size.height/2
+            profilePic.clipsToBounds = true
+        }
+    }
+    
     @IBOutlet weak var doctorNameLabel: UILabel!
     @IBOutlet weak var sharedSwitch: UISwitch!{
         didSet{

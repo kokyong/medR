@@ -37,7 +37,13 @@ class EditPatientProfileViewController: UIViewController {
     var displayContactEmergency = String()
     
     //image
-    @IBOutlet weak var editProfileImageView: UIImageView!
+    @IBOutlet weak var editProfileImageView: UIImageView!{
+        didSet{
+            editProfileImageView.layer.cornerRadius = editProfileImageView.frame.size.height/2
+            editProfileImageView.clipsToBounds = true
+        }
+    }
+
     @IBOutlet weak var editAddImageBtn: UIButton!{
         
         didSet{
