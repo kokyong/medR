@@ -122,11 +122,11 @@ class SignUpDoctorProfileViewController: UIViewController {
     
     
                 let docFullName = value?["fullName"] as? String
-                self.displayDocName = docFullName!
+                self.displayDocName = docFullName ?? ""
                 self.docFullName.text = self.displayDocName
     
                 let patientImage = value?["profileURL"] as? String
-                self.displayPatientImage = patientImage!
+                self.displayPatientImage = patientImage ?? ""
     
     
     

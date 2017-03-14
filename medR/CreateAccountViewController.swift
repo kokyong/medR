@@ -227,6 +227,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             setProfileImage(image : image)
+            
         }
         
         self.dismiss(animated: true, completion: nil)
