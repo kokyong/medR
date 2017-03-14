@@ -39,10 +39,23 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
             let newDoctor = DoctorDetail()
             newDoctor.docUid = snapshot.key
             newDoctor.docName = snapshot.value as! String?
+            self.fetchProfilePic(key: snapshot.key, doctor: newDoctor)
             
             self.allDoctors.append(newDoctor)
             self.filteredDoctors = self.allDoctors
             self.searchTableView.reloadData()
+        })
+    }
+    
+    func fetchProfilePic(key : String, doctor : DoctorDetail){
+        dbRef.child("users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let doctorPP = value?["profileURL"] as? String ?? ""
+            doctor.profilePicUrl = URL(string: doctorPP)
+            
         })
     }
     
@@ -87,6 +100,12 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         cell.entryBtn.isHidden = true
         cell.currentCellPath = indexPath
         cell.addDocDelegate = self
+        
+        if let url = doctor.profilePicUrl {
+            if let data = NSData(contentsOf: url as URL) {
+                cell.profilePic.image = UIImage(data: data as Data)
+            }
+        }
         
         return cell
     }

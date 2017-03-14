@@ -152,6 +152,23 @@ class PatientProfileViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var logOutBtn: UIButton!{
+        
+        didSet{
+            
+            logOutBtn.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        }
+    }
+    
+    func logOut() {
+        
+        let storyboard = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
+        
+        self.present(controller, animated: true, completion: nil)
+
+    }
+    
     func fetchPatientData() {
         
         let uid = FIRAuth.auth()?.currentUser?.uid
@@ -189,9 +206,7 @@ class PatientProfileViewController: UIViewController {
             self.displayContactEmergency = emergencyContact!
             self.displayEmergencyRelationship = emergencyRelationship!
             
-            
-            
-            //patinet
+            //patient detail
             self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))" ?? ""
             self.phoneNumberLabel.text = self.displayPhoneNumber ?? ""
             self.genderLabel.text = self.displayGender ?? ""
@@ -204,7 +219,7 @@ class PatientProfileViewController: UIViewController {
             self.contactEmergencyLabel.text = self.displayContactEmergency  ?? ""
             self.relationshipEmergencyLabel.text = self.displayEmergencyRelationship ?? ""
             
-            
+            //patient profile pic
             if let url = NSURL(string: self.displayPatientImage) {
                 
                 if let data = NSData(contentsOf: url as URL) {

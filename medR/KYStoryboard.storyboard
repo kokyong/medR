@@ -407,6 +407,10 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEO-fO-5T8">
+                                <rect key="frame" x="131" y="594" width="113" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -424,6 +428,7 @@
                             <constraint firstItem="TXx-Hn-5fk" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="DoV-8H-jPU"/>
                             <constraint firstItem="U3G-k0-r9F" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="EIm-jH-TuH"/>
                             <constraint firstItem="opj-pl-ZgA" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="Ejn-MI-5LZ"/>
+                            <constraint firstItem="zEO-fO-5T8" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="Fph-GQ-Nt9"/>
                             <constraint firstItem="58D-vS-kLM" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="Ip0-8I-XaZ"/>
                             <constraint firstItem="qnr-W0-v5O" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="Jfe-3N-gUC"/>
                             <constraint firstAttribute="trailing" secondItem="CEU-kX-M7D" secondAttribute="trailing" id="LCW-tn-gAD"/>
@@ -443,11 +448,13 @@
                             <constraint firstItem="jhJ-s3-EJV" firstAttribute="top" secondItem="mVq-EA-Kjw" secondAttribute="bottom" constant="8" id="btV-Hu-q5r"/>
                             <constraint firstItem="dgf-Kj-0GQ" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="dul-q2-Y9m"/>
                             <constraint firstItem="1ME-K3-LgI" firstAttribute="top" secondItem="q7J-UB-7RN" secondAttribute="bottom" constant="8" id="fvZ-AJ-sIM"/>
+                            <constraint firstItem="zEO-fO-5T8" firstAttribute="top" secondItem="TXx-Hn-5fk" secondAttribute="bottom" constant="8" id="gEJ-Zl-Bf8"/>
                             <constraint firstItem="dRV-I9-msW" firstAttribute="top" secondItem="1ME-K3-LgI" secondAttribute="bottom" constant="8" id="gNm-xG-Cy0"/>
                             <constraint firstItem="TXx-Hn-5fk" firstAttribute="top" secondItem="MX4-lO-oNs" secondAttribute="bottom" constant="8" id="gf0-HG-hHY"/>
                             <constraint firstItem="e8A-kB-hqu" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="k6k-yu-xtQ"/>
                             <constraint firstItem="4RS-x2-MbI" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="lH3-Fw-7dj"/>
                             <constraint firstItem="dgf-Kj-0GQ" firstAttribute="top" secondItem="4RS-x2-MbI" secondAttribute="bottom" constant="8" id="qGE-2f-g7a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zEO-fO-5T8" secondAttribute="trailing" constant="115" id="qfA-6K-da3"/>
                             <constraint firstItem="Epd-9m-AwA" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="rH2-Gs-hOB"/>
                             <constraint firstItem="MX4-lO-oNs" firstAttribute="top" secondItem="Epd-9m-AwA" secondAttribute="bottom" constant="66" id="rPp-9F-Fs9"/>
                             <constraint firstItem="Rnv-X1-qGs" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="rpe-ea-yR6"/>
@@ -465,6 +472,7 @@
                         <outlet property="editBtn" destination="Bxp-jd-QQO" id="ek1-1I-4qY"/>
                         <outlet property="emailLabel" destination="CHp-ID-KRg" id="VLF-Se-w7d"/>
                         <outlet property="genderLabel" destination="Rnv-X1-qGs" id="Uqq-XV-v8t"/>
+                        <outlet property="logOutBtn" destination="zEO-fO-5T8" id="Ewa-Lr-BuT"/>
                         <outlet property="nameEmergencyLabel" destination="dgf-Kj-0GQ" id="UFg-cm-tf6"/>
                         <outlet property="nameLabel" destination="5uZ-gL-IcB" id="O0M-lf-o7e"/>
                         <outlet property="phoneNumberLabel" destination="58D-vS-kLM" id="17j-Vf-0gQ"/>
@@ -761,32 +769,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dRl-JW-hgp">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchPatientDetailCell" textLabel="4UY-6g-9T9" detailTextLabel="9xN-YI-qMW" style="IBUITableViewCellStyleSubtitle" id="cu0-lY-15X">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cu0-lY-15X" id="c2f-AF-fR3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4UY-6g-9T9">
-                                                    <rect key="frame" x="15" y="7" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9xN-YI-qMW">
-                                                    <rect key="frame" x="15" y="28" width="21" height="9"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-4r-868">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -124,7 +124,8 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController
             else { return }
-        navigationController? .pushViewController(controller, animated: true)
+        present(controller, animated: true, completion: nil)
+        //navigationController? .pushViewController(controller, animated: true)
     }
 
        var userStorage: FIRStorageReference!
@@ -244,6 +245,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         let uid = FIRAuth.auth()?.currentUser?.uid
         let storageRef = FIRStorage.storage().reference()
         storageRef.child("folder").child("\(uid!).jpeg").put(imageData, metadata: metadata) { (meta, error) in
+            
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -251,7 +253,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                 
                 if let downloadURL = meta?.downloadURL() {
                     //got image url
-                    self.dbRef.child("users").child(uid!).updateChildValues(["profileURL":downloadURL.absoluteString])
+                    self.dbRef.child("users").child(uid!).child("profileURL").setValue(downloadURL.absoluteString)
                 }
                 
                 self.dismiss(animated: true, completion: nil)

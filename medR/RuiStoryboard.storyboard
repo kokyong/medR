@@ -548,9 +548,9 @@
                                         </constraints>
                                         <state key="normal" title="Edit Profile"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhY-cN-39j">
-                                        <rect key="frame" x="16" y="8" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhY-cN-39j">
+                                        <rect key="frame" x="16" y="8" width="30" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="X"/>
                                     </button>
                                 </subviews>
@@ -561,6 +561,8 @@
                                     <constraint firstItem="QxE-uj-Nuy" firstAttribute="top" secondItem="167-1a-vDw" secondAttribute="top" constant="75" id="3G2-oj-zMH"/>
                                     <constraint firstItem="3RT-cV-B3M" firstAttribute="leading" secondItem="QxE-uj-Nuy" secondAttribute="trailing" constant="11" id="5Km-JL-dus"/>
                                     <constraint firstItem="A2X-iz-VpS" firstAttribute="leading" secondItem="167-1a-vDw" secondAttribute="leading" constant="32" id="C42-2X-uVu"/>
+                                    <constraint firstItem="RhY-cN-39j" firstAttribute="leading" secondItem="167-1a-vDw" secondAttribute="leading" constant="16" id="Hlg-V1-IFI"/>
+                                    <constraint firstItem="RhY-cN-39j" firstAttribute="top" secondItem="167-1a-vDw" secondAttribute="top" constant="8" id="IDH-iY-bRT"/>
                                     <constraint firstItem="QxE-uj-Nuy" firstAttribute="leading" secondItem="167-1a-vDw" secondAttribute="leading" constant="32" id="Oem-xf-QBL"/>
                                     <constraint firstItem="3RT-cV-B3M" firstAttribute="centerY" secondItem="167-1a-vDw" secondAttribute="centerY" id="UCh-bB-XGd"/>
                                     <constraint firstAttribute="trailing" secondItem="3RT-cV-B3M" secondAttribute="trailing" constant="32" id="uKc-IF-IYe"/>

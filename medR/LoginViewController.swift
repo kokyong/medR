@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     
     
     @IBOutlet weak var logoImageView: UIImageView!
-   
+    
     @IBOutlet weak var userEmail: UITextField!
     
     @IBOutlet weak var userPassword: UITextField!
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         self.present(controller, animated: true, completion: nil)
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         //rui temporary
         userEmail.text = "test1@mail.com"
         userPassword.text = "123456"
-    
+        
     }
     
     fileprivate func setupFacebookButton() {
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         loginButton.readPermissions = ["email", "public_profile"]
         
-
+        
     }
     
     fileprivate func setupGoogleButton() {
@@ -98,7 +98,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
     }
     
-        
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
             print(error)
@@ -121,20 +121,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             }
             print ("Successfully logged in with our user", user ?? "")
             
-            })
+        })
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start {
-        (connection, result, err) in
-        
+            (connection, result, err) in
+            
             if err != nil {
                 print("Failed to start graph request", err)
                 return
             }
             
             print(result ?? "")
+        }
     }
-    }
-
+    
     // Login Function
     func login () {
         FIRAuth.auth()?.signIn(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user,error) in
