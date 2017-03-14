@@ -49,7 +49,7 @@
 		947F65C41E76BBA1005F9D9D /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65B21E76BBA0005F9D9D /* IQToolbar.swift */; };
 		947F65C51E76BBA1005F9D9D /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65B31E76BBA0005F9D9D /* IQUIView+IQKeyboardToolbar.swift */; };
 		947F65C61E76BBA1005F9D9D /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 947F65B51E76BBA0005F9D9D /* IQKeyboardManager.bundle */; };
-		948356ED1E6FFCE700349829 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		948356ED1E6FFCE700349829 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EE1E701A5A00349829 /* LoginViewController.swift */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
 		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
@@ -456,7 +456,7 @@
 				TargetAttributes = {
 					94A93B461E667EB9001F3866 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZQ547JDPVM;
+						DevelopmentTeam = G6BQ2J3Q99;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -522,7 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A14BCD1F4B9EEEAB3596A7 /* [CP] Copy Pods Resources */ = {
@@ -590,7 +590,7 @@
 				947F65C01E76BBA1005F9D9D /* IQTextView.swift in Sources */,
 				947F65C31E76BBA1005F9D9D /* IQTitleBarButtonItem.swift in Sources */,
 				68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */,
-				948356ED1E6FFCE700349829 /* (null) in Sources */,
+				948356ED1E6FFCE700349829 /* BuildFile in Sources */,
 				948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */,
 				947F65BF1E76BBA1005F9D9D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				94A93B751E66ADC9001F3866 /* EditPatientProfileViewController.swift in Sources */,
@@ -732,7 +732,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
@@ -750,7 +750,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
