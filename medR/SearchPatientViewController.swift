@@ -55,16 +55,20 @@ class SearchPatientViewController: UIViewController {
           self.searchTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
         
         ref = FIRDatabase.database().reference()
-        fetchPatientData()
+        
         
        searchTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
+        searchTableView.estimatedRowHeight = 80
+        searchTableView.rowHeight = UITableViewAutomaticDimension
         
+        fetchPatientData()
+        //searchTableView.reloadData()
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        searchTableView.reloadData()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        searchTableView.reloadData()
+//    }
     
     
         func fetchPatientData() {
@@ -82,14 +86,9 @@ class SearchPatientViewController: UIViewController {
                     self.patients.append(newPatient)
 
 
-                    
+                    self.filteredPatient = self.patients
+                    self.searchTableView.reloadData()
                 }
-
-//                self.filteredPatient = self.patientName
-                self.filteredPatient = self.patients
-                self.searchTableView.reloadData()
-                
-                
             })
         }
     
@@ -101,7 +100,7 @@ class SearchPatientViewController: UIViewController {
             
             let patientImage = value?["profileURL"] as? String ?? ""
             patient.patientImage = URL(string: patientImage)
-            
+            self.searchTableView.reloadData()
         })
     }
 

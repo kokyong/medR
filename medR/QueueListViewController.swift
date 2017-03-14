@@ -27,6 +27,8 @@ class QueueListViewController: UIViewController, EntryDelegate {
         QueueListTableView.dataSource = self
         
         QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
+        QueueListTableView.estimatedRowHeight = 80
+        QueueListTableView.rowHeight = UITableViewAutomaticDimension
         
         fetchQueueList()
         
@@ -46,7 +48,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
                 newPatient.uid = key
                 newPatient.fullName = realValue
                 self.fetchProfilePic(key: key, patient: newPatient)
-                self.queueList.append(newPatient)
+                
             }
             
             self.QueueListTableView.reloadData()
@@ -61,7 +63,8 @@ class QueueListViewController: UIViewController, EntryDelegate {
             
             let patientImage = value?["profileURL"] as? String ?? ""
             patient.patientImage = URL(string: patientImage)
-            
+            self.queueList.append(patient)
+            self.QueueListTableView.reloadData()
         })
     }
     

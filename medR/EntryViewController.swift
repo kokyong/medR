@@ -46,18 +46,18 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         dbRef?.child("users").child(uid).observe(.value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
-            let contactNumeber = value?["contactNumber"] as? String
+            let contactNumber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let age = value?["age"] as? String
             
             self.currentPatient?.gender = gender
-            self.currentPatient?.contactNumeber = contactNumeber
+            self.currentPatient?.contactNumber = contactNumber
             self.currentPatient?.age = age
             
             self.nameTF.text = self.currentPatient?.fullName
             self.genderTF.text = self.currentPatient?.gender
             self.ageTF.text = self.currentPatient?.age
-            self.phoneTF.text = self.currentPatient?.contactNumeber
+            self.phoneTF.text = self.currentPatient?.contactNumber
         })
     }
     

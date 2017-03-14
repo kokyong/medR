@@ -181,7 +181,7 @@ class PatientProfileViewController: UIViewController {
             //patient
             let patientImage = value?["profileURL"] as? String
             let fullName = value?["fullName"] as? String
-            let contactNumeber = value?["contactNumber"] as? String
+            let contactNumber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let email = value?["email"] as? String
             let age = value?["age"] as? String
@@ -195,7 +195,7 @@ class PatientProfileViewController: UIViewController {
             //patient
             self.displayPatientImage = patientImage ?? ""
             self.displayFullName = fullName ?? ""
-            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayPhoneNumber = contactNumber ?? ""
             self.displayGender = gender ?? ""
             self.displayEmail = email ?? ""
             self.displayAge = age ?? ""
