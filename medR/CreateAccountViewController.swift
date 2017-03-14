@@ -45,14 +45,8 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
             guard let controller = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
             
 
-            self.present(controller, animated: true, completion: nil)
         
-            let alertMessage = UIAlertController (title: "Message", message: "successfullyLogout", preferredStyle: .alert)
         
-            self.present(alertMessage, animated: true, completion: nil)
-        
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertMessage.addAction(okAction)
         
     }
     @IBOutlet weak var userSelectPicture: UIButton!{
@@ -64,11 +58,12 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     }
 
     @IBAction func userVerifyField(_ sender: UIButton) {
-        let alertMessage = UIAlertController (title: "Message", message: "Successfully Sign up", preferredStyle: .alert)
         
-        self.present(alertMessage, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+//        ok = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as?  UserTabViewController else { return }
+//        
+//        self.present(controller, animated: true, completion: nil)
         
-        let OkAction = UIAlertAction (title: "OK", style: .default)
         
         
         createAccount()
@@ -97,31 +92,35 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                 self.showErrorAlert(errorMessage: " Email/Password Format Invalid")
                 print (error! as NSError)
                 return
+                
+            } else {
+                let alertMessage = UIAlertController (title: "Message", message: "Successfully Register", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.handleUser()
+                })
+                alertMessage.addAction(okAction)
+               
+                self.present(alertMessage, animated: true, completion: nil)
+                
+                
             }
-            
+           
             
             //send infromation to database
             let ref = FIRDatabase.database().reference()
-            let value = ["fullName": name, "email": email, "age": age, "gender": gender, "contactNumber": contactNumber, "address": address, "emergencyContact": emergencyContact, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship] as [String : Any]
+            let value = ["fullName": name, "email": email, "age": age, "gender": gender, "contactNumber": contactNumber, "address": address, "emergencyContact": emergencyContact, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship, ] as [String : Any]
             let uid = FIRAuth.auth()?.currentUser?.uid
             ref.child("users").child(uid!).updateChildValues(value, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print("err")
                     return
                 }
-              //  self.handleUser(user: user!)
+             self.uploadImage(image: self.userImage.image!)
             })
-            
-            
-            
         })
     }
     
-    func handleUser(user: FIRUser) {
-        print("User found: \(user.uid)")
-        
-        
-        uploadImage(image: userImage.image!)
+    func handleUser() {
         
         guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController
             else { return }
