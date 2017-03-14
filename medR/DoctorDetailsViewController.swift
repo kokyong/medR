@@ -70,7 +70,6 @@ class DoctorDetailsViewController: UIViewController  {
                    
                    
                    
-    
     @IBOutlet weak var QRcode: UIImageView!
     @IBOutlet weak var docPicImageView: UIImageView!
     @IBOutlet weak var docNameLabel: UILabel!

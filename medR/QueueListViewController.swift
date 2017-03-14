@@ -29,6 +29,8 @@ class QueueListViewController: UIViewController, EntryDelegate {
         QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
         
         fetchQueueList()
+        
+        self.QueueListTableView.reloadData()
     }
     
     func fetchQueueList(){
