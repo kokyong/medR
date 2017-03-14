@@ -18,7 +18,13 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
 
     
     //Outlet
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImage: UIImageView!{
+        didSet{
+            userImage.layer.cornerRadius = userImage.frame.size.height/2
+            userImage.clipsToBounds = true
+        }
+    }
+
     
     @IBOutlet weak var userNameField: UITextField!
     

@@ -41,9 +41,7 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
             newDoctor.docName = snapshot.value as! String?
             self.fetchProfilePic(key: snapshot.key, doctor: newDoctor)
             
-            self.allDoctors.append(newDoctor)
-            self.filteredDoctors = self.allDoctors
-            self.searchTableView.reloadData()
+            
         })
     }
     
@@ -56,6 +54,9 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
             let doctorPP = value?["profileURL"] as? String ?? ""
             doctor.profilePicUrl = URL(string: doctorPP)
             
+            self.allDoctors.append(doctor)
+            self.filteredDoctors = self.allDoctors
+            self.searchTableView.reloadData()
         })
     }
     
@@ -74,6 +75,7 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
     }
     
     func resetSearch(){
+        self.searchBar.endEditing(true)
         filteredDoctors = allDoctors
         searchTableView.reloadData()
     }

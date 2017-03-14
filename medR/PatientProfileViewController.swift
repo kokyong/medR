@@ -56,7 +56,12 @@ class PatientProfileViewController: UIViewController {
     
     //IBOutlet
     //profile image
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView! {
+        didSet{
+            profileImageView.layer.cornerRadius = profileImageView.frame.size.height/2
+            profileImageView.clipsToBounds = true
+        }
+    }
     
     
     //Patient Info
