@@ -113,7 +113,13 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailPage = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as? DoctorDetailsViewController else {return}
         
+        navigationController?.pushViewController(detailPage, animated: true)
+        
+        let doctorToDisplay = filteredDoctors[indexPath.row]
+        
+        detailPage.displayDocWithUID = doctorToDisplay.docUid!
         
     }
     
