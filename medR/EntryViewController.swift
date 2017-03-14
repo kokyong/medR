@@ -77,7 +77,9 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             medArray.append(newMed)
         }
         
-        let validPatientID = currentPatient?.uid ?? "no ID"
+        var unregisteredNumber : Int = 1
+        let newUnregisteredNumber = String(unregisteredNumber+1)
+        let validPatientID = currentPatient?.uid ?? newUnregisteredNumber
         
         var historyDictionary : [String: Any] = ["doctorID" : PatientDetail.current.uid, "dateTime" : timestamp,
                                                  "patientID" : validPatientID,            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
@@ -131,6 +133,14 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         //SAVE THE HISTORY UNDER USER ID
         dbRef?.child("users").child(validPatientID).child("history").child((autoIDRef?.key)!).setValue(timestamp)
         
+        goBack()
+    }
+    
+    func goBack(){
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
+        
+        present(controller, animated: true, completion: nil)
     }
     
     //MARK: Picker View

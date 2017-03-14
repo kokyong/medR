@@ -55,15 +55,28 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
                 let newDoctor = DoctorDetail()
                 newDoctor.docUid = key
                 newDoctor.docName = realValue
-                self.doctorsShared.append(newDoctor)
+                self.fetchProfilePic(key: key, doctor: newDoctor)
             }
             
+            
+           // self.doctorTableView.reloadData()
+        })
+    }
+    
+    func fetchProfilePic(key : String, doctor : DoctorDetail){
+        dbRef.child("users").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let patientImage = value?["profileURL"] as? String ?? ""
+            doctor.profilePicUrl = URL(string: patientImage)
+            self.doctorsShared.append(doctor)
             self.filteredDoctors = self.doctorsShared
             self.doctorTableView.reloadData()
         })
     }
-    
-    
+
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count == 0 {
@@ -80,6 +93,7 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     }
     
     func resetSearch(){
+        self.searchBar.endEditing(true)
         filteredDoctors = doctorsShared
         doctorTableView.reloadData()
     }
@@ -91,11 +105,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
     }
     
     //QR code
-    
-    func handleQRSuccessScan(uid: String){
-        
-    }
-    
     
     @IBAction func scanQR(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "QRStoryboard", bundle: Bundle.main)
@@ -125,6 +134,13 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         cell.entryBtn.isHidden = true
         cell.delegate = self
         cell.currentCellPath = indexPath
+        
+        if let url = doctor.profilePicUrl {
+            if let data = NSData(contentsOf: url as URL) {
+                cell.profilePic.image = UIImage(data: data as Data)
+            }
+        }
+
         return cell
     }
     

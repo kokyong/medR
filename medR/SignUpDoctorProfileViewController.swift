@@ -31,7 +31,12 @@ class SignUpDoctorProfileViewController: UIViewController {
     
     
     //fetch image
-    @IBOutlet weak var docProfileImageView: UIImageView!
+    @IBOutlet weak var docProfileImageView: UIImageView!{
+        didSet{
+            docProfileImageView.layer.cornerRadius = docProfileImageView.frame.size.height/2
+            docProfileImageView.clipsToBounds = true
+        }
+    }
     
     //fetch name
     @IBOutlet weak var docFullName: UILabel!

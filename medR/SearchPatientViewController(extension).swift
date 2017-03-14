@@ -21,15 +21,15 @@ extension SearchPatientViewController: UITableViewDataSource, AddPatientDelegate
         guard let cell = searchTableView.dequeueReusableCell(withIdentifier: "DocListCell", for: indexPath) as? DoctorSharingTableViewCell else {return UITableViewCell()}
         
         let currentPatient = filteredPatient[indexPath.row]
-//        guard let index = patientName.index(where: { (str) -> Bool in
-//            return str == currentName
-//        })
-//            else {
-//                return cell
-//        }
+        //        guard let index = patientName.index(where: { (str) -> Bool in
+        //            return str == currentName
+        //        })
+        //            else {
+        //                return cell
+        //        }
         
-//        let patientIndex = patientName[index]
-//        let patientID = patientUID[index]
+        //        let patientIndex = patientName[index]
+        //        let patientID = patientUID[index]
         
         cell.addPatientDelegate = self
         cell.doctorNameLabel.text = currentPatient.fullName
@@ -58,7 +58,7 @@ extension SearchPatientViewController: UITableViewDelegate{
         
         //configure VC
         
-       // controller.selectedUID = self.patientUID
+        // controller.selectedUID = self.patientUID
         let selectedPatient = filteredPatient[indexPath.row]
         controller.selectedUID = selectedPatient.uid
         controller.isDoctorMode = true
@@ -71,7 +71,7 @@ extension SearchPatientViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
- 
+    
     
     
 }
@@ -104,9 +104,9 @@ extension SearchPatientViewController: UISearchBarDelegate {
         if searchText.characters.count == 0 {
             resetSearch()
         } else {
-//            filteredPatient = patientName.filter({( text ) -> Bool in
-//                return text.lowercased().range(of: searchText.lowercased()) != nil
-//            })
+            //            filteredPatient = patientName.filter({( text ) -> Bool in
+            //                return text.lowercased().range(of: searchText.lowercased()) != nil
+            //            })
             filteredPatient = patients.filter({ (patient) -> Bool in
                 patient.fullName?.lowercased().range(of: searchText.lowercased()) != nil
             })
@@ -115,9 +115,10 @@ extension SearchPatientViewController: UISearchBarDelegate {
         }
     }
     
+    
     func resetSearch(){
         
-//        filteredPatient = patientName
+        self.searchBar.endEditing(true)
         filteredPatient = patients
         searchTableView.reloadData()
         
