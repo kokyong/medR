@@ -47,10 +47,11 @@ class DoctorDetailsViewController: UIViewController  {
         })
         
         dbRef?.child("users").child(displayDocWithUID).child("profileURL").observe(.value, with: { (snapshot) in
-            let url = URL(string: snapshot.value as? String ?? "" )
-            displayDoctor.profilePicUrl = url
+            let validUrl = URL(string: snapshot.value as? String ?? "" )
+            displayDoctor.profilePicUrl = validUrl
             
-            if let url = NSURL(string: (displayDoctor.profilePicUrl?.absoluteString)!) {
+            let validStringUrl = displayDoctor.profilePicUrl?.absoluteString ?? ""
+            if let url = NSURL(string: validStringUrl) {
                 
                 if let data = NSData(contentsOf: url as URL) {
                     self.docPicImageView.image = UIImage(data: data as Data)

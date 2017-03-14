@@ -41,7 +41,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="J9b-Pz-79R"/>
                         </constraints>
-                        <state key="normal" title="Add">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <state key="normal" title="+">
                             <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
@@ -53,22 +54,24 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-RA-37g">
-                        <rect key="frame" x="368" y="21" width="30" height="30"/>
+                        <rect key="frame" x="365" y="21" width="33" height="30"/>
                         <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Bht-BS-rGe"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <state key="normal" title="Add">
                             <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Nb-ew-Zuv">
-                        <rect key="frame" x="362" y="21" width="36" height="30"/>
+                        <rect key="frame" x="354" y="21" width="44" height="30"/>
                         <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="hVZ-lL-1Gc"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="l25-Jm-V1f"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <state key="normal" title="Entry">
                             <color key="titleColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>

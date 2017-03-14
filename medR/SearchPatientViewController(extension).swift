@@ -37,7 +37,7 @@ extension SearchPatientViewController: UITableViewDataSource, AddPatientDelegate
         cell.addDoctorBtn.isHidden = true
         cell.entryBtn.isHidden = true
         cell.currentCellPath = indexPath
-        cell.addPatientBtn.titleLabel?.text = "Add"
+        cell.addPatientBtn.titleLabel?.text = "+"
         
         if let url = currentPatient.patientImage {
             if let data = NSData(contentsOf: url as URL) {
@@ -123,7 +123,9 @@ extension SearchPatientViewController: UISearchBarDelegate {
         
     }
     
+    
 }
+
 
 
 
