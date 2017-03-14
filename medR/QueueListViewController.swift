@@ -29,6 +29,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
         QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
         QueueListTableView.estimatedRowHeight = 80
         QueueListTableView.rowHeight = UITableViewAutomaticDimension
+        QueueListTableView.isEditing = true
         
         fetchQueueList()
         
@@ -36,7 +37,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
     }
     
     func fetchQueueList(){
-        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observe(.value, with: { (snapshot) in
+        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : String] else {
                 self.QueueListTableView.reloadData()
@@ -141,6 +142,8 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
