@@ -139,34 +139,34 @@ class SignUpDoctorProfileViewController: UIViewController {
     
     
         }
-//    
-//    func fetchDocInfo() {
-//        var displayDoctor = DoctorDetail()
-//        
-//        ref?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
-//            
-//            guard let value = snapshot.value as? [String : Any] else {return}
-//            displayDoctor = DoctorDetail(withDictionary: value)
-//            displayDoctor.docUid = self.displayDocWithUID
-//            self.displayDoc = displayDoctor
-//            
-//        })
-//        
-//        ref?.child("users").child(displayDocWithUID).child("fullName").observe(.value, with: { (snapshot) in
-//            displayDoctor.docName = snapshot.value as? String
-//            self.displayInfo()
-//        })
-//    }
-//    
-//    func displayInfo(){
-//        
-//        docFullName.text = displayDoc?.docName
-//        licenceIDTF.text = displayDoc?.lisenceID
-//        clinicAddressTF.text = displayDoc?.clinicAddress
-//        specialtyTF.text = displayDoc?.specialty
-//        infoTextView.text = displayDoc?.info
-//        
-//    }
+    
+    func fetchDocInfo() {
+        var displayDoctor = DoctorDetail()
+        
+        ref?.child("users").child(displayDocWithUID).child("docAcc").observe(.value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? [String : Any] else {return}
+            displayDoctor = DoctorDetail(withDictionary: value)
+            displayDoctor.docUid = self.displayDocWithUID
+            self.displayDoc = displayDoctor
+            
+        })
+        
+        ref?.child("users").child(displayDocWithUID).child("fullName").observe(.value, with: { (snapshot) in
+            displayDoctor.docName = snapshot.value as? String
+            self.displayInfo()
+        })
+    }
+    
+    func displayInfo(){
+        
+        docFullName.text = displayDoc?.docName
+        licenceIDTF.text = displayDoc?.lisenceID
+        clinicAddressTF.text = displayDoc?.clinicAddress
+        specialtyTF.text = displayDoc?.specialty
+        infoTextView.text = displayDoc?.info
+        
+    }
 }
 
 

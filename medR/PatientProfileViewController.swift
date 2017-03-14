@@ -152,6 +152,23 @@ class PatientProfileViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var logOutBtn: UIButton!{
+        
+        didSet{
+            
+            logOutBtn.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        }
+    }
+    
+    func logOut() {
+        
+        let storyboard = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {return}
+        
+        self.present(controller, animated: true, completion: nil)
+
+    }
+    
     func fetchPatientData() {
         
         let uid = FIRAuth.auth()?.currentUser?.uid
