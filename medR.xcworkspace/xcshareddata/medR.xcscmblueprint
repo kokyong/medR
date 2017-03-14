@@ -1,16 +1,14 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C1DD2BA2952C326E069087EA7294DF4497A5AF9F",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258" : 9223372036854775807,
-    "C1DD2BA2952C326E069087EA7294DF4497A5AF9F" : 9223372036854775807
+    "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "69CC19FA-59AB-4911-BACF-17955D5515BD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258" : "medR\/medR\/",
-    "C1DD2BA2952C326E069087EA7294DF4497A5AF9F" : "medR\/"
+    "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258" : "medR\/medR\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "medR",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -24,7 +22,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kokyong\/medR.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C1DD2BA2952C326E069087EA7294DF4497A5AF9F"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "17D91FA6FA3C5AB2B6DA0280FDFAC85C3711F258"
     }
   ]
 }

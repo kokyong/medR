@@ -21,6 +21,7 @@ class EditPatientProfileViewController: UIViewController {
         
     }
     
+    var selectedUID : String = PatientDetail.current.uid
     let uid = FIRAuth.auth()?.currentUser?.uid
     var ref : FIRDatabaseReference!
     var displayPatientImage = String()
@@ -91,11 +92,10 @@ class EditPatientProfileViewController: UIViewController {
         
         guard let fullName = fullNameTF.text, let contactNumeber = contactNumberTF.text, let gender = GenderTF.text, let email = emailTF.text, let age = ageTF.text, let address = addressTF.text, let emergencyName = emergencyNameTF.text, let emergencyRelationship = emergencyRelationshipTF.text, let emergencyContact = emergencyContactTF.text else {return}
         
-        //let uid = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
         let value = ["fullName": fullName, "contactNumeber": contactNumeber, "gender": gender, "email": email, "age": age , "address": address, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship, "emergencyContact": emergencyContact] as [String : Any]
         
-        ref.child("users").child("specialUID").updateChildValues(value, withCompletionBlock: { (err, ref) in
+        ref.child("users").child(PatientDetail.current.uid).updateChildValues(value, withCompletionBlock: { (err, ref) in
             
             if err != nil {
                 
@@ -117,7 +117,7 @@ class EditPatientProfileViewController: UIViewController {
     func fetchData() {
         
         
-        ref.child("users").child("specialUID").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             let value = snapshot.value as? NSDictionary
@@ -133,30 +133,30 @@ class EditPatientProfileViewController: UIViewController {
             let emergencyRelationship = value?["emergencyRelationship"] as? String
             let emergencyContact = value?["emergencyContact"] as? String
             
-            self.displayPatientImage = patientImage ?? ""
-            self.displayFullName = fullName ?? ""
-            self.displayPhoneNumber = contactNumeber ?? ""
-            self.displayGender = gender ?? ""
-            self.displayEmail = email ?? ""
-            self.displayAge = age ?? ""
-            self.displayAdress = address ?? ""
-            self.displayEmergencyName = emergencyName ?? ""
-            self.displayContactEmergency = emergencyContact ?? ""
-            self.displayEmergencyRelationship = emergencyRelationship ?? ""
+            self.displayPatientImage = patientImage!
+            self.displayFullName = fullName!
+            self.displayPhoneNumber = contactNumeber!
+            self.displayGender = gender!
+            self.displayEmail = email!
+            self.displayAge = age!
+            self.displayAdress = address!
+            self.displayEmergencyName = emergencyName!
+            self.displayContactEmergency = emergencyContact!
+            self.displayEmergencyRelationship = emergencyRelationship!
             
-            self.fullNameTF.text = self.displayFullName ?? ""
-            self.contactNumberTF.text = self.displayPhoneNumber ?? ""
-            self.GenderTF.text = self.displayGender ?? ""
-            self.emailTF.text = self.displayEmail ?? ""
-            self.addressTF.text = self.displayAdress ?? ""
-            self.ageTF.text = self.displayAge ?? ""
-            self.emergencyNameTF.text = self.displayEmergencyName ?? ""
-            self.emergencyContactTF.text = self.displayContactEmergency ?? ""
-            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship ?? ""
+            self.fullNameTF.text = self.displayFullName
+            self.contactNumberTF.text = self.displayPhoneNumber
+            self.GenderTF.text = self.displayGender
+            self.emailTF.text = self.displayEmail
+            self.addressTF.text = self.displayAdress
+            self.ageTF.text = self.displayAge
+            self.emergencyNameTF.text = self.displayEmergencyName
+            self.emergencyContactTF.text = self.displayContactEmergency
+            self.emergencyRelationshipTF.text = self.displayEmergencyRelationship
             
             if let url = NSURL(string: self.displayPatientImage) {
                 if let data = NSData(contentsOf: url as URL) {
-                    self.editProfileImageView.image = UIImage(data: data as Data) 
+                    self.editProfileImageView.image = UIImage(data: data as Data)
                 }
             }
             

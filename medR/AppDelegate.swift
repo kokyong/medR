@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        IQKeyboardManager.sharedManager().enable = true
+        
+        
         UITabBar.appearance().tintColor = UIColor(red: 195.0 / 256, green: 49.0 / 256, blue: 49.0 / 256, alpha: 1.0)
         
         // Override point for customization after application launch.
@@ -41,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             print("Failed to log into Google", err)
-        return
+            return
         }
-            print("Successfully logged into Google", user)
+        print("Successfully logged into Google", user)
         
         guard let idToken = user.authentication.idToken else { return }
         guard let accessToken = user.authentication.accessToken else { return }
@@ -55,13 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             guard let uid = user?.uid else {return}
             print("Successfully logged into Firebase with Google", uid)
-    })
-    
-}
+        })
+        
+    }
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-    
+        
         GIDSignIn.sharedInstance().handle(url,
                                           sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,
                                           annotation: options[UIApplicationOpenURLOptionsKey.annotation])
