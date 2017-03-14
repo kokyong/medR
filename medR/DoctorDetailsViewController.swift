@@ -45,6 +45,22 @@ class DoctorDetailsViewController: UIViewController  {
             displayDoctor.docName = snapshot.value as? String
             self.displayInfo()
         })
+        
+        dbRef?.child("users").child(displayDocWithUID).child("profileURL").observe(.value, with: { (snapshot) in
+            let url = URL(string: snapshot.value as? String ?? "" )
+            displayDoctor.profilePicUrl = url
+            
+            if let url = NSURL(string: (displayDoctor.profilePicUrl?.absoluteString)!) {
+                
+                if let data = NSData(contentsOf: url as URL) {
+                    self.docPicImageView.image = UIImage(data: data as Data)
+                    self.displayInfo()
+                }
+            }
+            
+        })
+        
+        
     }
     
     func displayInfo(){
@@ -91,8 +107,6 @@ class DoctorDetailsViewController: UIViewController  {
             
             editProfile.addTarget(self, action: #selector(edit), for: .touchUpInside)
         }
-        
-        
     }
     
     

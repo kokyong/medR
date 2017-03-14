@@ -44,7 +44,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
             guard let controller = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
             
-
+             self.present(controller, animated: true, completion: nil)
         
         
         
@@ -58,14 +58,6 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     }
 
     @IBAction func userVerifyField(_ sender: UIButton) {
-        
-//        let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
-//        ok = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as?  UserTabViewController else { return }
-//        
-//        self.present(controller, animated: true, completion: nil)
-        
-        
-        
         createAccount()
     }
     
@@ -101,8 +93,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                 alertMessage.addAction(okAction)
                
                 self.present(alertMessage, animated: true, completion: nil)
-                
-                
+            
             }
            
             
@@ -124,7 +115,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         guard let controller = UIStoryboard(name: "GeogStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as?  LoginViewController
             else { return }
-        present(controller, animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
         //navigationController? .pushViewController(controller, animated: true)
     }
 
@@ -257,7 +248,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                     self.dbRef.child("users").child(uid!).child("profileURL").setValue(downloadURL.absoluteString)
                 }
                 
-                self.dismiss(animated: true, completion: nil)
+            //    self.dismiss(animated: true, completion: nil)
             }
         }
         

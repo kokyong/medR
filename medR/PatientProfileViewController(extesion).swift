@@ -12,6 +12,8 @@ import Firebase
 
 extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
+    
     //cancel picker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         
@@ -31,18 +33,13 @@ extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UI
             
         }else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             
-            print(originalImage)
-            uploadImage(image: originalImage)
             self.editProfileImageView.image = originalImage
-            
             
         }
         
         dismiss(animated: true, completion: nil)
         
     }
-    
-    
     
     //upload to storage
     func uploadImage(image: UIImage) {
@@ -76,22 +73,9 @@ extension EditPatientProfileViewController:  UIImagePickerControllerDelegate, UI
                 
                 print(downloadURL)
                 
-                //let uid = FIRAuth.auth()?.currentUser?.uid
-                //                ref.child("users").child("specialUID").updateChildValues(["profileURL":downloadURL.absoluteString])
+             
                 let ref = FIRDatabase.database().reference()
-                let value = ["profileURL":downloadURL.absoluteString] as [String : Any]
-                
-                ref.child("users").child("specialUID").updateChildValues(value, withCompletionBlock: { (err, ref) in
-                    
-                    if err != nil {
-                        
-                        print("err")
-                        
-                        return
-                        
-                        
-                    }
-                })
+                ref.child("users").child(PatientDetail.current.uid).child("profileURL").setValue(downloadURL.absoluteString)
             }
             
         }

@@ -66,7 +66,7 @@ class UserHistoryViewController: UIViewController {
             
             let patientImage = value?["profileURL"] as? String
             let fullName = value?["fullName"] as? String
-            let contactNumeber = value?["contactNumber"] as? String
+            let contactNumber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let email = value?["email"] as? String
             let age = value?["age"] as? String
@@ -82,7 +82,7 @@ class UserHistoryViewController: UIViewController {
             //patient
             self.displayPatientImage = patientImage ?? ""
             self.displayFullName = fullName ?? ""
-            self.displayPhoneNumber = contactNumeber ?? ""
+            self.displayPhoneNumber = contactNumber ?? ""
             self.displayGender = gender ?? ""
             self.displayEmail = email ?? ""
             self.displayAge = age ?? ""
@@ -131,11 +131,11 @@ class UserHistoryViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             
             
-            let fullName = value?["fullName"] as? String
-            let age = value?["age"] as? String
+            let fullName = value?["fullName"] as? String ?? ""
+            let age = value?["age"] as? String ?? ""
             
-            self.displayFullName = fullName!
-            self.displayAge = age!
+            self.displayFullName = fullName
+            self.displayAge = age
             
             self.nameLabel.text = "\(self.displayFullName) (\(self.displayAge))"
             
@@ -232,7 +232,7 @@ class UserHistoryViewController: UIViewController {
         super.viewDidLoad()
         
         dbRef = FIRDatabase.database().reference()
-        observeHistoryList()
+        
         
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
@@ -246,6 +246,7 @@ class UserHistoryViewController: UIViewController {
         fetchName()
         menuDetailFunc()
         fetchMenuData()
+        observeHistoryList()
         
         if isDoctorMode == false {
             self.backBtn.isHidden = true

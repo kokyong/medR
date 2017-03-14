@@ -19,7 +19,7 @@ class PatientDetail {
     //patient
     var patientImage : URL?
     var fullName : String?
-    var contactNumeber : String?
+    var contactNumber : String?
     var gender : String?
     var email : String?
     var age : String?
@@ -32,7 +32,7 @@ class PatientDetail {
     
     init(withDictionary dictionary: [String: Any]) {
         fullName = dictionary["fullName"] as? String
-        contactNumeber = dictionary["contactNumeber"] as? String
+        contactNumber = dictionary["contactNumber"] as? String
         gender = dictionary["gender"] as? String
         email = dictionary["email"] as? String
         age = dictionary["age"] as? String
