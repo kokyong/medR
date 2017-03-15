@@ -56,11 +56,11 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMOAuth2 (1.1.4):
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.1.8):
-    - GTMSessionFetcher/Full (= 1.1.8)
-  - GTMSessionFetcher/Core (1.1.8)
-  - GTMSessionFetcher/Full (1.1.8):
-    - GTMSessionFetcher/Core (= 1.1.8)
+  - GTMSessionFetcher (1.1.9):
+    - GTMSessionFetcher/Full (= 1.1.9)
+  - GTMSessionFetcher/Core (1.1.9)
+  - GTMSessionFetcher/Full (1.1.9):
+    - GTMSessionFetcher/Core (= 1.1.9)
   - MTBBarcodeScanner (5.0.0)
   - QRCode (2.0)
   - QRCodeReader.swift (7.3.0)
@@ -93,11 +93,11 @@ SPEC CHECKSUMS:
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
-  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   MTBBarcodeScanner: f7ac0087f2467ba73e4d429bb1bc2098fe11b09f
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: d7e190d49818948aa030704cfb26283f1f32fb0a
 
 PODFILE CHECKSUM: a33cb0ff6de3e738a9011a25923817153f79b8c8
 
-COCOAPODS: 1.2.1.beta.1
+COCOAPODS: 1.2.0
