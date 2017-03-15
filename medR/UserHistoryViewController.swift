@@ -250,6 +250,7 @@ class UserHistoryViewController: UIViewController {
         
         if isDoctorMode == false {
             self.backBtn.isHidden = true
+            
             self.detailBtn.isHidden = true
         }
     }
