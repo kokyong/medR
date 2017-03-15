@@ -14,12 +14,13 @@ class QueueListViewController: UIViewController, EntryDelegate {
     
     var dbRef : FIRDatabaseReference!
     var queueList : [PatientDetail] = []
+    var isEditMode : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.QueueListTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
-
+        
         
         dbRef = FIRDatabase.database().reference()
         
@@ -29,7 +30,6 @@ class QueueListViewController: UIViewController, EntryDelegate {
         QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
         QueueListTableView.estimatedRowHeight = 80
         QueueListTableView.rowHeight = UITableViewAutomaticDimension
-        QueueListTableView.isEditing = true
         
         fetchQueueList()
         
@@ -87,6 +87,16 @@ class QueueListViewController: UIViewController, EntryDelegate {
         
     }
     
+    @IBAction func editBtnPressed(_ sender: UIButton) {
+        if isEditMode == false {
+            QueueListTableView.isEditing = true
+            isEditMode = true
+        } else {
+            QueueListTableView.isEditing = false
+            isEditMode = false
+        }
+    }
+    
     @IBOutlet weak var QueueListTableView: UITableView!
     
 }
@@ -127,7 +137,7 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
