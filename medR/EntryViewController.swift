@@ -46,18 +46,18 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         dbRef?.child("users").child(uid).observe(.value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
-            let contactNumeber = value?["contactNumber"] as? String
+            let contactNumber = value?["contactNumber"] as? String
             let gender = value?["gender"] as? String
             let age = value?["age"] as? String
             
             self.currentPatient?.gender = gender
-            self.currentPatient?.contactNumeber = contactNumeber
+            self.currentPatient?.contactNumber = contactNumber
             self.currentPatient?.age = age
             
             self.nameTF.text = self.currentPatient?.fullName
             self.genderTF.text = self.currentPatient?.gender
             self.ageTF.text = self.currentPatient?.age
-            self.phoneTF.text = self.currentPatient?.contactNumeber
+            self.phoneTF.text = self.currentPatient?.contactNumber
         })
     }
     
@@ -77,7 +77,9 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             medArray.append(newMed)
         }
         
-        let validPatientID = currentPatient?.uid ?? "no ID"
+        var unregisteredNumber : Int = 1
+        let newUnregisteredNumber = String(unregisteredNumber+1)
+        let validPatientID = currentPatient?.uid ?? newUnregisteredNumber
         
         var historyDictionary : [String: Any] = ["doctorID" : PatientDetail.current.uid, "dateTime" : timestamp,
                                                  "patientID" : validPatientID,            "patFullName" : nameTF.text, "gender": genderTF.text, "age" : ageTF.text, "phone" : phoneTF.text, "medicine" : medArray]
@@ -131,6 +133,14 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         //SAVE THE HISTORY UNDER USER ID
         dbRef?.child("users").child(validPatientID).child("history").child((autoIDRef?.key)!).setValue(timestamp)
         
+        goBack()
+    }
+    
+    func goBack(){
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
+        
+        present(controller, animated: true, completion: nil)
     }
     
     //MARK: Picker View
@@ -201,6 +211,24 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             addMedBtn.addTarget(self, action: #selector(addMed), for: .touchUpInside)
         }
     }
+    
+    @IBOutlet weak var cancel: UIButton!{
+        
+        didSet{
+            
+            cancel.addTarget(self, action: #selector(cancelBtn), for: .touchUpInside)
+        }
+    }
+    
+    func cancelBtn() {
+        
+        let storyboard = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "DoctorTabViewController") as? DoctorTabViewController else {return}
+        
+        self.present(controller, animated: false, completion: nil)
+        
+    }
+    
 }
 
 extension EntryViewController: UITableViewDataSource{

@@ -19,6 +19,10 @@ class DoctorDetailsViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        QRcode.loadGif(name: "medRgif")
+
+        
         dbRef = FIRDatabase.database().reference()
         
         fetchDoctorInfo()
@@ -41,6 +45,23 @@ class DoctorDetailsViewController: UIViewController  {
             displayDoctor.docName = snapshot.value as? String
             self.displayInfo()
         })
+        
+        dbRef?.child("users").child(displayDocWithUID).child("profileURL").observe(.value, with: { (snapshot) in
+            let validUrl = URL(string: snapshot.value as? String ?? "" )
+            displayDoctor.profilePicUrl = validUrl
+            
+            let validStringUrl = displayDoctor.profilePicUrl?.absoluteString ?? ""
+            if let url = NSURL(string: validStringUrl) {
+                
+                if let data = NSData(contentsOf: url as URL) {
+                    self.docPicImageView.image = UIImage(data: data as Data)
+                    self.displayInfo()
+                }
+            }
+            
+        })
+        
+        
     }
     
     func displayInfo(){
@@ -71,7 +92,13 @@ class DoctorDetailsViewController: UIViewController  {
                    
                    
     @IBOutlet weak var QRcode: UIImageView!
-    @IBOutlet weak var docPicImageView: UIImageView!
+    @IBOutlet weak var docPicImageView: UIImageView!{
+        didSet{
+            docPicImageView.layer.cornerRadius = docPicImageView.frame.size.height/2
+            docPicImageView.clipsToBounds = true
+        }
+    }
+
     @IBOutlet weak var docNameLabel: UILabel!
     @IBOutlet weak var licenseIDLabel: UILabel!
     @IBOutlet weak var clinicAddLabel: UILabel!
@@ -87,8 +114,6 @@ class DoctorDetailsViewController: UIViewController  {
             
             editProfile.addTarget(self, action: #selector(edit), for: .touchUpInside)
         }
-        
-        
     }
     
     

@@ -31,14 +31,14 @@ class DoctorDetail {
     init(){}
     
     init(withDictionary dictionary: [String: Any]) {
-        lisenceID = dictionary["licenceID"] as? String
-        clinicAddress = dictionary["clinicAddress"] as? String
-        specialty = dictionary["specialty"] as? String
-        info = dictionary["info"] as? String
+        lisenceID = dictionary["licenceID"] as? String ?? ""
+        clinicAddress = dictionary["clinicAddress"] as? String ?? ""
+        specialty = dictionary["specialty"] as? String ?? ""
+        info = dictionary["info"] as? String ?? ""
         
         //Visited Patient
-        patientID = dictionary["patientID"] as? String
-        patientName = dictionary["patientName"] as? String
+        patientID = dictionary["patientID"] as? String ?? ""
+        patientName = dictionary["patientName"] as? String ?? ""
         
         if let imageStringURL = dictionary["QRcode"] as? String {
             qrCodeUrl = URL(string: imageStringURL)

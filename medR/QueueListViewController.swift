@@ -14,12 +14,13 @@ class QueueListViewController: UIViewController, EntryDelegate {
     
     var dbRef : FIRDatabaseReference!
     var queueList : [PatientDetail] = []
+    var isEditMode : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.QueueListTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
-
+        
         
         dbRef = FIRDatabase.database().reference()
         
@@ -27,6 +28,8 @@ class QueueListViewController: UIViewController, EntryDelegate {
         QueueListTableView.dataSource = self
         
         QueueListTableView.register(DoctorSharingTableViewCell.cellNib, forCellReuseIdentifier: DoctorSharingTableViewCell.cellIdentifier)
+        QueueListTableView.estimatedRowHeight = 80
+        QueueListTableView.rowHeight = UITableViewAutomaticDimension
         
         fetchQueueList()
         
@@ -34,7 +37,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
     }
     
     func fetchQueueList(){
-        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observe(.value, with: { (snapshot) in
+        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : String] else {
                 self.QueueListTableView.reloadData()
@@ -46,7 +49,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
                 newPatient.uid = key
                 newPatient.fullName = realValue
                 self.fetchProfilePic(key: key, patient: newPatient)
-                self.queueList.append(newPatient)
+                
             }
             
             self.QueueListTableView.reloadData()
@@ -61,7 +64,8 @@ class QueueListViewController: UIViewController, EntryDelegate {
             
             let patientImage = value?["profileURL"] as? String ?? ""
             patient.patientImage = URL(string: patientImage)
-            
+            self.queueList.append(patient)
+            self.QueueListTableView.reloadData()
         })
     }
     
@@ -81,6 +85,16 @@ class QueueListViewController: UIViewController, EntryDelegate {
         
         //queueNavigationController.pushViewController(entryPage, animated: true)
         
+    }
+    
+    @IBAction func editBtnPressed(_ sender: UIButton) {
+        if isEditMode == false {
+            QueueListTableView.isEditing = true
+            isEditMode = true
+        } else {
+            QueueListTableView.isEditing = false
+            isEditMode = false
+        }
     }
     
     @IBOutlet weak var QueueListTableView: UITableView!
@@ -123,7 +137,7 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -138,6 +152,8 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         

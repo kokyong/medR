@@ -17,7 +17,7 @@ class SignUpDoctorProfileViewController: UIViewController {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        //fetchDocInfo()
+        fetchDocInfo()
         fetchUserInfo()
         
     }
@@ -26,12 +26,17 @@ class SignUpDoctorProfileViewController: UIViewController {
     var displayDocName = String()
     var ref : FIRDatabaseReference!
     var displayDoc : DoctorDetail?
-    var displayDocWithUID : String = ""
+    var displayDocWithUID : String = PatientDetail.current.uid
     
     
     
     //fetch image
-    @IBOutlet weak var docProfileImageView: UIImageView!
+    @IBOutlet weak var docProfileImageView: UIImageView!{
+        didSet{
+            docProfileImageView.layer.cornerRadius = docProfileImageView.frame.size.height/2
+            docProfileImageView.clipsToBounds = true
+        }
+    }
     
     //fetch name
     @IBOutlet weak var docFullName: UILabel!
@@ -117,9 +122,7 @@ class SignUpDoctorProfileViewController: UIViewController {
     
             ref.child("users").child(PatientDetail.current.uid).observeSingleEvent(of: .value, with: { (snapshot) in
     
-    
                 let value = snapshot.value as? NSDictionary
-    
     
                 let docFullName = value?["fullName"] as? String
                 self.displayDocName = docFullName ?? ""
@@ -128,16 +131,12 @@ class SignUpDoctorProfileViewController: UIViewController {
                 let patientImage = value?["profileURL"] as? String
                 self.displayPatientImage = patientImage ?? ""
     
-    
-    
                 if let url = NSURL(string: self.displayPatientImage) {
                     if let data = NSData(contentsOf: url as URL) {
                         self.docProfileImageView.image = UIImage(data: data as Data)
                     }
                 }
             })
-    
-    
         }
     
     func fetchDocInfo() {

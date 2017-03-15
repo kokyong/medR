@@ -393,7 +393,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXx-Hn-5fk">
-                                <rect key="frame" x="131" y="558" width="113" height="28"/>
+                                <rect key="frame" x="131" y="539" width="113" height="28"/>
                                 <color key="backgroundColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Become a Doctor">
@@ -401,14 +401,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MX4-lO-oNs">
-                                <rect key="frame" x="90" y="520" width="194" height="30"/>
+                                <rect key="frame" x="90" y="501" width="194" height="30"/>
                                 <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Switch To Doc">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEO-fO-5T8">
-                                <rect key="frame" x="131" y="594" width="113" height="30"/>
+                                <rect key="frame" x="131" y="575" width="113" height="30"/>
                                 <state key="normal" title="Log Out"/>
                             </button>
                         </subviews>
@@ -419,28 +419,31 @@
                             <constraint firstItem="CHp-ID-KRg" firstAttribute="top" secondItem="q7J-UB-7RN" secondAttribute="bottom" constant="8" id="7YJ-iT-UjJ"/>
                             <constraint firstItem="q7J-UB-7RN" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="8gF-IU-Z58"/>
                             <constraint firstItem="opj-pl-ZgA" firstAttribute="top" secondItem="CHp-ID-KRg" secondAttribute="bottom" constant="8" id="90A-U1-iVy"/>
+                            <constraint firstItem="TXx-Hn-5fk" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="A3m-nG-J5e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4RS-x2-MbI" secondAttribute="trailing" constant="191" id="ANC-kd-VAz"/>
                             <constraint firstItem="4RS-x2-MbI" firstAttribute="top" secondItem="gme-dL-vDt" secondAttribute="bottom" constant="10" id="BhM-sj-XSf"/>
                             <constraint firstItem="CEU-kX-M7D" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leading" id="CFN-cl-g6J"/>
                             <constraint firstItem="9KR-gy-g74" firstAttribute="top" secondItem="dgf-Kj-0GQ" secondAttribute="bottom" constant="8" id="CJB-1K-eGs"/>
+                            <constraint firstItem="TXx-Hn-5fk" firstAttribute="top" secondItem="MX4-lO-oNs" secondAttribute="bottom" constant="8" id="CPg-RW-2LW"/>
                             <constraint firstItem="mVq-EA-Kjw" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="DQP-sv-ChI"/>
                             <constraint firstItem="9KR-gy-g74" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="Djj-WZ-9dY"/>
-                            <constraint firstItem="TXx-Hn-5fk" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="DoV-8H-jPU"/>
                             <constraint firstItem="U3G-k0-r9F" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="EIm-jH-TuH"/>
                             <constraint firstItem="opj-pl-ZgA" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="Ejn-MI-5LZ"/>
-                            <constraint firstItem="zEO-fO-5T8" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="Fph-GQ-Nt9"/>
                             <constraint firstItem="58D-vS-kLM" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="Ip0-8I-XaZ"/>
                             <constraint firstItem="qnr-W0-v5O" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="Jfe-3N-gUC"/>
                             <constraint firstAttribute="trailing" secondItem="CEU-kX-M7D" secondAttribute="trailing" id="LCW-tn-gAD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MX4-lO-oNs" secondAttribute="trailing" constant="75" id="LGj-nj-Sao"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MX4-lO-oNs" secondAttribute="trailing" constant="75" id="LO9-0M-XL1"/>
                             <constraint firstItem="e8A-kB-hqu" firstAttribute="top" secondItem="4RS-x2-MbI" secondAttribute="bottom" constant="8" id="MZn-AZ-pV8"/>
+                            <constraint firstItem="MX4-lO-oNs" firstAttribute="top" secondItem="Epd-9m-AwA" secondAttribute="bottom" constant="47" id="MqH-c9-tns"/>
                             <constraint firstItem="dRV-I9-msW" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="N4L-v7-RuP"/>
-                            <constraint firstItem="MX4-lO-oNs" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="74" id="NZE-r8-sjb"/>
+                            <constraint firstItem="MX4-lO-oNs" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="74" id="Nfs-eN-Cps"/>
                             <constraint firstItem="q7J-UB-7RN" firstAttribute="top" secondItem="U3G-k0-r9F" secondAttribute="bottom" constant="8" id="OSz-VG-dna"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zEO-fO-5T8" secondAttribute="trailing" constant="115" id="QXG-Iw-2qg"/>
                             <constraint firstItem="qnr-W0-v5O" firstAttribute="top" secondItem="dRV-I9-msW" secondAttribute="bottom" constant="8" id="Snm-IK-DYA"/>
                             <constraint firstItem="Rnv-X1-qGs" firstAttribute="top" secondItem="dRV-I9-msW" secondAttribute="bottom" constant="8" id="VjK-LZ-fGE"/>
                             <constraint firstItem="gme-dL-vDt" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="WRH-QL-U8o"/>
                             <constraint firstItem="U3G-k0-r9F" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="WVa-oT-jKj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TXx-Hn-5fk" secondAttribute="trailing" constant="115" id="Wqe-t8-mSA"/>
                             <constraint firstItem="gme-dL-vDt" firstAttribute="top" secondItem="qnr-W0-v5O" secondAttribute="bottom" constant="10" id="Z82-14-Nes"/>
                             <constraint firstItem="jhJ-s3-EJV" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="aWA-xA-zCu"/>
                             <constraint firstItem="58D-vS-kLM" firstAttribute="top" secondItem="U3G-k0-r9F" secondAttribute="bottom" constant="8" id="agi-oX-NW6"/>
@@ -448,19 +451,16 @@
                             <constraint firstItem="jhJ-s3-EJV" firstAttribute="top" secondItem="mVq-EA-Kjw" secondAttribute="bottom" constant="8" id="btV-Hu-q5r"/>
                             <constraint firstItem="dgf-Kj-0GQ" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="dul-q2-Y9m"/>
                             <constraint firstItem="1ME-K3-LgI" firstAttribute="top" secondItem="q7J-UB-7RN" secondAttribute="bottom" constant="8" id="fvZ-AJ-sIM"/>
-                            <constraint firstItem="zEO-fO-5T8" firstAttribute="top" secondItem="TXx-Hn-5fk" secondAttribute="bottom" constant="8" id="gEJ-Zl-Bf8"/>
                             <constraint firstItem="dRV-I9-msW" firstAttribute="top" secondItem="1ME-K3-LgI" secondAttribute="bottom" constant="8" id="gNm-xG-Cy0"/>
-                            <constraint firstItem="TXx-Hn-5fk" firstAttribute="top" secondItem="MX4-lO-oNs" secondAttribute="bottom" constant="8" id="gf0-HG-hHY"/>
+                            <constraint firstItem="zEO-fO-5T8" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" constant="115" id="hVb-vK-LZc"/>
                             <constraint firstItem="e8A-kB-hqu" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="k6k-yu-xtQ"/>
                             <constraint firstItem="4RS-x2-MbI" firstAttribute="leading" secondItem="egY-Si-qHx" secondAttribute="leadingMargin" id="lH3-Fw-7dj"/>
+                            <constraint firstItem="zEO-fO-5T8" firstAttribute="top" secondItem="TXx-Hn-5fk" secondAttribute="bottom" constant="8" id="nET-qw-Sa6"/>
                             <constraint firstItem="dgf-Kj-0GQ" firstAttribute="top" secondItem="4RS-x2-MbI" secondAttribute="bottom" constant="8" id="qGE-2f-g7a"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zEO-fO-5T8" secondAttribute="trailing" constant="115" id="qfA-6K-da3"/>
                             <constraint firstItem="Epd-9m-AwA" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="rH2-Gs-hOB"/>
-                            <constraint firstItem="MX4-lO-oNs" firstAttribute="top" secondItem="Epd-9m-AwA" secondAttribute="bottom" constant="66" id="rPp-9F-Fs9"/>
                             <constraint firstItem="Rnv-X1-qGs" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="rpe-ea-yR6"/>
                             <constraint firstItem="U3G-k0-r9F" firstAttribute="top" secondItem="CEU-kX-M7D" secondAttribute="bottom" constant="37" id="sei-ZS-hTL"/>
                             <constraint firstItem="CEU-kX-M7D" firstAttribute="top" secondItem="CSK-Zy-7Yf" secondAttribute="bottom" id="td4-sM-fNV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TXx-Hn-5fk" secondAttribute="trailing" constant="115" id="uTJ-4H-fyA"/>
                             <constraint firstItem="CHp-ID-KRg" firstAttribute="trailing" secondItem="egY-Si-qHx" secondAttribute="trailingMargin" id="ucF-2u-0LY"/>
                             <constraint firstItem="mVq-EA-Kjw" firstAttribute="top" secondItem="e8A-kB-hqu" secondAttribute="bottom" constant="8" id="xL6-la-dwx"/>
                         </constraints>
@@ -596,7 +596,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EE-ZL-3dj">
                                 <rect key="frame" x="150" y="118" width="74" height="30"/>
-                                <state key="normal" title="Add Image">
+                                <state key="normal" title="Edit Image">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>

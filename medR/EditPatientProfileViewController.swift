@@ -37,17 +37,23 @@ class EditPatientProfileViewController: UIViewController {
     var displayContactEmergency = String()
     
     //image
-    @IBOutlet weak var editProfileImageView: UIImageView!
+    @IBOutlet weak var editProfileImageView: UIImageView!{
+        didSet{
+            editProfileImageView.layer.cornerRadius = editProfileImageView.frame.size.height/2
+            editProfileImageView.clipsToBounds = true
+        }
+    }
+
     @IBOutlet weak var editAddImageBtn: UIButton!{
         
         didSet{
             
-            editAddImageBtn.addTarget(self, action: #selector(addImage), for: .touchUpInside)
+            editAddImageBtn.addTarget(self, action: #selector(displayImagePicker), for: .touchUpInside)
             
         }
     }
     
-    func addImage() {
+    func displayImagePicker() {
         
         let pickerImageController = UIImagePickerController()
         
@@ -64,6 +70,7 @@ class EditPatientProfileViewController: UIViewController {
         present(pickerImageController, animated: true, completion: nil)
         
     }
+    
     
     
     //Patient Info
@@ -90,10 +97,10 @@ class EditPatientProfileViewController: UIViewController {
     
     func editProfile() {
         
-        guard let fullName = fullNameTF.text, let contactNumeber = contactNumberTF.text, let gender = GenderTF.text, let email = emailTF.text, let age = ageTF.text, let address = addressTF.text, let emergencyName = emergencyNameTF.text, let emergencyRelationship = emergencyRelationshipTF.text, let emergencyContact = emergencyContactTF.text else {return}
+        guard let fullName = fullNameTF.text, let contactNumber = contactNumberTF.text, let gender = GenderTF.text, let email = emailTF.text, let age = ageTF.text, let address = addressTF.text, let emergencyName = emergencyNameTF.text, let emergencyRelationship = emergencyRelationshipTF.text, let emergencyContact = emergencyContactTF.text else {return}
         
         let ref = FIRDatabase.database().reference()
-        let value = ["fullName": fullName, "contactNumeber": contactNumeber, "gender": gender, "email": email, "age": age , "address": address, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship, "emergencyContact": emergencyContact] as [String : Any]
+        let value = ["fullName": fullName, "contactNumber": contactNumber, "gender": gender, "email": email, "age": age , "address": address, "emergencyName": emergencyName, "emergencyRelationship": emergencyRelationship, "emergencyContact": emergencyContact] as [String : Any]
         
         ref.child("users").child(PatientDetail.current.uid).updateChildValues(value, withCompletionBlock: { (err, ref) in
             
@@ -105,6 +112,8 @@ class EditPatientProfileViewController: UIViewController {
                 
                 
             }
+            
+            self.uploadImage(image: self.editProfileImageView.image!)
         })
         
         
@@ -114,6 +123,7 @@ class EditPatientProfileViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
     func fetchData() {
         
         
@@ -122,27 +132,27 @@ class EditPatientProfileViewController: UIViewController {
             
             let value = snapshot.value as? NSDictionary
             
-            let patientImage = value?["profileURL"] as? String
-            let fullName = value?["fullName"] as? String
-            let contactNumeber = value?["contactNumeber"] as? String
-            let gender = value?["gender"] as? String
-            let email = value?["email"] as? String
-            let age = value?["age"] as? String
-            let address = value?["address"] as? String
-            let emergencyName = value?["emergencyName"] as? String
-            let emergencyRelationship = value?["emergencyRelationship"] as? String
-            let emergencyContact = value?["emergencyContact"] as? String
+            let patientImage = value?["profileURL"] as? String ?? ""
+            let fullName = value?["fullName"] as? String ?? ""
+            let contactNumber = value?["contactNumber"] as? String ?? ""
+            let gender = value?["gender"] as? String ?? ""
+            let email = value?["email"] as? String ?? ""
+            let age = value?["age"] as? String ?? ""
+            let address = value?["address"] as? String ?? ""
+            let emergencyName = value?["emergencyName"] as? String ?? ""
+            let emergencyRelationship = value?["emergencyRelationship"] as? String ?? ""
+            let emergencyContact = value?["emergencyContact"] as? String ?? ""
             
-            self.displayPatientImage = patientImage!
-            self.displayFullName = fullName!
-            self.displayPhoneNumber = contactNumeber!
-            self.displayGender = gender!
-            self.displayEmail = email!
-            self.displayAge = age!
-            self.displayAdress = address!
-            self.displayEmergencyName = emergencyName!
-            self.displayContactEmergency = emergencyContact!
-            self.displayEmergencyRelationship = emergencyRelationship!
+            self.displayPatientImage = patientImage
+            self.displayFullName = fullName
+            self.displayPhoneNumber = contactNumber
+            self.displayGender = gender
+            self.displayEmail = email
+            self.displayAge = age
+            self.displayAdress = address
+            self.displayEmergencyName = emergencyName
+            self.displayContactEmergency = emergencyContact
+            self.displayEmergencyRelationship = emergencyRelationship
             
             self.fullNameTF.text = self.displayFullName
             self.contactNumberTF.text = self.displayPhoneNumber

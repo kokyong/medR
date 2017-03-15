@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wxu-iA-Y5f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -260,8 +260,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6b-Ki-Piu">
                                 <rect key="frame" x="0.0" y="20" width="375" height="51"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name(Age)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewu-uI-FOz">
-                                        <rect key="frame" x="0.0" y="12" width="375" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewu-uI-FOz">
+                                        <rect key="frame" x="0.0" y="12" width="375" height="0.0"/>
                                         <color key="backgroundColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -361,7 +361,11 @@
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-rz-uVq">
                                 <rect key="frame" x="289" y="64" width="86" height="44"/>
-                                <state key="normal" title="Find doctors"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.77314394710000001" green="0.185087949" blue="0.17046275729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Find doctors">
+                                    <color key="titleColor" red="0.25879135730000002" green="0.25884211060000001" blue="0.25878816840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="moreDocBtn:" destination="8vJ-GX-Mox" eventType="touchUpInside" id="zcN-JI-6RN"/>
                                 </connections>
@@ -979,6 +983,10 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZe-WK-0T4">
+                                                <rect key="frame" x="165" y="2046" width="45" height="30"/>
+                                                <state key="normal" title="cancel"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -986,6 +994,8 @@
                                             <constraint firstItem="m3u-lF-LJ8" firstAttribute="top" secondItem="EDr-iV-MTR" secondAttribute="bottom" constant="8" id="9Wh-bo-rkZ"/>
                                             <constraint firstItem="EDr-iV-MTR" firstAttribute="top" secondItem="eRb-eh-uhx" secondAttribute="top" constant="16" id="AR4-hk-Vxn"/>
                                             <constraint firstItem="IDk-R6-dJa" firstAttribute="leading" secondItem="eRb-eh-uhx" secondAttribute="leading" constant="8" id="HBG-Wm-hb7"/>
+                                            <constraint firstItem="PZe-WK-0T4" firstAttribute="top" secondItem="xKr-62-KDb" secondAttribute="bottom" constant="8" id="Hgf-F4-ZPg"/>
+                                            <constraint firstItem="PZe-WK-0T4" firstAttribute="leading" secondItem="eRb-eh-uhx" secondAttribute="leading" constant="165" id="Iej-rt-tW6"/>
                                             <constraint firstItem="FA6-vj-JHk" firstAttribute="leading" secondItem="eRb-eh-uhx" secondAttribute="leading" constant="8" id="TCT-oF-f6j"/>
                                             <constraint firstAttribute="trailing" secondItem="EDr-iV-MTR" secondAttribute="trailing" constant="8" id="YGo-FL-Ilw"/>
                                             <constraint firstItem="xKr-62-KDb" firstAttribute="leading" secondItem="eRb-eh-uhx" secondAttribute="leading" constant="8" id="Yxa-ah-5vu"/>
@@ -1002,6 +1012,8 @@
                                             <constraint firstItem="xKr-62-KDb" firstAttribute="centerX" secondItem="eRb-eh-uhx" secondAttribute="centerX" id="oX0-r9-DCV"/>
                                             <constraint firstAttribute="bottom" secondItem="xKr-62-KDb" secondAttribute="bottom" priority="250" constant="8" id="p7v-UC-TTx"/>
                                             <constraint firstItem="gXO-Uc-eDg" firstAttribute="top" secondItem="FA6-vj-JHk" secondAttribute="bottom" constant="8" id="p8O-9Z-2Eb"/>
+                                            <constraint firstAttribute="bottom" secondItem="PZe-WK-0T4" secondAttribute="bottom" constant="8" id="pA5-3h-PUc"/>
+                                            <constraint firstAttribute="trailing" secondItem="PZe-WK-0T4" secondAttribute="trailing" constant="165" id="syw-Td-Gqo"/>
                                             <constraint firstItem="gXO-Uc-eDg" firstAttribute="leading" secondItem="eRb-eh-uhx" secondAttribute="leading" constant="8" id="wNF-mB-djr"/>
                                             <constraint firstItem="xKr-62-KDb" firstAttribute="top" secondItem="Vun-sL-h49" secondAttribute="bottom" constant="8" id="x6q-rO-q8Z"/>
                                             <constraint firstAttribute="trailing" secondItem="Vun-sL-h49" secondAttribute="trailing" constant="8" id="xk9-Vs-Gvt"/>
@@ -1030,6 +1042,7 @@
                     <connections>
                         <outlet property="addMedBtn" destination="n8d-DV-ber" id="az2-V2-ftS"/>
                         <outlet property="ageTF" destination="M3G-uK-X6u" id="01d-vC-Kzp"/>
+                        <outlet property="cancel" destination="PZe-WK-0T4" id="NKC-wi-r8r"/>
                         <outlet property="diagnosisTV" destination="v25-Rk-Uk3" id="ygk-Br-2ak"/>
                         <outlet property="genderTF" destination="YAa-hf-BIk" id="243-4l-pxX"/>
                         <outlet property="majorIllnessTV" destination="FYb-sf-Zzb" id="nG6-DJ-nMe"/>

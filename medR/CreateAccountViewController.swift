@@ -93,8 +93,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
                 alertMessage.addAction(okAction)
                
                 self.present(alertMessage, animated: true, completion: nil)
-                
-                
+            
             }
            
             
