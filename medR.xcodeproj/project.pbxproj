@@ -32,6 +32,7 @@
 		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
 		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
+		944615391E78F57800E0883A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944615381E78F57800E0883A /* MessageUI.framework */; };
 		947F65B61E76BBA0005F9D9D /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A01E76BBA0005F9D9D /* IQNSArray+Sort.swift */; };
 		947F65B71E76BBA0005F9D9D /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A11E76BBA0005F9D9D /* IQUIScrollView+Additions.swift */; };
 		947F65B81E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A21E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift */; };
@@ -100,6 +101,7 @@
 		68AE40511E727E2F00543FAF /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDoctorsViewController.swift; sourceTree = "<group>"; };
 		68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
+		944615381E78F57800E0883A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		947F65A01E76BBA0005F9D9D /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		947F65A11E76BBA0005F9D9D /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
 		947F65A21E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944615391E78F57800E0883A /* MessageUI.framework in Frameworks */,
 				689F10981E76D7BF00D518D0 /* FBSDKCoreKit.framework in Frameworks */,
 				68AE40501E7275E500543FAF /* AVFoundation.framework in Frameworks */,
 				8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */,
@@ -159,6 +162,7 @@
 		2BE413CBD7B219FB68705509 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				944615381E78F57800E0883A /* MessageUI.framework */,
 				689F10971E76D7BF00D518D0 /* FBSDKCoreKit.framework */,
 				68AE404F1E7275E500543FAF /* AVFoundation.framework */,
 				5120B4E453F67F0C361E7881 /* Pods_medR.framework */,
@@ -456,7 +460,7 @@
 				TargetAttributes = {
 					94A93B461E667EB9001F3866 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZQ547JDPVM;
+						DevelopmentTeam = G6BQ2J3Q99;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -732,7 +736,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;
@@ -750,7 +754,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = medR/medR.entitlements;
-				DEVELOPMENT_TEAM = ZQ547JDPVM;
+				DEVELOPMENT_TEAM = G6BQ2J3Q99;
 				INFOPLIST_FILE = medR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KY.medR;

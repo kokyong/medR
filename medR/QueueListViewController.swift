@@ -36,21 +36,24 @@ class QueueListViewController: UIViewController, EntryDelegate {
         self.QueueListTableView.reloadData()
     }
     
+   
+    
     func fetchQueueList(){
-        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observe(.childAdded, with: { (snapshot) in
             
-            guard let value = snapshot.value as? [String : String] else {
-                self.QueueListTableView.reloadData()
-                return
-            }
+//            guard let value = snapshot.value as? [String : String] else {
+//                self.QueueListTableView.reloadData()
+//                return
+//            }
             
-            for (key, realValue) in value {
+//            for (key, realValue) in value {
                 let newPatient = PatientDetail()
-                newPatient.uid = key
-                newPatient.fullName = realValue
-                self.fetchProfilePic(key: key, patient: newPatient)
+                newPatient.uid = snapshot.key
+                newPatient.fullName = snapshot.value as! String?
+                self.fetchProfilePic(key: newPatient.uid, patient: newPatient)
                 
-            }
+//            }
             
             self.QueueListTableView.reloadData()
         })
