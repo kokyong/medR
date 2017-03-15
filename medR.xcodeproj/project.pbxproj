@@ -32,6 +32,7 @@
 		68B4DEF91E71541700E681C7 /* AllDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */; };
 		68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */; };
 		8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5120B4E453F67F0C361E7881 /* Pods_medR.framework */; };
+		944615391E78F57800E0883A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944615381E78F57800E0883A /* MessageUI.framework */; };
 		947F65B61E76BBA0005F9D9D /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A01E76BBA0005F9D9D /* IQNSArray+Sort.swift */; };
 		947F65B71E76BBA0005F9D9D /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A11E76BBA0005F9D9D /* IQUIScrollView+Additions.swift */; };
 		947F65B81E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65A21E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift */; };
@@ -49,7 +50,7 @@
 		947F65C41E76BBA1005F9D9D /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65B21E76BBA0005F9D9D /* IQToolbar.swift */; };
 		947F65C51E76BBA1005F9D9D /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F65B31E76BBA0005F9D9D /* IQUIView+IQKeyboardToolbar.swift */; };
 		947F65C61E76BBA1005F9D9D /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 947F65B51E76BBA0005F9D9D /* IQKeyboardManager.bundle */; };
-		948356ED1E6FFCE700349829 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		948356ED1E6FFCE700349829 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948356EE1E701A5A00349829 /* LoginViewController.swift */; };
 		94A93B4B1E667EB9001F3866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A93B4A1E667EB9001F3866 /* AppDelegate.swift */; };
 		94A93B501E667EB9001F3866 /* GeogStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A93B4E1E667EB9001F3866 /* GeogStoryboard.storyboard */; };
@@ -100,6 +101,7 @@
 		68AE40511E727E2F00543FAF /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		68B4DEF81E71541700E681C7 /* AllDoctorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDoctorsViewController.swift; sourceTree = "<group>"; };
 		68B4DEFA1E716CFE00E681C7 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
+		944615381E78F57800E0883A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		947F65A01E76BBA0005F9D9D /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		947F65A11E76BBA0005F9D9D /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
 		947F65A21E76BBA0005F9D9D /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944615391E78F57800E0883A /* MessageUI.framework in Frameworks */,
 				689F10981E76D7BF00D518D0 /* FBSDKCoreKit.framework in Frameworks */,
 				68AE40501E7275E500543FAF /* AVFoundation.framework in Frameworks */,
 				8DD49BC68B93F9E3F12E9EA2 /* Pods_medR.framework in Frameworks */,
@@ -159,6 +162,7 @@
 		2BE413CBD7B219FB68705509 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				944615381E78F57800E0883A /* MessageUI.framework */,
 				689F10971E76D7BF00D518D0 /* FBSDKCoreKit.framework */,
 				68AE404F1E7275E500543FAF /* AVFoundation.framework */,
 				5120B4E453F67F0C361E7881 /* Pods_medR.framework */,
@@ -590,7 +594,7 @@
 				947F65C01E76BBA1005F9D9D /* IQTextView.swift in Sources */,
 				947F65C31E76BBA1005F9D9D /* IQTitleBarButtonItem.swift in Sources */,
 				68B4DEFB1E716CFE00E681C7 /* DoctorDetailsViewController.swift in Sources */,
-				948356ED1E6FFCE700349829 /* BuildFile in Sources */,
+				948356ED1E6FFCE700349829 /* (null) in Sources */,
 				948356EF1E701A5A00349829 /* LoginViewController.swift in Sources */,
 				947F65BF1E76BBA1005F9D9D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				94A93B751E66ADC9001F3866 /* EditPatientProfileViewController.swift in Sources */,

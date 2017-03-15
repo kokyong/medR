@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import MessageUI
 
 class UserHistoryViewController: UIViewController {
     
@@ -51,7 +52,23 @@ class UserHistoryViewController: UIViewController {
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var menuGender: UILabel!
     @IBOutlet weak var menuEmail: UILabel!
-    @IBOutlet weak var menuNumber: UILabel!
+  
+    @IBOutlet weak var menuTel: UIButton!{
+        
+        didSet{
+            
+            menuTel.addTarget(self, action: #selector(menuTelbtn), for: .touchUpInside)
+            
+        }
+    }
+    
+    func menuTelbtn() {
+        
+        let url : NSURL = URL(string: "TEL:// \(displayPhoneNumber)")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
+    
+   // @IBOutlet weak var menuNumber: UILabel!
     @IBOutlet weak var manuEmergencyName: UILabel!
     @IBOutlet weak var menuEmergencyRelationship: UILabel!
     @IBOutlet weak var menuEmergencyNumber: UILabel!
@@ -97,7 +114,7 @@ class UserHistoryViewController: UIViewController {
             
             //patinet
             self.menuName.text = "\(self.displayFullName) (\(self.displayAge))"
-            self.menuNumber.text = self.displayPhoneNumber
+            self.menuTel.titleLabel?.text = self.displayPhoneNumber
             self.menuGender.text = self.displayGender
             self.menuEmail.text = self.displayEmail
             
