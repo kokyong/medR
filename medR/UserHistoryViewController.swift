@@ -64,7 +64,7 @@ class UserHistoryViewController: UIViewController {
     
     func menuTelbtn() {
         
-        let url : NSURL = URL(string: "TEL:// \(displayPhoneNumber)")! as NSURL
+        let url : NSURL = URL(string: "tel://\(displayPhoneNumber)")! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }
     
@@ -114,7 +114,8 @@ class UserHistoryViewController: UIViewController {
             
             //patinet
             self.menuName.text = "\(self.displayFullName) (\(self.displayAge))"
-            self.menuTel.titleLabel?.text = self.displayPhoneNumber
+            //self.menuTel.titleLabel?.text = self.displayPhoneNumber
+            self.menuTel.setTitle(self.displayPhoneNumber, for: .normal)
             self.menuGender.text = self.displayGender
             self.menuEmail.text = self.displayEmail
             
