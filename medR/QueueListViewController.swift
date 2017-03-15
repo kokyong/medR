@@ -14,12 +14,13 @@ class QueueListViewController: UIViewController, EntryDelegate {
     
     var dbRef : FIRDatabaseReference!
     var queueList : [PatientDetail] = []
+    var isEditMode : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.QueueListTableView.backgroundColor = UIColor(red: 62.0 / 256 , green: 62.0 / 256 , blue: 62.0 / 256, alpha: 1.0)
-
+        
         
         dbRef = FIRDatabase.database().reference()
         
@@ -36,7 +37,7 @@ class QueueListViewController: UIViewController, EntryDelegate {
     }
     
     func fetchQueueList(){
-        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observe(.value, with: { (snapshot) in
+        dbRef?.child("users").child(PatientDetail.current.uid).child("queue").observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? [String : String] else {
                 self.QueueListTableView.reloadData()
@@ -86,6 +87,16 @@ class QueueListViewController: UIViewController, EntryDelegate {
         
     }
     
+    @IBAction func editBtnPressed(_ sender: UIButton) {
+        if isEditMode == false {
+            QueueListTableView.isEditing = true
+            isEditMode = true
+        } else {
+            QueueListTableView.isEditing = false
+            isEditMode = false
+        }
+    }
+    
     @IBOutlet weak var QueueListTableView: UITableView!
     
 }
@@ -126,7 +137,7 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -141,6 +152,8 @@ extension QueueListViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
