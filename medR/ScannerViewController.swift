@@ -63,7 +63,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func alert(){
         let alert = UIAlertController(title: "Found doctor", message: "Added doctor to your list. \n Queue to see the doctor.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            
+            let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as? UserTabViewController else {return}
+            
+            self.present(controller, animated: false, completion: nil)
+            
+        })
         let scan = UIAlertAction(title: "Scan again", style: .default) { (action) in
             self.startScanning()
         }
@@ -117,8 +124,31 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
     }
     
+    func countQueue(uid : String) {
+        dbRef?.child("users").child(uid).child("queue").observe(.value, with: { (snapshot) in
+            let queueNumber = Int(snapshot.childrenCount)+1
+            
+            let alert = UIAlertController(title: "Your queue number is", message: String(queueNumber), preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+                
+                let storyboard = UIStoryboard(name: "RuiStoryboard", bundle: Bundle.main)
+                guard let controller = storyboard.instantiateViewController(withIdentifier: "UserTabViewController") as? UserTabViewController else {return}
+                
+                self.present(controller, animated: false, completion: nil)
+                
+            })
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        })
+    }
+    
     func addToQueue(uid : String){
         dbRef?.child("users").child(uid).child("queue").child(PatientDetail.current.uid).setValue(PatientDetail.current.fullName)
+        
+        countQueue(uid: scannedID)
+        
     }
     
     
