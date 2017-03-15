@@ -116,7 +116,7 @@ extension AllDoctorsViewController: UITableViewDelegate, UITableViewDataSource, 
         guard let detailPage = storyboard?.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as? DoctorDetailsViewController else {return}
         
         navigationController?.pushViewController(detailPage, animated: true)
-        detailPage.dismissBtn.isHidden = true
+        
         
         let doctorToDisplay = filteredDoctors[indexPath.row]
         

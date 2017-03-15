@@ -48,7 +48,12 @@ class UserHistoryViewController: UIViewController {
     var displayInfo = String()
     
     
-    @IBOutlet weak var menuImage: UIImageView!
+    @IBOutlet weak var menuImage: UIImageView!{
+        didSet{
+            menuImage.layer.cornerRadius = menuImage.frame.size.height/2
+            menuImage.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var menuGender: UILabel!
     @IBOutlet weak var menuEmail: UILabel!
