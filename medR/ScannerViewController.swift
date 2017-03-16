@@ -120,7 +120,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         dbRef?.child("users").child(PatientDetail.current.uid).child("sharedWith").child(uid).setValue(successfulScannedDoc?.docName)
         
-        dbRef?.child("users").child(uid).child("sharedBy").child(PatientDetail.current.uid).setValue(successfulScannedDoc?.docName)
+        //checkTHis
+        dbRef?.child("users").child(uid).child("sharedBy").child(PatientDetail.current.uid).setValue(PatientDetail.current.fullName)
         
     }
     

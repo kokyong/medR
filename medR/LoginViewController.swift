@@ -65,8 +65,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         userPassword.layer.cornerRadius = 8
         
         //rui temporary
-        userEmail.text = "Cloudsd11@gmail.com"
-        userPassword.text = "kingston22"
+        userEmail.text = "@gmail.com"
+        userPassword.text = ""
         
     }
     
