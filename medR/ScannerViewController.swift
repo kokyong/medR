@@ -126,7 +126,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func countQueue(uid : String) {
         dbRef?.child("users").child(uid).child("queue").observe(.value, with: { (snapshot) in
-            let queueNumber = Int(snapshot.childrenCount)+1
+            let queueNumber = Int(snapshot.childrenCount)
             
             let alert = UIAlertController(title: "Your queue number is", message: String(queueNumber), preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in

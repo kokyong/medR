@@ -73,22 +73,22 @@ class SearchPatientViewController: UIViewController {
     
         func fetchPatientData() {
     
-            ref.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.value, with: { (snapshot) in
+            ref.child("users").child(PatientDetail.current.uid).child("sharedBy").observe(.childAdded, with: { (snapshot) in
                 print(snapshot)
     
     
-                for user in snapshot.children {
+               // for user in snapshot.children {
     
                     let newPatient = PatientDetail()
-                    newPatient.fullName = (user as AnyObject).value
-                    newPatient.uid = (user as AnyObject).key
+                    newPatient.fullName = snapshot.value as! String?
+                    newPatient.uid = snapshot.key
                     self.fetchProfilePic(key: newPatient.uid, patient: newPatient)
                     self.patients.append(newPatient)
 
 
                     self.filteredPatient = self.patients
                     self.searchTableView.reloadData()
-                }
+               // }
             })
         }
     
