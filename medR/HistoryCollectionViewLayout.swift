@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryCollectionViewLayout: UICollectionViewLayout {
     
-    let cellHeight = Double(UIScreen.main.bounds.size.height - 20)
+    let cellHeight = Double(UIScreen.main.bounds.size.height - 150)
     let cellWidth = Double(UIScreen.main.bounds.size.width)
     
     var cellAttrDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
