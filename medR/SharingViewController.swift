@@ -57,9 +57,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
                 newDoctor.docName = realValue
                 self.fetchProfilePic(key: key, doctor: newDoctor)
             }
-            
-            
-           // self.doctorTableView.reloadData()
         })
     }
     
@@ -88,7 +85,6 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
             })
             
             doctorTableView.reloadData()
-            
         }
     }
     
@@ -104,7 +100,7 @@ class SharingViewController: UIViewController, UISearchBarDelegate {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    //QR code
+    //MARK: QR code
     
     @IBAction func scanQR(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "QRStoryboard", bundle: Bundle.main)
@@ -174,7 +170,6 @@ extension SharingViewController: UITableViewDelegate, UITableViewDataSource, Swi
         
         dbRef?.child("users").child(PatientDetail.current.uid).child("sharedBy").child(selectedDoctor.docUid!).setValue(selectedDoctor.docName)
         
-        //fetchDoctorsShared()
     }
 }
 

@@ -119,7 +119,6 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         //navigationController? .pushViewController(controller, animated: true)
     }
 
-       var userStorage: FIRStorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,7 +187,7 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         
         dbRef = FIRDatabase.database().reference()
         let storage = FIRStorage.storage().reference(forURL: "gs://medr-4c91c.appspot.com")
-        userStorage = storage.child("users")
+        let userStorage = storage.child("users")
         
         
         

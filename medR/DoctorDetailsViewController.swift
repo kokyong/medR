@@ -105,8 +105,6 @@ class DoctorDetailsViewController: UIViewController  {
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
-    //KY
-    
     @IBOutlet weak var editProfile: UIButton!{
         
         

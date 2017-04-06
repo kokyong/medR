@@ -62,8 +62,7 @@ class EntryViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     func submit() {
-        //let timestamp = String(Date.timeIntervalSinceReferenceDate)
-        //patientID
+        
         getMedicines()
         
         var medArray : [[String : Any]] = []

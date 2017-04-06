@@ -22,8 +22,34 @@ class UserHistoryViewController: UIViewController {
     
     var isDoctorMode : Bool = false
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dbRef = FIRDatabase.database().reference()
+        
+        
+        historyCollectionView.delegate = self
+        historyCollectionView.dataSource = self
+        historyCollectionView.isPagingEnabled = true
+        
+        historyCollectionView.register(HistoryCollectionViewCell.cellNib, forCellWithReuseIdentifier: HistoryCollectionViewCell.cellIdentifier)
+        
+        historyCollectionView.reloadData()
+        
+        //PATIENT DETAIL POP UP FUNC
+        fetchName()
+        menuDetailFunc()
+        fetchMenuData()
+        observeHistoryList()
+        
+        if isDoctorMode == false {
+            self.backBtn.isHidden = true
+            
+            self.detailBtn.isHidden = true
+        }
+    }
     
-    //KY
+    //MARK: PATIENT DETAIL POP UP
     
     var selectedUID : String = PatientDetail.current.uid
     
@@ -237,10 +263,9 @@ class UserHistoryViewController: UIViewController {
     
     
     
-    //KY
+    //MARK: BODY
     
     
-    //    @IBOutlet weak var userTabBar: UITabBar!
     @IBOutlet weak var historyCollectionView: UICollectionView!
     
     lazy var dateFormater : DateFormatter = {
@@ -251,32 +276,6 @@ class UserHistoryViewController: UIViewController {
     
     let reuseIdentifier : String = "HistoryCell"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        dbRef = FIRDatabase.database().reference()
-        
-        
-        historyCollectionView.delegate = self
-        historyCollectionView.dataSource = self
-        historyCollectionView.isPagingEnabled = true
-        
-        historyCollectionView.register(HistoryCollectionViewCell.cellNib, forCellWithReuseIdentifier: HistoryCollectionViewCell.cellIdentifier)
-        
-        historyCollectionView.reloadData()
-        
-        //KY
-        fetchName()
-        menuDetailFunc()
-        fetchMenuData()
-        observeHistoryList()
-        
-        if isDoctorMode == false {
-            self.backBtn.isHidden = true
-            
-            self.detailBtn.isHidden = true
-        }
-    }
     
     func observeHistoryList(){
         //TODO : change back to selected id
@@ -411,21 +410,6 @@ extension UserHistoryViewController: UICollectionViewDelegate, UICollectionViewD
         
         return cell
     }
-    
-    
-    //    func estimatecellHeight(indexPath : IndexPath) -> Double {
-    //
-    //        let cell = HistoryCollectionViewCell()[indexPath]
-    //
-    //                let detailLabelHeight = Double(cell.detailLabel.bounds.height)
-    //                let historylayout = collectionView.collectionViewLayout as? HistoryCollectionViewLayout
-    //
-    //                let cellHeight = detailLabelHeight + 200.0
-    //
-    //                return cellHeight
-    //            }
-    
-    
 }
 
 //hide label if ""

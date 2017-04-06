@@ -65,7 +65,7 @@ class AllDoctorsViewController: UIViewController, UISearchBarDelegate {
             resetSearch()
         } else {
             filteredDoctors = allDoctors.filter({( doctor : DoctorDetail) -> Bool in
-                // to start, let's just search by name
+                
                 return doctor.docName?.lowercased().range(of: searchText.lowercased()) != nil
             })
             

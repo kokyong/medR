@@ -54,8 +54,6 @@ class HistoryCollectionViewLayout: UICollectionViewLayout {
         if self.cellAttrDictionary.count > 0 {
             for (_, value) in self.cellAttrDictionary {
                 
-                
-                //what is this??
                 if rect.contains(value.frame) {
                     attributes.append(value)
                 }

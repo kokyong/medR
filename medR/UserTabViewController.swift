@@ -27,13 +27,13 @@ class UserTabViewController: UITabBarController, UITabBarControllerDelegate {
         
         tabOne.tabBarItem = tabOneBarItem
         
-        
-        // Create Tab two
     
         guard let tabTwo = storyboard.instantiateViewController(withIdentifier: "SharingNavigationController") as?  UINavigationController else { return }
         let tabTwoBarItem2 = UITabBarItem(title: "My Doctors", image: UIImage(named: "doctors.png"), selectedImage: UIImage(named: "selectedImage2.png"))
         
         tabTwo.tabBarItem = tabTwoBarItem2
+        
+        
         
         let storyboardTwo = UIStoryboard(name: "KYStoryboard", bundle: Bundle.main)
         
